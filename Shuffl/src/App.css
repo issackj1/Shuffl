@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #474747;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,18 +33,18 @@
 }
 
 .signIn {
-  color: black;
-  border: solid;
+  /*color: black;*/
+  /*border: solid;*/
   /*height: 300px;*/
   width: auto;
   padding: 10px;
   border-radius: 5px;
-  background: darkgrey;
+  background: #5a5a5a;
 }
 
 #formBasicUsername {
   border: none;
-  border: solid silver;
+  /*border: solid silver;*/
   border-radius: 20px;
   padding: 5px;
   margin-bottom: 5px;
@@ -52,7 +52,7 @@
 
 #formBasicPassword {
   border: none;
-  border: solid silver;
+  /*border: solid silver;*/
   border-radius: 20px;
   padding: 5px;
   margin-bottom: 5px;
@@ -73,14 +73,14 @@
 
 .loginhere {
   border-radius: 20px;
-  color: white;
-  background-color: pink;
+  color: #fafafa;
+  background-color: #f093a5;
   font-size: 12px;
 }
 
 .signuphere {
   border-radius: 20px;
   color: pink;
-  background-color: darkgrey;
+  background-color: inherit;
   font-size: 12px;
 }
