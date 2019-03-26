@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../shuffl_logo_white.png';
 import '../css/LogIn.css';
 import Form from 'react-bootstrap/Form';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 
 class LogIn extends Component {
     render() {
@@ -27,7 +27,8 @@ class LogIn extends Component {
                             {/*</Button>*/}
                             <div className="butlogin">
                                 {/*<a href="www.google.com" className="loginhere"><button>Click Me</button></a>*/}
-                                <button className="button loginhere">Login</button>
+                                {/*<button className="button loginhere">Login</button>*/}
+                                <Button href="https://www.google.com" id="loginbut">Login</Button>
                             </div>
 
                             {/*<Button variant={"secondary"} type={"signup"}>*/}
@@ -35,7 +36,8 @@ class LogIn extends Component {
                             {/*</Button>*/}
                             <div className="butsignup">
                                 {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
-                                <button className="button signuphere">Sign Up</button>
+                                {/*<button className="button signuphere">Sign Up</button>*/}
+                                <Button href="SignUp.js" id="signupbut">Sign Up</Button>
                             </div>
 
                         </Form>

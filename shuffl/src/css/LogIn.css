@@ -57,10 +57,35 @@
     margin-bottom: 5px;
 }
 
-.button {
-    /*background-color: #4CAF50;*/
+/*.button {*/
+/*    !*background-color: #4CAF50;*!*/
+/*    border: none;*/
+/*    !*color: white;*!*/
+/*    padding: 5px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    margin-bottom: 5px;*/
+/*    width: 50%;*/
+/*    height: 25px;*/
+/*}*/
+
+/*.loginhere {*/
+/*    border-radius: 20px;*/
+/*    color: white;*/
+/*    background-color: pink;*/
+/*    font-size: 12px;*/
+/*}*/
+
+/*.signuphere {*/
+/*    border-radius: 20px;*/
+/*    color: pink;*/
+/*    background-color: darkgrey;*/
+/*    font-size: 12px;*/
+/*}*/
+
+.Button {
     border: none;
-    /*color: white;*/
     padding: 5px;
     text-align: center;
     text-decoration: none;
@@ -70,16 +95,18 @@
     height: 25px;
 }
 
-.loginhere {
+#loginbut {
     border-radius: 20px;
     color: white;
     background-color: pink;
     font-size: 12px;
+    border-color: transparent;
 }
 
-.signuphere {
+#signupbut {
     border-radius: 20px;
     color: pink;
     background-color: darkgrey;
     font-size: 12px;
+    border-color: transparent;
 }
