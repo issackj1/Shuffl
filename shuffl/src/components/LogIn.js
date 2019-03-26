@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import logo from '../shuffl_logo_white.png';
 import '../css/LogIn.css';
 import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
@@ -9,11 +9,12 @@ class LogIn extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <h1>Shuffl</h1>
+
                     <img src={logo} className="App-logo" alt="logo" />
                     <div className="signIn">
                         {/*<p>SIGN IN</p>*/}
                         <Form>
+                            
                             <Form.Group controlId={"formBasicUsername"}>
                                 <Form.Control type={"email"} placeholder={"Username"}/>
                             </Form.Group>
@@ -24,14 +25,14 @@ class LogIn extends Component {
                             {/*<Button variant={"primary"} type={"login"}>*/}
                             {/*Login*/}
                             {/*</Button>*/}
-
-                            {/*<Button variant={"secondary"} type={"signup"}>*/}
-                            {/*Sign Up*/}
-                            {/*</Button>*/}
                             <div className="butlogin">
                                 {/*<a href="www.google.com" className="loginhere"><button>Click Me</button></a>*/}
                                 <button className="button loginhere">Login</button>
                             </div>
+
+                            {/*<Button variant={"secondary"} type={"signup"}>*/}
+                            {/*Sign Up*/}
+                            {/*</Button>*/}
                             <div className="butsignup">
                                 {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
                                 <button className="button signuphere">Sign Up</button>
