@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     return (
         <Router>
           <div className="container">
-            <Route path={"/"} exact component={LogIn} />
+            <Route path={"/"} exact component={SignUp} />
           </div>
         </Router>
     );

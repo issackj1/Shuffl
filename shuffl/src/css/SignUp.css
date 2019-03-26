@@ -76,23 +76,24 @@
     height: 38px;
 }
 
-.loginhere {
+.signuphere {
     border-radius: 20px;
     color: white;
     background-color: #FF88A1;
     font-size: 14px;
 }
 
-.signuphere {
+.butlogin{
     border-radius: 20px;
-    color: #FF88A1;
+    color: #948F8F;
     background-color: #5D5D5D;
     font-size: 14px;
 }
 
-.forgotpass {
+.loginhere {
     border-radius: 20px;
-    color: #948F8F;
+    color: #FF88A1;
     background-color: #5D5D5D;
-    font-size: 12px;
+    font-size: 14px;
+    width: auto;
 }

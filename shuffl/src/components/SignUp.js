@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../shuffl_logo_white.png';
-import '../css/LogIn.css';
+import '../css/SignUp.css';
 import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 
@@ -21,21 +21,26 @@ class LogIn extends Component {
                             <Form.Group controlId={"formBasicPassword"}>
                                 <Form.Control type="password" placeholder="  Password" />
                             </Form.Group>
-
+                            <Form.Group controlId={"formBasicPassword"}>
+                                <Form.Control type="password" placeholder="  Re-enter Password" />
+                            </Form.Group>
+                            
                             {/*<Button variant={"primary"} type={"login"}>*/}
                             {/*Login*/}
                             {/*</Button>*/}
                             <div className="butlogin">
                                 {/*<a href="www.google.com" className="loginhere"><button>Click Me</button></a>*/}
-                                <button className="button loginhere">Login</button>
+                                <button className="button signuphere">Sign Up</button>
                             </div>
+
+                        
 
                             {/*<Button variant={"secondary"} type={"signup"}>*/}
                             {/*Sign Up*/}
                             {/*</Button>*/}
-                            <div className="butsignup">
+                            <div className="butlogin">
                                 {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
-                                <button className="button signuphere">Sign Up</button>
+                                Already a user?<button className="button loginhere">Login</button>
                             </div>
 
                         </Form>
