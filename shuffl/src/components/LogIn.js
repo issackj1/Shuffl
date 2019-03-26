@@ -16,10 +16,10 @@ class LogIn extends Component {
                         <Form>
                             
                             <Form.Group controlId={"formBasicUsername"}>
-                                <Form.Control type={"email"} placeholder={"Username"}/>
+                                <Form.Control type={"email"} placeholder={"  Username"}/>
                             </Form.Group>
                             <Form.Group controlId={"formBasicPassword"}>
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control type="password" placeholder="  Password" />
                             </Form.Group>
 
                             {/*<Button variant={"primary"} type={"login"}>*/}
@@ -37,6 +37,15 @@ class LogIn extends Component {
                                 {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
                                 <button className="button signuphere">Sign Up</button>
                             </div>
+
+                            {/*<Button variant={"secondary"} type={"signup"}>*/}
+                            {/*Sign Up*/}
+                            {/*</Button>*/}
+                            <div className="butforgot">
+                                {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
+                                <button className="button forgotpass">Forgot password?</button>
+                            </div>
+
 
                         </Form>
                     </div>
