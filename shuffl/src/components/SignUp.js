@@ -15,34 +15,37 @@ class LogIn extends Component {
                         {/*<p>SIGN IN</p>*/}
                         <Form>
                             
-                            <Form.Group controlId={"formBasicUsername"}>
-                                <Form.Control type={"email"} placeholder={"  Username"}/>
+                            <Form.Group controlId={"form"}>
+                                <Form.Control type={"email"} placeholder={"Username"}/>
                             </Form.Group>
-                            <Form.Group controlId={"formBasicPassword"}>
-                                <Form.Control type="password" placeholder="  Password" />
+                            <Form.Group controlId={"form"}>
+                                <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
-                            <Form.Group controlId={"formBasicPassword"}>
-                                <Form.Control type="password" placeholder="  Re-enter Password" />
-                            </Form.Group>
-                            
-                            <input type="date" className="bday" minvalue={"01-01-01"} placeholder="Birthday" ></input>
-                            <div className="agreeText"> <input className="agree" type="checkbox"></input>I have read the<button className="button termshere">terms & conditions</button></div>
-                            {/*<Button variant={"primary"} type={"login"}>*/}
-                            {/*Login*/}
-                            {/*</Button>*/}
-                            <div className="butlogin">
-                                {/*<a href="www.google.com" className="loginhere"><button>Click Me</button></a>*/}
-                                <button className="button signuphere">Sign Up</button>
+
+                            <div id="signUp">
+                                <Form.Group controlId={"form"}>
+                                    <Form.Control type="password" placeholder="Re-enter Password" />
+                                </Form.Group>
+                                <input type="date" className="bday" minvalue={"01-01-01"} placeholder="Birthday" ></input>
+                                <div className="secondaryText"> <input className="agree" type="checkbox"></input>I have read the<button className="button secondary">terms & conditions</button></div>
+                                <div className="secondaryText">
+                                    <button className="button primary">Sign Up</button>
+                                </div>
+                                <div className="secondaryText">
+                                    Already a user?<button className="button secondary">Login</button>
+                                </div>
                             </div>
 
-                        
-
-                            {/*<Button variant={"secondary"} type={"signup"}>*/}
-                            {/*Sign Up*/}
-                            {/*</Button>*/}
-                            <div className="butlogin">
-                                {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
-                                Already a user?<button className="button loginhere">Login</button>
+                            <div id="logIn">
+                                <div>
+                                    <button className="button primary">Login</button>
+                                </div>
+                                <div>
+                                    <button  className="button secondary">Sign Up</button>
+                                </div>
+                                <div className="secondaryText">
+                                    <button className="button forgotpass">Forgot password?</button>
+                                </div>
                             </div>
 
                         </Form>

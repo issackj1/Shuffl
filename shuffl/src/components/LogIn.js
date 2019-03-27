@@ -37,7 +37,7 @@ class LogIn extends Component {
                             <div className="butsignup">
                                 {/*<a href="www.yahoo.com" className="signuphere"><button>Click Me2</button></a>*/}
                                 {/*<button className="button signuphere">Sign Up</button>*/}
-                                <Button href="SignUp.js" id="signupbut">Sign Up</Button>
+                                <Button  id="signupbut">Sign Up</Button>
                             </div>
 
                             {/*<Button variant={"secondary"} type={"signup"}>*/}

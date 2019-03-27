@@ -36,8 +36,6 @@
 
 .signIn {
     color: black;
-    /*border: solid;*/
-    /*height: 300px;*/
     width: 482px;
     padding: 20px;
     border-radius: 10px;
@@ -50,47 +48,36 @@
         width: 70%;
     }
 }
-#formBasicUsername {
+#form{
     border: none;
-    /*border: solid silver;*/
-    border-radius: 20px;
-    padding: 5px;
-    margin-bottom: 20px;
 
-}
-
-#formBasicPassword {
-    border: none;
-    /*border: solid silver;*/
-    border-radius: 20px;
-    padding: 5px;
+    border-radius: 30px;
+    padding: 15px;
     margin-bottom: 20px;
 }
 
 .button {
-    /*background-color: #4CAF50;*/
     border: none;
-    /*color: white;*/
     text-align: center;
     width: 60%;
     height: 38px;
 }
 
-.signuphere {
+.primary {
     border-radius: 20px;
     color: white;
     background-color: #FF88A1;
     font-size: 14px;
 }
 
-.butlogin, .agreeText{
+.secondaryText{
     border-radius: 20px;
     color: #948F8F;
     background-color: #5D5D5D;
     font-size: 14px;
 }
 
-.loginhere , .termshere{
+.secondary{
     border-radius: 20px;
     color: #FF88A1;
     background-color: #5D5D5D;
@@ -102,7 +89,7 @@
     border: none;
     /* border: solid silver; */
     border-radius: 20px;
-    padding: 5px;
+    padding: 15px;
     margin-bottom: 20px;
     display: block;
     width: 100%;
@@ -113,9 +100,6 @@
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .agree{
@@ -124,5 +108,4 @@
     width:14px; /*Desired width*/
     height: 14px; /*Desired height*/
     cursor: pointer;
-
 }
