@@ -1,0 +1,28 @@
+.sidebarCol {
+    background-color: #5D5D5D;
+    min-height: 100vh;
+    flex: 2;
+}
+
+.contentCol {
+    min-height: 100vh;
+    background-color: #444444;
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.bannerRow {
+    background-color: #FF88A1;
+    flex: 1;
+}
+
+.roomsRow {
+    flex: 1;
+}
+
+.parent {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+}

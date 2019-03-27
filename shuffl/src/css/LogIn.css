@@ -5,10 +5,11 @@
 .App-logo {
     height: 40vmin;
     pointer-events: none;
+    text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: #444444;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,22 +32,31 @@
     }
 }
 
+
+
 .signIn {
     color: black;
     /*border: solid;*/
     /*height: 300px;*/
-    width: auto;
-    padding: 10px;
-    border-radius: 5px;
-    background: darkgrey;
+    width: 443px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #5D5D5D;
+    box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
 }
 
+@media only screen and (max-width: 768px){
+    .signIn{
+        width: 70%;
+    }
+}
 #formBasicUsername {
     border: none;
     /*border: solid silver;*/
     border-radius: 20px;
     padding: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+
 }
 
 #formBasicPassword {
@@ -54,7 +64,7 @@
     /*border: solid silver;*/
     border-radius: 20px;
     padding: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 /*.button {*/
@@ -86,27 +96,30 @@
 
 .Button {
     border: none;
-    padding: 5px;
+    /*color: white;*/
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 5px;
-    width: 50%;
-    height: 25px;
+    width: 60%;
+    height: 38px;
 }
 
 #loginbut {
     border-radius: 20px;
     color: white;
-    background-color: pink;
-    font-size: 12px;
-    border-color: transparent;
+    background-color: #FF88A1;
+    font-size: 14px;
 }
 
 #signupbut {
     border-radius: 20px;
-    color: pink;
-    background-color: darkgrey;
+    color: #FF88A1;
+    background-color: #5D5D5D;
+    font-size: 14px;
+}
+
+.forgotpass {
+    border-radius: 20px;
+    color: #948F8F;
+    background-color: #5D5D5D;
     font-size: 12px;
     border-color: transparent;
 }

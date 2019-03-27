@@ -5,10 +5,11 @@
 .App-logo {
     height: 40vmin;
     pointer-events: none;
+    text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: #444444;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,22 +32,31 @@
     }
 }
 
+
+
 .signIn {
     color: black;
     /*border: solid;*/
     /*height: 300px;*/
-    width: auto;
-    padding: 10px;
-    border-radius: 5px;
-    background: darkgrey;
+    width: 357px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #5D5D5D;
+    box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
 }
 
+@media only screen and (max-width: 767px){
+    .signIn{
+        width: 70%;
+    }
+}
 #formBasicUsername {
     border: none;
     /*border: solid silver;*/
     border-radius: 20px;
     padding: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
+
 }
 
 #formBasicPassword {
@@ -54,32 +64,65 @@
     /*border: solid silver;*/
     border-radius: 20px;
     padding: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .button {
     /*background-color: #4CAF50;*/
     border: none;
     /*color: white;*/
-    padding: 5px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 5px;
-    width: 50%;
-    height: 25px;
-}
-
-.loginhere {
-    border-radius: 20px;
-    color: white;
-    background-color: pink;
-    font-size: 12px;
+    width: 60%;
+    height: 38px;
 }
 
 .signuphere {
     border-radius: 20px;
-    color: pink;
-    background-color: darkgrey;
-    font-size: 12px;
+    color: white;
+    background-color: #FF88A1;
+    font-size: 14px;
+}
+
+.butlogin, .agreeText{
+    border-radius: 20px;
+    color: #948F8F;
+    background-color: #5D5D5D;
+    font-size: 14px;
+}
+
+.loginhere , .termshere{
+    border-radius: 20px;
+    color: #FF88A1;
+    background-color: #5D5D5D;
+    font-size: 14px;
+    width: auto;
+}
+
+.bday{
+    border: none;
+    /* border: solid silver; */
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.agree{
+    padding-top: 7px;
+    margin: 0px 10px;
+    width:14px; /*Desired width*/
+    height: 14px; /*Desired height*/
+    cursor: pointer;
+
 }
