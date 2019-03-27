@@ -11,6 +11,9 @@ class Homepage extends Component {
         return (
             <div className="parent">
                 <div className="sidebarCol">
+                    <div>
+
+                    </div>
                     SIDEBAR
                 </div>
                 <div className="contentCol">
