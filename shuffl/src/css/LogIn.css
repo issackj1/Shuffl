@@ -107,6 +107,7 @@
     color: white;
     background-color: #FF88A1;
     font-size: 14px;
+    border-color: transparent;
 }
 
 #signupbut {
@@ -114,6 +115,7 @@
     color: #FF88A1;
     background-color: #5D5D5D;
     font-size: 14px;
+    border-color: transparent;
 }
 
 .forgotpass {

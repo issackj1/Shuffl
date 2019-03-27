@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/helper-builder-binary-assignment-operator-visitor": "^7.1.0",
+    "babel-helper-builder-binary-assignment-operator-visitor": "^6.24.1",
     "bootstrap": "^4.3.1",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.6",

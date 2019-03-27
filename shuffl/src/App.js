@@ -4,12 +4,13 @@ import './App.css';
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Homepage from "./components/Homepage";
 
 class App extends Component {
   render() {
     return (
         <Router>
-            <Route path={"/"} exact component={Homepage} />
+            <Route path={"/"} exact component={LogIn} />
         </Router>
     );
   }
