@@ -22,7 +22,7 @@ class LogIn extends Component {
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
 
-                            <div id="signUp">
+                            <div id="signUp" hidden='true'>
                                 <Form.Group controlId={"form"}>
                                     <Form.Control type="password" placeholder="Re-enter Password" />
                                 </Form.Group>
@@ -68,6 +68,7 @@ class LogIn extends Component {
             </div>
         );
     }
+
 }
 
 export default LogIn;
