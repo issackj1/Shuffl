@@ -11,10 +11,20 @@ class Homepage extends Component {
         return (
             <div className="parent">
                 <div className="sidebarCol">
-                    <div>
-
+                    {/*SIDEBAR*/}
+                    <div className="logobar">
+                        <img src={logo} className="App-logo" alt="logo" />
                     </div>
-                    SIDEBAR
+                    <div className="sidebar homebar">
+                        Home
+                    </div>
+                    <div className="sidebar browsebar">
+                        Browse
+                    </div>
+                    <div className="sidebar roombar">
+                        Rooms
+                    </div>
+
                 </div>
                 <div className="contentCol">
                     <div className="bannerRow">

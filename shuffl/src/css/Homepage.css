@@ -26,3 +26,21 @@
     min-width: 100vw;
     display: flex;
 }
+
+.homebar {
+    background-color: grey;
+}
+
+.App-logo {
+    width: 50%;
+    height: 50%
+}
+
+.logobar {
+    background: #ff7290;
+}
+
+.sidebar {
+    height: 7%;
+    justify-self: center;
+}
