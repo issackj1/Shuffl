@@ -17,12 +17,15 @@ class Homepage extends Component {
                     </div>
                     <div className="sidebar homebar">
                         Home
+                        {/*make these buttons*/}
                     </div>
                     <div className="sidebar browsebar">
                         Browse
+                        {/*make these buttons*/}
                     </div>
                     <div className="sidebar roombar">
                         Rooms
+                        {/*make these buttons*/}
                     </div>
 
                 </div>
