@@ -25,6 +25,8 @@ class LogIn extends Component {
                                 <Form.Control type="password" placeholder="  Re-enter Password" />
                             </Form.Group>
                             
+                            <input type="date" className="bday" minvalue={"01-01-01"} placeholder="Birthday" ></input>
+                            <div className="agreeText"> <input className="agree" type="checkbox"></input>I have read the<button className="button termshere">terms & conditions</button></div>
                             {/*<Button variant={"primary"} type={"login"}>*/}
                             {/*Login*/}
                             {/*</Button>*/}
