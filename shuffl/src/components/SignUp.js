@@ -5,11 +5,24 @@ import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 
 class LogIn extends Component {
+    constructor(){
+        super();
+
+        this.state = {
+            showMe: true
+        }
+    }
+
+    operation(){
+        this.setState({
+            showMe:false
+        })
+    }
+
     render() {
         return (
             <div className="App">
                 <header className="App-header">
-
                     <img src={logo} className="App-logo" alt="logo" />
                     <div className="signIn">
                         {/*<p>SIGN IN</p>*/}
@@ -22,7 +35,7 @@ class LogIn extends Component {
                                 <Form.Control type="password" placeholder="Password" />
                             </Form.Group>
 
-                            <div id="signUp" hidden='true'>
+                            <div id="signUp">
                                 <Form.Group controlId={"form"}>
                                     <Form.Control type="password" placeholder="Re-enter Password" />
                                 </Form.Group>
@@ -32,43 +45,34 @@ class LogIn extends Component {
                                     <button className="button primary">Sign Up</button>
                                 </div>
                                 <div className="secondaryText">
-                                    Already a user?<button className="button secondary">Login</button>
+                                    Already a user?<button onClick={()=>this.operation()} className="button secondary">Login</button>
                                 </div>
                             </div>
-
-                            <div id="logIn">
+                            {
+                                this.state.showMe?
                                 <div>
-                                    <button className="button primary">Login</button>
+                                    <div>
+                                        <button className="button primary">Login</button>
+                                    </div>
+                                    <div>
+                                        <button  className="button secondary">Sign Up</button>
+                                    </div>
+                                    <div className="secondaryText">
+                                        <button className="button forgotpass">Forgot password?</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button  className="button secondary">Sign Up</button>
-                                </div>
-                                <div className="secondaryText">
-                                    <button className="button forgotpass">Forgot password?</button>
-                                </div>
-                            </div>
-
+                            :null
+                            }
                         </Form>
                     </div>
-                    {/*<p>*/}
-                    {/*Edit <code>src/App.js</code> and save to reload. Welcome to Shuffl !!!*/}
-                    {/*</p>*/}
-                    {/*<a*/}
-                    {/*className="App-link"*/}
-                    {/*href="https://reactjs.org"*/}
-                    {/*target="_blank"*/}
-                    {/*rel="noopener noreferrer"*/}
-                    {/*>*/}
-                    {/*Learn React*/}
-                    {/*</a>*/}
-                    {/*<a href="https://www.google.com"><button>Click Me</button></a>*/}
-                    {/*<a href="https://www.yahoo.com"><button>Click Me2</button></a>*/}
-
                 </header>
             </div>
         );
     }
 
+    
+
+    
 }
 
 export default LogIn;
