@@ -1,7 +1,73 @@
-.sidebarCol {
-    background-color: #5D5D5D;
+.parent {
     min-height: 100vh;
-    flex: 2;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #5D5D5D;
+    min-height: 50px;
+    max-height: 65px;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.header1half {
+    overflow: hidden;
+    flex: 1;
+}
+
+.logoContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.App-logo {
+    height: 100%;
+    width: auto;
+}
+
+.header2half {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+
+.buttonContainer {
+    display: inline-block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.plainBtn {
+    border: none;
+    background: none;
+    color: white;
+}
+
+#homeBtn {
+
+}
+
+#browseBtn {
+
+}
+
+#roomsBtn {
+
+}
+
+.middle {
+    flex: 4;
+    background-color: #FF88A1;
+}
+
+.bottom {
+    flex: 6;
 }
 
 .contentCol {
@@ -12,33 +78,15 @@
     flex-direction: column;
 }
 
-.bannerRow {
-    background-color: #FF88A1;
-    flex: 1;
-}
 
 .roomsRow {
     flex: 1;
-}
-
-.parent {
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
 }
 
 .homebar {
     background-color: grey;
 }
 
-.App-logo {
-    width: 50%;
-    height: 50%
-}
-
-.logobar {
-    background: #ff7290;
-}
 
 .sidebar {
     height: 7%;
