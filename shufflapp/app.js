@@ -128,5 +128,24 @@ shufflRoutes.route('/update/:id').post(function (req, res) {
     });
 });
 
+//add a song to the queue
+shufflRoutes.route('/addsong/:id').post(function (req, res) {
+    ChatRoom.findById(req.params.id, function (err, chatroom) {
+        if (!chatroom){
+            res.status(404).send('Could not find chatroom');
+        }else{
+            chatroom.chatroom_queue.push(req.body.chatroom_queue);
+
+            chatroom.save()
+                .then(chatroom =>{
+                    res.json('Song added')
+                })
+                .catch(err =>{
+                    res.status(400).send('updated not complete');
+                });
+        }
+    });
+});
+
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
