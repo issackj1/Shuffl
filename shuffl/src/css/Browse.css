@@ -1,0 +1,141 @@
+.parent {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #5D5D5D;
+    min-height: 50px;
+    max-height: 65px;
+    /*flex: 1;*/
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.header1half {
+    overflow: hidden;
+    flex: 1;
+}
+
+.logoContainer {
+    height: 100%;
+    width: 100%;
+}
+
+.App-logo {
+    height: 100%;
+    width: auto;
+}
+
+.header2half {
+    flex: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+}
+
+.buttonContainer {
+    display: inline-block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.plainBtn {
+    border: none;
+    background: none;
+    color: white;
+}
+
+#homeBtn {
+
+}
+
+#browseBtn {
+    background: #000;
+}
+
+#roomsBtn {
+
+}
+
+.middle {
+    flex: 4;
+    background-color: #FF88A1;
+}
+
+.bottom {
+    /*flex: 6;*/
+    /*border: solid black;*/
+    background-color: #444444;
+    width: 100%;
+}
+
+.contentCol {
+    min-height: 100vh;
+    background-color: #444444;
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.roomsRow {
+    flex: 1;
+}
+
+.homebar {
+    background-color: grey;
+}
+
+
+.sidebar {
+    height: 7%;
+    justify-self: center;
+}
+
+.page-title {
+    color: white;
+    margin: 25px
+}
+
+.sup-category {
+    /*flex: 1;*/
+    display: flex;
+    overflow: hidden;
+    margin: 20px;
+}
+.sub-category {
+    /*color: white;*/
+    display: inline-block;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+#filterID {
+    color: white;
+}
+
+.covers {
+    padding-left: 10px;
+}
+
+#khalid-logo {
+    width: 100%;
+    height: 100%;
+}
+
+.imageBoxed {
+    height: 120px;
+    width: 120px;
+    margin-left: 25px;
+    margin-bottom: 50px;
+    display: inline-block;
+    text-align: center;
+    color: white;
+}
