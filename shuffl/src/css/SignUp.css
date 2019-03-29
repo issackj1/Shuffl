@@ -64,6 +64,13 @@
     height: 38px;
 }
 
+.link{
+    border: none;
+    text-align: center;
+    width: 60%;
+    height: 38px;
+}
+
 .primary {
     border-radius: 20px;
     color: white;
@@ -109,4 +116,8 @@
     width:14px; /*Desired width*/
     height: 14px; /*Desired height*/
     cursor: pointer;
+}
+
+.signInLogo{
+    height: 40vmin;
 }
