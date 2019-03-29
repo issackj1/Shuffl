@@ -1,12 +1,20 @@
 const express = require ('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const flash = require('connect-flash');
 const session = require('express-session'); 
 const app = express();
 const passport = require('passport');
+const PORT = 4000;
+const bodyParser = require('body-parser');
+const shufflRoutes = express.Router();
 
-
+app.use(bodyParser.json());
+// Routes
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/chatrooms', shufflRoutes);
 
 //passport config
 require('./config/passport')(passport);
@@ -18,6 +26,10 @@ const db = require('./config/keys').MongoURI; // MongoURI is the key passed from
 mongoose.connect(db, {useNewUrlParser: true})
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err));
+
+const connection = mongoose.connection;
+
+let ChatRoom = require('./models/chatroom.model');
 
 
 //EJS
@@ -52,11 +64,69 @@ app.use((req, res, next) => {
     next();
 });
 
+//display all the Available to join chatrooms
+shufflRoutes.route('/').get(function (req, res) {
+    ChatRoom.find(function (err, chatrooms) {
+        if (err){
+            console.log(err)
+        }else{
+            res.json(chatrooms)
+        }
+    });
+});
 
-// Routes
-app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+//display a specific chatroom
+shufflRoutes.route('/:id').get(function (req, res) {
+    let id = req.params.id;
+    ChatRoom.findById(id, function (err, chatroom) {
+        if (err){
+            console.log(err)
+        }else{
+            res.json(chatroom)
+        }
+    });
+});
+
+//create a chatroom and add to the database
+shufflRoutes.route('/add').post(function (req, res) {
+    let chatroom = new ChatRoom(req.body);
+    chatroom.save()
+        .then(chatroom =>{
+            res.status(200).json({'chatroom': 'chatroom added successfully'});
+        })
+        .catch(err =>{
+            res.status(400).send('adding new chatroom failed')
+        });
+});
+
+//update a specific chatroom
+shufflRoutes.route('/update/:id').post(function (req, res) {
+    ChatRoom.findById(req.params.id, function (err, chatroom) {
+        if (!chatroom){
+            res.status(404).send('Could not find chatroom');
+        }else{
+            chatroom.chatroom_name = req.body.chatroom_name;
+            let currentmembers = chatroom.chatroom_members;
+            let isElem = false;
+            for (let i = 0; i < currentmembers.length; i++){
+                if (currentmembers[i] === req.body.chatroom_members)
+                    isElem = true;
+            }
+            if(!isElem)
+                chatroom.chatroom_members.push(req.body.chatroom_members);
+            chatroom.chatroom_owner = req.body.chatroom_owner;
+            chatroom.chatroom_pic = req.body.chatroom_pic;
+
+            chatroom.save()
+                .then(chatroom =>{
+                    res.json('chatroom updated')
+                })
+                .catch(err =>{
+                    res.status(400).send('updated not complete');
+                });
+        }
+    });
+});
 
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
