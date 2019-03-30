@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import logo from '../shuffl_logo_white.png';
-import '../css/Homepage.css';
-import Room from './homepageComponents/Room'
-import Username from './homepageComponents/Username'
+import logo from '../../shuffl_logo_white.png';
+import '../../css/Homepage.css';
 // import Button from 'react-bootstrap/Button';
 
 class Homepage extends Component {
     render() {
         return (
+
+            
             <div className='parent'>
+                //make a navbar component
                 <div className='header'>
                     <div className='header1half'>
                         <div className="logoContainer">

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from '../shuffl_logo_white.png';
-import '../css/Browse.css';
-import khalid from './khalid.jpeg';
-import Room from './homepageComponents/Room'
-import Username from './homepageComponents/Username'
+import logo from '../../shuffl_logo_white.png';
+//import '../css/Browse.css';
+import khalid from '../../images/khalid.jpeg';
+
 import {FormText} from "react-bootstrap";
 // import Button from 'react-bootstrap/Button';
 
