@@ -59,7 +59,6 @@
 
 .button {
     border: none;
-    text-align: center;
     width: 60%;
     height: 38px;
 }
@@ -67,8 +66,8 @@
 .link{
     border: none;
     text-align: center;
-    width: 60%;
-    height: 38px;
+    height: auto;
+    width: auto;
 }
 
 .primary {
@@ -79,10 +78,13 @@
 }
 
 .secondaryText, .forgotpass{
-    border-radius: 20px;
     color: #948F8F;
     background-color: #5D5D5D;
     font-size: 14px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    line-height: 38px;
 }
 
 .secondary{
@@ -90,7 +92,7 @@
     color: #FF88A1;
     background-color: #5D5D5D;
     font-size: 14px;
-    width: auto;
+    line-height: 38px;
 }
 
 .bday{
@@ -114,7 +116,7 @@
     padding-top: 7px;
     margin: 0px 10px;
     width:14px; /*Desired width*/
-    height: 14px; /*Desired height*/
+    height: 38px; /*Desired height*/
     cursor: pointer;
 }
 
