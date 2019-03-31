@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../shuffl_logo_white.png';
 import '../../css/Homepage.css';
 import TopBar from '../../components/TopBar';
+import Banner from './Banner';
 // import Button from 'react-bootstrap/Button';
 
 class Homepage extends Component {
@@ -10,10 +11,8 @@ class Homepage extends Component {
                 
            
             <div className='parent'>
-                 <TopBar />
-                <div className='middle'>
-
-                </div>
+                <TopBar />
+                <Banner />
                 <div className='bottom'>
 
                 </div>

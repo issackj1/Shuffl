@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Browse from "./Containers/Browse/Browse";
 
-import Homepage from "./Containers/Homepage/Homepage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 /*
+import Homepage from "./Containers/Homepage/Homepage";
 import Room from "./Containers/Rooms/Rooms";
-import Browse from "./Containers/Browse/Browse";
+
 import SignUp from "./components/SignUp";
 */
 
@@ -20,7 +21,7 @@ class App extends Component {
         
         // have path for the sign up sheet and shuffl rooms
         <Router>
-            <Route path={"/"} exact component={Homepage} />
+            <Route path={"/"} exact component={Browse} />
         </Router>
     );
   }
