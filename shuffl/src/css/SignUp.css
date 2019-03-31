@@ -67,7 +67,8 @@
     border: none;
     text-align: center;
     height: auto;
-    width: auto;
+    text-overflow: ellipsis;
+    overflow: hidden; 
 }
 
 .primary {
@@ -101,9 +102,7 @@
     border-radius: 20px;
     padding: 15px;
     margin-bottom: 20px;
-    display: block;
     width: 100%;
-    height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
@@ -114,7 +113,7 @@
 
 .agree{
     padding-top: 7px;
-    margin: 0px 10px;
+    margin: 0rem .2rem;
     width:14px; /*Desired width*/
     height: 38px; /*Desired height*/
     cursor: pointer;

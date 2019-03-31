@@ -43,7 +43,7 @@ class LogIn extends Component {
                                         <Form.Control type="password" placeholder="Re-enter Password" />
                                     </Form.Group>
                                     <input type="date" className="bday" minvalue={"01-01-01"} placeholder="Birthday" ></input>
-                                    <div className="secondaryText"> <input className="agree" type="checkbox"></input>I have read the<div className="link secondary"> terms & conditions</div></div>
+                                    <div className="secondaryText"> <input className="agree" type="checkbox"></input>I have read the <div className="link secondary">terms & conditions</div></div>
                                     <div>
                                         <button className="button primary">Sign Up</button>
                                     </div>
@@ -63,7 +63,7 @@ class LogIn extends Component {
                                         <div  onClick={this.operation} className="link secondary">Sign Up</div>
                                     </div>
                                     <div className="secondaryText">
-                                        <button className="button forgotpass">Forgot password?</button>
+                                        <button className="link forgotpass">Forgot password?</button>
                                     </div>
                                 </div>
                             :null
