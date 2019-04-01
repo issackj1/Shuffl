@@ -34,8 +34,8 @@ class Homepage extends Component {
                         </span>
                     </div>
 
-                    <RoomContainer>
-                        <figure className="imageBoxed">
+                    <RoomContainer />
+                        {/* <figure className="imageBoxed">
                             <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
                             <figcaption>Pop</figcaption>
                         </figure>
@@ -82,8 +82,7 @@ class Homepage extends Component {
                         <figure className="imageBoxed">
                             <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
                             <figcaption>Electronic</figcaption>
-                        </figure>
-                    </RoomContainer>
+                        </figure> */}
                 </div>
             </div>
         )

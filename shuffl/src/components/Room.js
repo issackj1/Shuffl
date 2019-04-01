@@ -1,24 +1,20 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import khalid from '../images/khalid.jpeg'
 
-export class Room extends Component {
-
-  constructor(props){
-    super(props);
-
-    this.state = {
-        RoomID: 0,
-        RoomName: "default room",
-        RoomHost: "default user"
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        
+  const Room = (props) =>(
+      <div className="Room">
+        <div className="RoomImage"><img src = {khalid}></img></div>
+        <div className="Room footer">{props.room.RoomName}{props.room.RoomHost}</div>
       </div>
-    )
-  }
-}
+    );
+  
+  Room.defaultProps = {
+    room: {}
+  };
 
-export default Room
+  Room.propTypes = {
+    room: PropTypes.object
+  };
+  
+export default Room;

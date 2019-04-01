@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
-import '../css/RoomContainer.css';
+import RoomList from './RoomList';
+import RoomService from '../services/RoomService';
 
-export class RoomContainer extends Component {
-  render() {
-    return (
-        <div className='RoomContainer'>
-          
-        </div>
-    )
-  }
+export default class RoomContainer extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            rooms: []
+        };
+    }
+
+    componentDidMount() {
+        this.setState(() => ({ rooms: RoomService.getRooms() }));
+    }
+
+    render() {
+        return (
+            <div className="RoomContainer">
+              <RoomList rooms={this.state.rooms} />
+            </div>
+        );
+    }
 }
 
-export default RoomContainer
