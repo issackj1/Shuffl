@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class Genre extends Component {
+export class Player extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ export class Genre extends Component {
   }
 }
 
-export default Genre
+export default Player

@@ -74,6 +74,11 @@
     width: 100%;
 }
 
+.cover{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 .contentCol {
     min-height: 100vh;
     background-color: #444444;
