@@ -73,11 +73,7 @@ class LogIn extends Component {
                 </header>
             </div>
         );
-    }
-
-    
-
-    
+    }    
 }
 
 export default LogIn;

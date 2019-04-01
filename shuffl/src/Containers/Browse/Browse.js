@@ -5,6 +5,7 @@ import khalid from '../../images/khalid.jpeg';
 import TopBar from '../../components/TopBar';
 
 import {FormText} from "react-bootstrap";
+import RoomContainer from '../../components/RoomContainer';
 // import Button from 'react-bootstrap/Button';
 
 class Homepage extends Component {
@@ -20,6 +21,7 @@ class Homepage extends Component {
                     <div className ="page-title">
                         <h1>Browse</h1>
                     </div>
+
                     <div className="sup-category">
                         <div className="sub-category">
                             <a id="filterID" href="google.com">Genres</a>
@@ -32,7 +34,7 @@ class Homepage extends Component {
                         </span>
                     </div>
 
-                    <div className="cover">
+                    <RoomContainer>
                         <figure className="imageBoxed">
                             <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
                             <figcaption>Pop</figcaption>
@@ -81,7 +83,7 @@ class Homepage extends Component {
                             <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
                             <figcaption>Electronic</figcaption>
                         </figure>
-                    </div>
+                    </RoomContainer>
                 </div>
             </div>
         )

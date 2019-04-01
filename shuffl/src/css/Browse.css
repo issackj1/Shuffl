@@ -68,8 +68,6 @@
 }
 
 .bottom {
-    /*flex: 6;*/
-    /*border: solid black;*/
     background-color: #444444;
     width: 100%;
 }
@@ -77,9 +75,11 @@
 .cover{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
-.contentCol {
+
+/* .contentCol {
     min-height: 100vh;
     background-color: #444444;
     flex: 10;
@@ -94,13 +94,8 @@
 
 .homebar {
     background-color: grey;
-}
+} */
 
-
-.sidebar {
-    height: 7%;
-    justify-self: center;
-}
 
 .page-title {
     color: white;
@@ -124,10 +119,6 @@
 
 #filterID {
     color: white;
-}
-
-.covers {
-    padding-left: 10px;
 }
 
 #khalid-logo {
