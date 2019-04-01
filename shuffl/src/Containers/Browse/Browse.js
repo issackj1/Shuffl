@@ -6,87 +6,49 @@ import TopBar from '../../components/TopBar';
 
 import {FormText} from "react-bootstrap";
 import RoomContainer from '../../components/RoomContainer';
+import GenreList from '../../components/GenreList';
 // import Button from 'react-bootstrap/Button';
 
-class Homepage extends Component {
-    render() {
-        return (
+class Browse extends Component {
+
+    state = {
+        genre:"",
+        isChosen:true
+    }
+   
+   changeGenre = (genre) => {
+        console.log('this is clicking');
+        console.log(genre);
+        this.setState({genre:genre, isChosen:!this.state.isChosen});
+   };
+
+   resetState = () => { 
+            this.setState({genre:"", isChosen:true});
+   }
+   
+   render() {
+        return(
             <div className='parent'>
                 <TopBar />
-                {/*<div className='middle'>*/}
-
-                {/*</div>*/}
                 <div className='bottom'>
-                    {/*<h1 id={"page-title"}>Browse</h1>*/}
                     <div className ="page-title">
                         <h1>Browse</h1>
                     </div>
 
                     <div className="sup-category">
                         <div className="sub-category">
-                            <a id="filterID" href="google.com">Genres</a>
+                            <div id="filterID" onClick={this.resetState}>Genres</div>
                         </div>
-                        <span className="sub-category">
-                            <a id="filterID" href="google.com">Album</a>
-                        </span>
-                        <span className="sub-category">
-                            <a id="filterID" href="google.com">Artist</a>
-                        </span>
                     </div>
-
-                    <RoomContainer />
-                        {/* <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Pop</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Hip-Hop</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Rock</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>R&B</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Indie</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>K-Pop</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Jazz</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Classical</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Metal</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Punk</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Reggae</figcaption>
-                        </figure>
-                        <figure className="imageBoxed">
-                            <img src={khalid} alt="khalid-logo" id="khalid-logo"/>
-                            <figcaption>Electronic</figcaption>
-                        </figure> */}
+                    {
+                        this.state.isChosen?
+                        <GenreList changeGenre={this.changeGenre}/>:<RoomContainer genre={this.state.genre}/>
+                    }
                 </div>
             </div>
+
         )
     }
 }
 
-export default Homepage
+export default Browse

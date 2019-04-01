@@ -2,11 +2,13 @@
     {
         "RoomID": 1,
         "RoomName": "BLACKPINK ALBUM RELEASE LISTENING PARTY",
-        "RoomHost": "jeff@shuffl.com"
+        "RoomHost": "jeff@shuffl.com",
+        "Genre": "K-Pop"
     },
     {
         "RoomID": 2,
         "RoomName": "Shuffl & Chill",
-        "RoomHost": "arthur@shuffl.com"
+        "RoomHost": "arthur@shuffl.com",
+        "Genre": "R&B"
     }
 ]

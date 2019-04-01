@@ -2,21 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Room from './Room';
 
-const getRooms = (rooms) => {
-    return (
-        <div className="card-deck">
-            {
-                rooms.map(room => <Room key={room.RoomID} room={room} />)
-            }
-        </div>
-    );
-};
 
-const RoomList = (props) => (
+const RoomList = (props) => {
+    console.log(props.rooms);
+    const rooms = props.rooms.filter(room => props.genre == room.Genre).map(room => <Room key={room.RoomID} room={room}/>)
+    return (
     <div>
-        {getRooms(props.rooms)}
-    </div>
-);
+       {rooms}
+    </div>)
+};
 
 RoomList.defaultProps = {
     rooms: []
