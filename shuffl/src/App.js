@@ -8,13 +8,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 /*
 import Homepage from "./Containers/Homepage/Homepage";
 import Room from "./Containers/Rooms/Rooms";
-
 import SignUp from "./components/SignUp";
 */
 
 class App extends Component {
-
-
+  
+  state = {
+    playing:false,
+    currentPage:""
+  }
   //state consists of log in status
   render() {
     return (
@@ -22,6 +24,7 @@ class App extends Component {
         // have path for the sign up sheet and shuffl rooms
         <Router>
             <Route path={"/"} exact component={Browse} />
+
         </Router>
     );
   }
