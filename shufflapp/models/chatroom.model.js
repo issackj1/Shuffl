@@ -1,30 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+//Add current time
 
 let ChatRoom = new Schema({
-    chatroom_name:
+    RoomName:
         {
             type: String
         },
-    chatroom_owner:
+    RoomHost:
         {
             type: String
         },
-    chatroom_pic:
+    Genre:
         {
             type: String
-        },
-    chatroom_log:
-        {
-            type: String
-        },
-    chatroom_members:
-        {
-            type: []
-        },
-    chatroom_queue:
-        {
-            type: []
         }
 });
 
