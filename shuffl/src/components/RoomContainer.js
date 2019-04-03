@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RoomList from './RoomList';
 import RoomService from '../services/RoomService';
+import axios from "axios";
 
 export default class RoomContainer extends Component {
 
@@ -13,7 +14,14 @@ export default class RoomContainer extends Component {
     }
 
     componentDidMount() {
-        this.setState(() => ({ rooms: RoomService.getRooms() }));
+        axios.get('http://localhost:4000/chatrooms')
+            .then(response => {
+                this.setState({ rooms: response.data})
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     render() {

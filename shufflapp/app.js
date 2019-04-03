@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const PORT = 4000;
 const app = express();
 const router = express.Router();
+app.use(cors());
 
 
 app.use(bodyParser.json());
@@ -16,6 +17,7 @@ app.use(bodyParser.json());
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/chatrooms', router);
+
 
 //passport config
 require('./config/passport')(passport);
