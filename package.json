@@ -1,0 +1,28 @@
+{
+  "name": "seng513",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd shuffl && npm start",
+    "server": "cd shufflapp && node app.js",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/issackj1/Seng513.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/issackj1/Seng513/issues"
+  },
+  "homepage": "https://github.com/issackj1/Seng513#readme"
+}
