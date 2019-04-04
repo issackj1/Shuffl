@@ -7,17 +7,18 @@ import Homepage from "./Containers/Homepage/Homepage";
 import Browse from "./Containers/Browse/Browse";
 import Rooms from "./Containers/Rooms/Rooms"
 import SignUp from "./components/SignUp";
+import TopBar from './components/TopBar';
 
 class App extends Component {
   
   state = {
-    playing:false,
-    currentPage:""
+    playing:false
   }
   //state consists of log in status
   render() {
     return (
-        // have path for the sign up sheet and shuffl rooms
+        <div><TopBar/>
+        {/* // have path for the sign up sheet and shuffl rooms */}
         <BrowserRouter>
             <Switch>
               <Route path={"/signup"} exact component={SignUp} />
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path={"/rooms"} exact component={Rooms} />
             </Switch>
         </BrowserRouter>
+        </div>
     );
   }
 }

@@ -15,7 +15,6 @@ class Homepage extends Component {
                 
            
             <div className='parent'>
-                <TopBar />
                 <Banner />
                 <div className='bottom'>
                 

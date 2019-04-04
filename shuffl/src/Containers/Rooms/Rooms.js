@@ -7,7 +7,6 @@ class Room extends Component {
     render() {
         return (
             <div>
-                <TopBar/>
             </div>
             // should take in props dynamically (image, chatroom name)
             )

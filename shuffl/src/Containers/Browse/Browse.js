@@ -28,7 +28,6 @@ class Browse extends Component {
    render() {
         return(
             <div className='parent'>
-                <TopBar />
                 <div className='bottom'>
                     <div className ="page-title">
                         <h1>Browse</h1>
