@@ -6,6 +6,9 @@ import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 
 class TopBar extends Component {
+    
+
+
 
     render() {
         return (
@@ -15,13 +18,13 @@ class TopBar extends Component {
                     </div>
                     <div className='TopHalf2'>
                         <div className='linkContainer'>
-                            <a className='link Rooms' href="/rooms">Rooms</a>
+                            <div  className='link Rooms'>Rooms</div>
                         </div>
                         <div className='linkContainer'>
-                            <a className='link Browse' href="/browse">Browse</a>
+                            <div className='link Browse'>Browse</div>
                         </div>
                         <div className='linkContainer'>
-                            <a className='link Home'href="/">Home</a>
+                            <div className='link Home'>Home</div>
                         </div>
                     </div>
                 </div>
