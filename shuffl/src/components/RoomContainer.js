@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RoomList from './RoomList';
-import RoomService from '../services/RoomService';
 import axios from "axios";
 
 export default class RoomContainer extends Component {
