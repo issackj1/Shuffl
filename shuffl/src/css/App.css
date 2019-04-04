@@ -1,14 +1,17 @@
-.App {
+*{
+    font-family: “Segoe UI”,Arial,Helvetica,sans-serif;
+}
+
+/* -------------------------------- */
+/* -------------SignIn------------- */
+/* -------------------------------- */
+
+.SignUp {
     text-align: center;
+    background-color: #444444;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-    text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
-}
-
-.App-header {
+.SignUpHeader {
     background-color: #444444;
     min-height: 100vh;
     display: flex;
@@ -18,21 +21,6 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
 
 .signIn {
     color: black;
@@ -51,7 +39,6 @@
 
 #form{
     border: none;
-
     border-radius: 30px;
     padding: 15px;
     margin-bottom: 20px;
@@ -98,7 +85,6 @@
 
 .bday{
     border: none;
-    /* border: solid silver; */
     border-radius: 20px;
     padding: 15px;
     margin-bottom: 20px;
@@ -121,4 +107,42 @@
 
 .signInLogo{
     height: 40vmin;
+}
+
+
+/* -------------------------------- */
+/* -------------TopBar------------- */
+/* -------------------------------- */
+
+.TopBar{
+    background-color: #FF88A1;
+    min-height: 40px;
+    max-height: 55px;
+    /*flex: 1;*/
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.TopHalf1{
+    flex:1
+}
+
+.TopHalf2{
+    flex:1;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.TopBarLogo{
+    height: 100%;
+}
+
+
+.RoomContainer {
+    background-color: #444444;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
 }

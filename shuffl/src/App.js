@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import './App.css';
-import Browse from "./Containers/Browse/Browse";
+import { BrowserRouter, Route , Switch} from "react-router-dom";
+import './css/App.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
-/*
 import Homepage from "./Containers/Homepage/Homepage";
-import Room from "./Containers/Rooms/Rooms";
+import Browse from "./Containers/Browse/Browse";
+import Rooms from "./Containers/Rooms/Rooms"
 import SignUp from "./components/SignUp";
-*/
 
 class App extends Component {
   
@@ -20,12 +17,15 @@ class App extends Component {
   //state consists of log in status
   render() {
     return (
-        
         // have path for the sign up sheet and shuffl rooms
-        <Router>
-            <Route path={"/"} exact component={Browse} />
-
-        </Router>
+        <BrowserRouter>
+            <Switch>
+              <Route path={"/signup"} exact component={SignUp} />
+              <Route path={"/"} exact component={Homepage} />
+              <Route path={"/browse"} exact component={Browse} />
+              <Route path={"/rooms"} exact component={Rooms} />
+            </Switch>
+        </BrowserRouter>
     );
   }
 }

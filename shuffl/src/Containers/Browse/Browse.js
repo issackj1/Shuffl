@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../../shuffl_logo_white.png';
-import '../../css/Browse.css';
 import khalid from '../../images/khalid.jpeg';
 import TopBar from '../../components/TopBar';
 

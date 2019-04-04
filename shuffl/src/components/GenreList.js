@@ -12,7 +12,7 @@ export class GenreList extends Component {
         <div onClick = {() => {this.props.changeGenre("Indie")}}>Indie</div>
         <div onClick = {() => {this.props.changeGenre("K-Pop")}}>K-Pop</div>
         <div onClick = {() => {this.props.changeGenre("Jazz")}}>Jazz</div>
-        <div onClick = {() => {this.props.changeGenre("Classical")}}>classical</div>
+        <div onClick = {() => {this.props.changeGenre("Classical")}}>Classical</div>
         <div onClick = {() => {this.props.changeGenre("Metal")}}>Metal</div>
         <div onClick = {() => {this.props.changeGenre("Punk")}}>Punk</div>
         <div onClick = {() => {this.props.changeGenre("Reggae")}}>Reggae</div>
@@ -21,7 +21,6 @@ export class GenreList extends Component {
     )
   }
 }
-
 
 
 export default GenreList

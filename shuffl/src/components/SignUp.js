@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from '../shuffl_logo_white.png';
-import '../css/SignUp.css';
 import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 
@@ -23,8 +22,8 @@ class LogIn extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
+            <div className="SignUp">
+                <header className="SignUpHeader">
                     <img src={logo} className="signInLogo" alt="signinlogo"/>
                     <div className="signIn">
                         {/*<p>SIGN IN</p>*/}
@@ -38,7 +37,7 @@ class LogIn extends Component {
                             </Form.Group>
                             {
                                 this.state.signUp?
-                                <div id="signUp">
+                                <div>
                                     <Form.Group controlId={"form"}>
                                         <Form.Control type="password" placeholder="Re-enter Password" />
                                     </Form.Group>

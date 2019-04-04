@@ -9,22 +9,19 @@ class TopBar extends Component {
 
     render() {
         return (
-                
-                <div className='header'>
-                    <div className='header1half'>
-                        <div className="logoContainer">
-                            <img src={logo} className="App-logo" alt="logo" />
-                        </div>
+                <div className='TopBar'>
+                    <div className='TopHalf1'>
+                        <img src={logo} className="TopBarLogo" alt="TopBarLogo" />
                     </div>
-                    <div className='header2half'>
-                        <div className='buttonContainer'>
-                            <button id='roomsBtn' className='plainBtn'>Rooms</button>
+                    <div className='TopHalf2'>
+                        <div className='linkContainer'>
+                            <a className='link Rooms' href="/rooms">Rooms</a>
                         </div>
-                        <div className='buttonContainer'>
-                            <button id='browseBtn' className='plainBtn'>Browse</button>
+                        <div className='linkContainer'>
+                            <a className='link Browse' href="/browse">Browse</a>
                         </div>
-                        <div className='buttonContainer'>
-                            <button id='homeBtn' className='plainBtn'>Home</button>
+                        <div className='linkContainer'>
+                            <a className='link Home'href="/">Home</a>
                         </div>
                     </div>
                 </div>
