@@ -2,29 +2,31 @@
 import React, { Component } from 'react';
 import logo from '../shuffl_logo_white.png';
 import Form from 'react-bootstrap/Form';
-
+import { withRouter} from "react-router-dom";
 // import Button from 'react-bootstrap/Button';
 
 class TopBar extends Component {
     
 
 
-
+  
     render() {
+        const {matchMedia,location, history} = this.props;
         return (
+                
                 <div className='TopBar'>
                     <div className='TopHalf1'>
                         <img src={logo} className="TopBarLogo" alt="TopBarLogo" />
                     </div>
                     <div className='TopHalf2'>
                         <div className='linkContainer'>
-                            <div  className='link Rooms'>Rooms</div>
+                            <div onClick={()=>{history.push('/rooms/')}} className='link Rooms'>Rooms</div>
                         </div>
                         <div className='linkContainer'>
-                            <div className='link Browse'>Browse</div>
+                            <div onClick={()=>{history.push('/browse/')}} className='link Browse'>Browse</div>
                         </div>
                         <div className='linkContainer'>
-                            <div className='link Home'>Home</div>
+                            <div onClick={()=>{history.push('/home/')}} className='link Home'>Home</div>
                         </div>
                     </div>
                 </div>
@@ -32,4 +34,4 @@ class TopBar extends Component {
     }
 }
 
-export default TopBar;
+export default withRouter(TopBar);

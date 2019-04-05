@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route , Switch, Link, withRouter} from "react-router-dom";
+import { BrowserRouter, Route , Router,  Switch, Link, withRouter} from "react-router-dom";
+import history from './components/History';
 import './css/App.css';
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Homepage from "./Containers/Homepage/Homepage";
@@ -18,33 +20,21 @@ class App extends Component {
   }
   //state consists of log in status
   render() {
-    
+
     return (
+    
         
-        <BrowserRouter>
-            <nav className='TopBar'>
-                <div className='TopHalf1'>
-                    <img src={logo} className="TopBarLogo" alt="TopBarLogo" />
-                </div>
-                <ul className='TopHalf2'>
-                    <li>
-                        <Link to={"/rooms/"} className='link Rooms'>Rooms</Link>
-                    </li>
-                    <li>
-                        <Link to={"/browse/"}className='link Browse'>Browse</Link>
-                    </li>
-                    <li>
-                        <Link to={"/"}className='link Home'>Home</Link>
-                    </li>
-                </ul>
-            </nav>
+
+          <React.Fragment>
+            <TopBar/>
             <Switch>
               <Route path={"/signup/"} exact component={SignUp} />
               <Route path={"/"} exact component={Homepage} />
               <Route path={"/browse/"} exact component={Browse} />
               <Route path={"/rooms/"} exact component={Rooms} />
             </Switch>
-        </BrowserRouter>
+            </React.Fragment>
+ 
     );
   }
 }
