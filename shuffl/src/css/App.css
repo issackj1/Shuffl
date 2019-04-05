@@ -40,8 +40,8 @@
 #form{
     border: none;
     border-radius: 30px;
-    padding: 15px;
     margin-bottom: 20px;
+    padding: 0px 15px;
 }
 
 .button {
@@ -138,6 +138,33 @@
 }
 
 
+/* -------------------------------- */
+/* -------------CreateRoom------------- */
+/* -------------------------------- */
+.createRoom{
+    color: black;
+    width: 482px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #5D5D5D;
+    box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
+}
+
+.createRoomButtons{
+    display: flex;
+    flex-direction: row;
+}
+
+.createRoomButtons button{
+    margin: 0px 15px;
+}
+
+.button.cancel {
+    border-radius: 20px;
+    color: white;
+    background-color: #9a9a9a;
+    font-size: 14px;
+}
 .RoomContainer {
     background-color: #444444;
     width: 100%;

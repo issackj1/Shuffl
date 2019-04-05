@@ -6,6 +6,7 @@ import TopBar from '../../components/TopBar';
 import {FormText} from "react-bootstrap";
 import RoomContainer from '../../components/RoomContainer';
 import GenreList from '../../components/GenreList';
+import CreateRoom from '../../components/CreateRoom'
 // import Button from 'react-bootstrap/Button';
 
 class Browse extends Component {
@@ -31,18 +32,18 @@ class Browse extends Component {
         return(
             
             <React.Fragment>
-
             <div className='parent'>
                 <div className='bottom'>
                     <div className ="page-title">
                         <h1>Browse</h1>
                     </div>
-
+                    <CreateRoom/>
                     <div className="sup-category">
                         <div className="sub-category">
                             <div id="filterID" onClick={this.resetState}>Genres</div>
                         </div>
                     </div>
+
                     {
                         this.state.isChosen?
                         <GenreList changeGenre={this.changeGenre}/>:<RoomContainer genre={this.state.genre}/>

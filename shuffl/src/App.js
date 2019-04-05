@@ -22,19 +22,16 @@ class App extends Component {
   render() {
 
     return (
-    
-        
-
-          <React.Fragment>
-            <TopBar/>
-            <Switch>
-              <Route path={"/signup/"} exact component={SignUp} />
-              <Route path={"/"} exact component={Homepage} />
-              <Route path={"/browse/"} exact component={Browse} />
-              <Route path={"/rooms/"} exact component={Rooms} />
-            </Switch>
-            </React.Fragment>
- 
+      <React.Fragment>
+        <TopBar/>
+        <Switch>
+          <Route path={"/signup/"} exact component={SignUp} />
+          <Route path={"/"} exact component={Homepage} />
+          <Route path={"/browse/"} exact component={Browse} />
+          
+          <Route path={"/rooms/"} exact component={Rooms} />
+        </Switch>
+      </React.Fragment>
     );
   }
 }
