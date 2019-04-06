@@ -30,7 +30,6 @@ class App extends Component {
         {this.state.SignedIn?
         <TopBar/>:<TopBarSignIn/>
         }
-        <Switch>
           { this.state.SignedIn?
             <Switch>
               <Route path={"/home/"} exact component={Homepage} />
@@ -38,10 +37,11 @@ class App extends Component {
               <Route path={"/rooms/"} exact component={Rooms} />
               <Route component={Error}/>
             </Switch>
-            :<Route path={"/signup/"} exact component={SignUp} />
+            :<Switch>
+              <Route path={"/signup/"} exact component={SignUp} />
+              <Route component={Error}/>
+            </Switch>
           }
-          <Route component={Error}/>
-        </Switch>
       </React.Fragment>
     );
   }
