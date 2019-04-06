@@ -14,23 +14,32 @@ import Error from "./Containers/Error/Error"
 
 import logo from './shuffl_logo_white.png';
 import TopBar from './components/TopBar';
+import TopBarSignIn from './components/TopBarSignIn';
 
 class App extends Component {
   
   state={
     playing:false,
+    SignedIn:false
   }
   //state consists of log in status
   render() {
 
     return (
       <React.Fragment>
-        <TopBar/>
+        {this.state.SignedIn?
+        <TopBar/>:<TopBarSignIn/>
+        }
         <Switch>
-          <Route path={"/signup/"} exact component={SignUp} />
-          <Route path={"/home/"} exact component={Homepage} />
-          <Route path={"/browse/"} exact component={Browse} />
-          <Route path={"/rooms/"} exact component={Rooms} />
+          { this.state.SignedIn?
+            <Switch>
+              <Route path={"/home/"} exact component={Homepage} />
+              <Route path={"/browse/"} exact component={Browse} />
+              <Route path={"/rooms/"} exact component={Rooms} />
+              <Route component={Error}/>
+            </Switch>
+            :<Route path={"/signup/"} exact component={SignUp} />
+          }
           <Route component={Error}/>
         </Switch>
       </React.Fragment>
