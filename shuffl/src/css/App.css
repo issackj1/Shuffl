@@ -139,6 +139,30 @@
 
 
 /* -------------------------------- */
+/* -------------Home------------- */
+/* -------------------------------- */
+
+/* -------------------------------- */
+/* -------------Browse------------- */
+/* -------------------------------- */
+
+
+
+/* -------------------------------- */
+/* -------------Rooms------------- */
+/* -------------------------------- */
+
+.RoomContainer {
+    background-color: #444444;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+
+/* -------------------------------- */
 /* -------------CreateRoom------------- */
 /* -------------------------------- */
 .createRoom{
@@ -165,11 +189,4 @@
     background-color: #9a9a9a;
     font-size: 14px;
 }
-.RoomContainer {
-    background-color: #444444;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-}
+

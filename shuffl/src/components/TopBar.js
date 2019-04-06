@@ -16,7 +16,7 @@ class TopBar extends Component {
                 
                 <div className='TopBar'>
                     <div className='TopHalf1'>
-                        <img src={logo} className="TopBarLogo" alt="TopBarLogo" />
+                        <img  src={logo} className="TopBarLogo" alt="TopBarLogo" onClick={()=>{history.push('/home/')}}/>
                     </div>
                     <div className='TopHalf2'>
                         <div className='linkContainer'>

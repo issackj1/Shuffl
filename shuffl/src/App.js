@@ -10,6 +10,8 @@ import Browse from "./Containers/Browse/Browse";
 import Rooms from "./Containers/Rooms/Rooms"
 import SignUp from "./components/SignUp";
 
+import Error from "./Containers/Error/Error"
+
 import logo from './shuffl_logo_white.png';
 import TopBar from './components/TopBar';
 
@@ -26,10 +28,10 @@ class App extends Component {
         <TopBar/>
         <Switch>
           <Route path={"/signup/"} exact component={SignUp} />
-          <Route path={"/"} exact component={Homepage} />
+          <Route path={"/home/"} exact component={Homepage} />
           <Route path={"/browse/"} exact component={Browse} />
-          
           <Route path={"/rooms/"} exact component={Rooms} />
+          <Route component={Error}/>
         </Switch>
       </React.Fragment>
     );
