@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../../shuffl_logo_white.png';
-import TopBar from '../../components/TopBar';
 import Banner from './Banner';
 // import Button from 'react-bootstrap/Button';
 
