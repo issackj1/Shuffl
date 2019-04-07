@@ -4,7 +4,7 @@ import YTSearch from 'youtube-api-search';
 import VideoList from './video_list'
 import VideoDetail from './video_detail';
 
-const API_KEY = 'AIzaSyBvczSCCmWspeXZwfh4S_XKSNKuoxN7xIA';
+const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
 class YouTubeMain extends Component {
     constructor(props){
