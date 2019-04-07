@@ -16,8 +16,6 @@ class Browse extends Component {
     }
    
    changeGenre = (genre) => {
-        console.log('this is clicking');
-        console.log(genre);
         this.setState({genre:genre, isChosen:!this.state.isChosen});
    };
 
