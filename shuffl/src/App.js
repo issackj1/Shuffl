@@ -9,6 +9,7 @@ import Homepage from "./Containers/Homepage/Homepage";
 import Browse from "./Containers/Browse/Browse";
 import Rooms from "./Containers/Rooms/Rooms"
 import SignUp from "./components/SignUp";
+import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
 
 import Error from "./Containers/Error/Error"
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path={"/home/"} exact component={Homepage} />
           <Route path={"/browse/"} exact component={Browse} />
           <Route path={"/rooms/"} exact component={Rooms} />
+          <Route path={"/youtube/"} exact component={YouTubePage} />
           <Route component={Error}/>
         </Switch>
       </React.Fragment>

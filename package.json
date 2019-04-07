@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "youtube-api-search": "0.0.5"
   },
   "devDependencies": {
     "concurrently": "^3.6.1"
