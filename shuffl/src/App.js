@@ -24,6 +24,12 @@ class App extends Component {
     SignedIn:false
   }
   //state consists of log in status
+
+  authenticate = () =>{
+    this.setState({SignedIn: true});
+    history.push('/home/')
+  }
+
   render() {
 
     return (
@@ -34,7 +40,8 @@ class App extends Component {
         }
         {
           this.state.SignedIn?
-        <Switch>  
+        <Switch> 
+          {console.log("itswitched")} 
           <Route path={"/home/"} exact component={Homepage} />
           <Route path={"/browse/"} exact component={Browse} />
           <Route path={"/rooms/"} exact component={Rooms} />
@@ -42,7 +49,7 @@ class App extends Component {
           <Route component={Error}/>
         </Switch>:
         <Switch>
-          <Route path={"/signup/"} exact component={SignUp} />
+          <Route path={"/signup/"} render={(props) => <SignUp {...props} authenticate = {this.authenticate}/>} />
           <Route component={Error}/>
         </Switch>
         }

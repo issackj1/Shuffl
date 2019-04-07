@@ -8,19 +8,23 @@ class LogIn extends Component {
         super(props);
 
         this.state = {
-            signUp: false,
-            logIn: true
+            signUp: true
         };
 
-        this.operation = this.operation.bind(this)
+        this.switchSignUp = this.switchSignUp.bind(this)
     }
 
-    operation = () =>{
-        const {signUp, logIn} = this.state;
-        this.setState({signUp : !signUp,logIn:!logIn})
+    switchSignUp = () =>{
+        const {signUp} = this.state;
+        this.setState({signUp : !signUp})
+        
     }
 
+    authenticate = () =>{
+        this.props.authenticate();
+    } 
     render() {
+
         return (
             <div className="SignUp">
                 <header className="SignUpHeader">
@@ -38,34 +42,29 @@ class LogIn extends Component {
                             {
                                 this.state.signUp?
                                 <div>
+                                    <div>
+                                        <div onClick={this.authenticate} className="button primary">Login</div>
+                                    </div>
+                                    <div className="secondaryText">
+                                        <div  onClick={this.switchSignUp} className="link secondary">Sign Up</div>
+                                    </div>
+                                    <div className="secondaryText">
+                                        <button className="link forgotpass">Forgot password?</button>
+                                    </div>
+                                </div>
+                                :<div>
                                     <Form.Group controlId={"form"}>
                                         <Form.Control type="password" placeholder="Re-enter Password" />
                                     </Form.Group>
                                     <input type="date" className="bday" minvalue={"01-01-01"} placeholder="Birthday" ></input>
                                     <div className="secondaryText"> <input className="agree" type="checkbox"></input>I have read the <div className="link secondary">terms & conditions</div></div>
                                     <div>
-                                        <button className="button primary">Sign Up</button>
+                                        <div onClick={this.authenticate} className="button primary">Sign Up</div>
                                     </div>
                                     <div className="secondaryText">
-                                        Already a user?<div onClick={this.operation} className="link secondary">Login</div>
+                                        Already a user?<div onClick={this.switchSignUp} className="link secondary">Login</div>
                                     </div>
                                 </div>
-                            :null
-                            }
-                            {
-                                this.state.logIn?
-                                <div>
-                                    <div>
-                                        <button className="button primary">Login</button>
-                                    </div>
-                                    <div className="secondaryText">
-                                        <div  onClick={this.operation} className="link secondary">Sign Up</div>
-                                    </div>
-                                    <div className="secondaryText">
-                                        <button className="link forgotpass">Forgot password?</button>
-                                    </div>
-                                </div>
-                            :null
                             }
                         </Form>
                     </div>
