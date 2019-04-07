@@ -24,7 +24,7 @@ class App extends Component {
     SignedIn:false
   }
   //state consists of log in status
-
+  //this is where we will do the authentication on clientside
   authenticate = () =>{
     this.setState({SignedIn: true});
     history.push('/home/')

@@ -7,9 +7,6 @@ import { withRouter} from "react-router-dom";
 
 class TopBar extends Component {
     
-
-
-  
     render() {
         const {matchMedia,location, history} = this.props;
         return (

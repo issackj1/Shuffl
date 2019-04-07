@@ -24,10 +24,7 @@ class Browse extends Component {
    }
    
    render() {
-
-
         return(
-            
             <React.Fragment>
             <div className='parent'>
                 <div className='bottom'>

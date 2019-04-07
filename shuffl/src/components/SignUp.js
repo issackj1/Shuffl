@@ -3,7 +3,7 @@ import logo from '../shuffl_logo_white.png';
 import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 
-class LogIn extends Component {
+class SignUp extends Component {
     constructor(props){
         super(props);
 
@@ -74,4 +74,4 @@ class LogIn extends Component {
     }    
 }
 
-export default LogIn;
+export default SignUp;
