@@ -117,7 +117,7 @@ class SignUp extends Component {
                             {
                                 this.state.signUp ?
                                     <div>
-                                        <div>
+                                        <div className="secondaryTextLogin">
                                             <div onClick={this.authenticate} className="button primary">Login</div>
                                         </div>
                                         <div className="secondaryText">

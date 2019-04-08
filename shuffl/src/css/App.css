@@ -29,6 +29,7 @@
     border-radius: 10px;
     background: #5D5D5D;
     box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
+
 }
 
 @media only screen and (max-width: 767px){
@@ -73,6 +74,17 @@
     display: flex;
     justify-content: center;
     line-height: 38px;
+}
+
+.secondaryTextLogin {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /*vertical-align: middle;*/
+}
+
+#wordLogin {
+    vertical-align: middle;
 }
 
 .secondary{
