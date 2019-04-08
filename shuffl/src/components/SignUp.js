@@ -19,6 +19,7 @@ class SignUp extends Component {
 
         this.switchSignUp = this.switchSignUp.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.authenticate = this.authenticate.bind(this);
     }
 
     switchSignUp = () => {
@@ -68,18 +69,22 @@ class SignUp extends Component {
     };
 
     authenticate = () =>{
-        axios.post('http://localhost:4000/users/login', this.state)
-            .then(response => {
-                if(response.data.msg === ('success')){
-                    //redirect
-                    this.props.authenticate();
-                    //alert('success');
-                }
-            })
-            .catch(function (error) {
-                //console.log(error);
-                //alert('failure');
-            })
+        //this is the authentication,
+        //uncomment this block and
+        //comment out "this.props.authenticate() at the bottom" to test
+        //
+        // axios.post('http://localhost:4000/users/login', this.state)
+        //     .then(response => {
+        //         if(response.data.msg === ('success')){
+        //             //redirect
+        //             this.props.authenticate();
+        //             //alert('success');
+        //         }
+        //     })
+        //     .catch(function (error) {
+        //         //console.log(error);
+        //         //alert('failure');
+        //     });
         this.props.authenticate();
     };
 
