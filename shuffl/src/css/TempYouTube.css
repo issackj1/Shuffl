@@ -1,0 +1,48 @@
+.search-bar {
+    /*margin: 20px;*/
+    text-align: center;
+}
+
+.search-bar input {
+    width: 38%;
+    border: solid black;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+#vidContainer {
+    /*border: solid black;*/
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-item img {
+    max-width: 64px;
+    align-content: center;
+}
+
+.video-detail .details {
+    /*margin-top: 10px;*/
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /*content-align: center;*/
+    text-align: center;
+}
+
+.list-group-item {
+    cursor: pointer;
+
+}
+
+.list-group-item:hover {
+    background-color: #eee;
+}
+
+#listOfVid {
+    /*border: solid black;*/
+    display: inline-block;
+    width: 25%;
+    place-self: center;
+}
