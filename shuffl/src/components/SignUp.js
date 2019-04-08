@@ -24,6 +24,9 @@ class SignUp extends Component {
     switchSignUp = () => {
         const {signUp} = this.state;
         this.setState({signUp: !signUp})
+        document.getElementById('badfill').innerText = "";
+        document.getElementById('badpassword').innerText = "";
+        document.getElementById('registered').innerText = "";
 
     };
 
@@ -38,7 +41,6 @@ class SignUp extends Component {
 
         axios.post('http://localhost:4000/users/register', this.state)
             .then(response => {
-                console.log(response.data);
                 document.getElementById('badfill').innerText = "";
                 document.getElementById('badpassword').innerText = "";
                 document.getElementById('registered').innerText = "";
