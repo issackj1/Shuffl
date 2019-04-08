@@ -13,7 +13,6 @@ import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
 
 import Error from "./Containers/Error/Error"
 
-import logo from './shuffl_logo_white.png';
 import TopBar from './components/TopBar';
 import TopBarSignIn from './components/TopBarSignIn';
 

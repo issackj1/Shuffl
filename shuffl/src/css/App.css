@@ -119,12 +119,13 @@
     min-height: 40px;
     max-height: 55px;
     /*flex: 1;*/
-    width: 100%;
+    width: auto;
     display: flex;
     flex-direction: row;
 }
 .TopHalf1{
-    flex:1
+    flex:1;
+    width:auto;
 }
 
 .TopHalf2{

@@ -7,6 +7,11 @@ import { withRouter} from "react-router-dom";
 
 class TopBar extends Component {
 
+    componentDidMount(){
+        const {history} = this.props;
+        history.push('/home/')
+    }
+
     render() {
         const {matchMedia,location, history} = this.props;
         return (
@@ -16,6 +21,9 @@ class TopBar extends Component {
                         <img  src={logo} className="TopBarLogo" alt="TopBarLogo" onClick={()=>{history.push('/home/')}}/>
                     </div>
                     <div className='TopHalf2'>
+                    <div className='linkContainer'>
+                            <div onClick={()=>{history.push('/youtube/')}} className='link Home'>Youtube</div>
+                        </div>
                         <div className='linkContainer'>
                             <div onClick={()=>{history.push('/rooms/')}} className='link Rooms'>Rooms</div>
                         </div>
