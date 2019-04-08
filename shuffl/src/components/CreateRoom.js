@@ -1,16 +1,48 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form';
+import axios from "axios";
 
 export class CreateRoom extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            RoomName: '',
+            RoomHost: '',
+            Genre: 'Pop'
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange = (event) => {
+        const name = event.target.name;
+
+        this.setState({[name]: event.target.value});
+        console.log(name);
+    };
+
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://localhost:4000/chatrooms/add', this.state)
+            .then(response => {
+                alert('Success')
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    };
   render() {
     return (
             <div className="createRoom">
                 <Form>
                     <Form.Group controlId={"form"}>
-                        <Form.Control placeholder={"Room Name"}/>
+                        <Form.Control name={'RoomName'} placeholder={"Room Name"} onChange={this.handleChange}/>
                     </Form.Group>
                     <Form.Group controlId={"form"}>
-                        <Form.Control as="select">
+                        <Form.Control name={'Genre'} as="select" onChange={this.handleChange}>
                             <option>Pop</option>
                             <option>Hip-Hop</option>
                             <option>Rock</option>
@@ -26,7 +58,7 @@ export class CreateRoom extends Component {
                         </Form.Control>
                     </Form.Group>
                     <div className="createRoomButtons">
-                    <button className=" button cancel">Cancel</button> <button className="button primary">Create</button>
+                    <button className=" button cancel">Cancel</button> <button onClick={this.handleSubmit} className="button primary">Create</button>
                     </div>
                 </Form>
             </div>
