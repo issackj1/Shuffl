@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const axois = require('axios');
 
 router.get('/login', (req, res) => res.render('login')); 
 
@@ -17,53 +18,46 @@ module.exports = router;
 router.post('/register', (req, res) =>
 {
     const {name, email, password, password2} = req.body;
-    let errors = [];
+    let message = {};
+    let count = 0;
     // check fields
 
     if (!name || !email || !password || !password2)
     {
-        errors.push({msg: 'Please fill in all fields'})
+
+        message['fill'] = 'Please fill in all fields';
+        count++;
     }
 
     // check passwords match
 
-    if (password != password2)
+    if (password !== password2)
     {
-        errors.push({msg: 'Passwords do not match'})
+        message['match'] = 'Passwords do not match';
+        count++;
     }
 
-    // check password lenth
+    // check password length
 
     if (password.length < 6)
     {
-        errors.push({msg: 'Password should be at least 6 characters'})
+        message['passlength'] = 'Password should be at least 6 characters';
+        count++;
     }
 
 
-    if (errors.length > 0)
+    if (count > 0)
     {
-        res.render('register', {
-            errors,
-            name,
-            email,
-            password,
-            password2
-        });
+        res.json(message);
     }
     else{
         User.findOne({email:email})  //searching database
         .then(user => {
             if(user)
             {
-                errors.push({msg: 'Email is already registered'});
+                message['already'] = 'Email is already registered';
                 //User exists
-                res.render('register', {
-                    errors,
-                    name,
-                    email,
-                    password,
-                    password2
-                });
+                res.json(message);
             }
             else{
                 const newUser = new User({name, email, password});
@@ -76,8 +70,9 @@ router.post('/register', (req, res) =>
                         //save user
                         newUser.save()
                         .then(user => {
-                            req.flash('success_msg' , 'You are now registered and can login');
-                            res.redirect('/users/login')
+                            //req.flash('success_msg' , 'You are now registered and can login');
+                            message['success'] = 'success';
+                            res.json(message);
                         })
                         .catch(err => console.log(err));
                     }
