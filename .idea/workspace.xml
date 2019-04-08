@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="91b6d83e-cb52-47b6-b795-c5309b5fcfa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/shuffl/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/components/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/css/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/css/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/css/TempYouTube.css" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/css/TempYouTube.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/shuffl/node_modules/" />
     <ignored path="$PROJECT_DIR$/shufflapp/node_modules/" />
@@ -34,8 +32,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shuffl/src/components/SignUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="120" column="48" selection-start-line="120" selection-start-column="48" selection-end-line="120" selection-end-column="48" />
+            <state relative-caret-position="175">
+              <caret line="135" column="75" selection-start-line="135" selection-start-column="75" selection-end-line="135" selection-end-column="75" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -315,12 +313,12 @@
       <workItem from="1554685857520" duration="8821000" />
       <workItem from="1554700420016" duration="1931000" />
       <workItem from="1554741816005" duration="1290000" />
-      <workItem from="1554743568320" duration="2312000" />
+      <workItem from="1554743568320" duration="2686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61578000" />
+    <option name="totallyTimeSpent" value="61952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
@@ -640,8 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shuffl/src/components/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="120" column="48" selection-start-line="120" selection-start-column="48" selection-end-line="120" selection-end-column="48" />
+        <state relative-caret-position="175">
+          <caret line="135" column="75" selection-start-line="135" selection-start-column="75" selection-end-line="135" selection-end-column="75" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

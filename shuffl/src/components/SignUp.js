@@ -133,7 +133,7 @@ class SignUp extends Component {
                                         </Form.Group>
                                         <div className="secondaryText"><input className="agree" type="checkbox"></input>I
                                             have read the <div className="link secondary"> terms & conditions</div></div>
-                                        <div>
+                                        <div className="secondaryTextLogin">
                                             <div onClick={this.handleSubmit} className="button primary">Sign Up</div>
                                         </div>
                                         <div className="secondaryText">
