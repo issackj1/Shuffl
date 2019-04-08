@@ -124,7 +124,7 @@ class SignUp extends Component {
                                             <div onClick={this.switchSignUp} className="link secondary">Sign Up</div>
                                         </div>
                                         <div className="secondaryText">
-                                            <button className="link forgotpass">Forgot password?</button>
+                                            <div className="link forgotpass">Forgot password?</div>
                                         </div>
                                     </div>
                                     : <div>

@@ -7,6 +7,11 @@ import { withRouter} from "react-router-dom";
 
 class TopBar extends Component {
     
+    componentDidMount(){
+        const {history} = this.props;
+        history.push('/signup/')
+    }
+
     render() {
         const {matchMedia,location, history} = this.props;
         return (

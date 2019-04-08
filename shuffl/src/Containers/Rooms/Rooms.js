@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CreateRoom from '../../components/CreateRoom';
-import RoomContainer from '../../components/RoomContainer'
+import CreateRoom from '../../Components/CreateRoom';
+import RoomContainer from '../../Components/RoomContainer'
 class Room extends Component {
 
     state = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route , Router,  Switch, Link, withRouter} from "react-router-dom";
-import history from './components/History';
+import history from './Components/History';
 import './css/App.css';
 
 
@@ -8,13 +8,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Homepage from "./Containers/Homepage/Homepage";
 import Browse from "./Containers/Browse/Browse";
 import Rooms from "./Containers/Rooms/Rooms"
-import SignUp from "./components/SignUp";
+import SignUp from "./Components/SignUp";
 import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
 
 import Error from "./Containers/Error/Error"
 
-import TopBar from './components/TopBar';
-import TopBarSignIn from './components/TopBarSignIn';
+import TopBar from './Components/TopBar';
+import TopBarSignIn from './Components/TopBarSignIn';
 
 class App extends Component {
 
