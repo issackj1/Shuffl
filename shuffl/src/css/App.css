@@ -205,11 +205,12 @@ h1 {
 }
 
 .Genre {
-    flex: 0 0 28vw;
+    flex: 0 0 24vw;
     margin: auto;
 	margin-top: 1rem;
     height: auto;
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    min-width: 150px;
 }
 
 .Genre img {
