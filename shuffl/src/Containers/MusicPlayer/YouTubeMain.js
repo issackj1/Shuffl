@@ -29,11 +29,34 @@ class YouTubeMain extends Component {
         });
 
     }
+
+    player;
+
+     onYouTubePlayerAPIReady =()=> {
+    // create the global player from the specific iframe (#video)
+    player = new YT.Player('iFrameName', {
+        events: {
+            // call this function when player is ready to use
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+    function onPlayerReady(event) {
+
+    // bind events
+    var playButton = document.getElementById("play-button");
+    playButton.addEventListener("click", function() {
+        player.playVideo();
+    });
     render() {
+        var player;
         return (
-            <div>
+            <div className="parentYT">
                 <SearchBar onSearchTermChange={searchTerm => this.videoSearch(searchTerm)}/>
                 <VideoDetail video={this.state.selectedVideo}/>
+                player = document.getElementById("iFrameName")
+                <button id="newBut">Click Me</button>
                 <VideoList
                     onVideoSelect={userSelected => this.setState({selectedVideo: userSelected})}
                     videos={this.state.videos} />

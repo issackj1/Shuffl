@@ -1,6 +1,7 @@
 .search-bar {
     /*margin: 20px;*/
     /*text-align: center;*/
+    color: #000;
 }
 
 .search-bar input {
@@ -10,12 +11,15 @@
     padding-left: 10px;
     max-width: 815px;
     margin-left: 10px;
+    color: #000 !important
+
 }
 
 #vidContainer {
     width: 25%;
     /*margin-left: auto;*/
     /*margin-right: auto;*/
+    color: #000 !important;
 }
 
 .video-item img {
@@ -30,7 +34,16 @@
     border-radius: 4px;
     /*content-align: center;*/
     text-align: center;
+    /*color: #000;*/
+    color: #000 !important;
+    visibility: hidden;
 }
+
+.details {
+    color: #000 !important;
+}
+
+
 
 .list-group-item {
     cursor: pointer;
@@ -46,4 +59,13 @@
     display: inline-block;
     width: 25%;
     place-self: center;
+}
+
+.parentYT {
+    color: #000 !important;
+}
+
+
+#newBut {
+    color: #000;
 }
