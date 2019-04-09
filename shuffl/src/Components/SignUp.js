@@ -29,6 +29,7 @@ class SignUp extends Component {
         document.getElementById('badpassword').innerText = "";
         document.getElementById('registered').innerText = "";
         document.getElementById('invalidemail').innerText = "";
+        document.getElementById('uniqueuser').innerText = "";
 
     };
 
@@ -47,6 +48,7 @@ class SignUp extends Component {
                 document.getElementById('badpassword').innerText = "";
                 document.getElementById('registered').innerText = "";
                 document.getElementById('invalidemail').innerText = "";
+                document.getElementById('uniqueuser').innerText = "";
 
                 if(response.data.hasOwnProperty('success')){
                     //redirect
@@ -67,6 +69,10 @@ class SignUp extends Component {
                 else if(response.data.hasOwnProperty('atsymbol')){
                     //alert(response.data.already);
                     document.getElementById('invalidemail').innerText = "invalid email";
+                }
+                else if(response.data.hasOwnProperty('useralready')){
+                    //alert(response.data.already);
+                    document.getElementById('uniqueuser').innerText = "username is taken";
                 }
             })
             .catch(function (error) {
@@ -106,6 +112,8 @@ class SignUp extends Component {
                         <span id={"badfill"}></span>
                         <span id={"badname"}></span>
                         <span id={"invalidemail"}></span>
+                        <span id={"uniqueuser"}></span>
+
                         <Form>
                             <Form.Group controlId={"form"}>
                                 <Form.Control name={"name"} type={"username"} onChange={this.handleChange} placeholder={"Username"} />
@@ -114,7 +122,7 @@ class SignUp extends Component {
                                 this.state.signUp ?
                                     <span id={"bademail"}></span>
                                     : <Form.Group controlId={"form"}>
-                                        <Form.Control name={"email"} type="email" onChange={this.handleChange} placeholder="email"/>
+                                        <Form.Control name={"email"} type="email" onChange={this.handleChange} placeholder="Email"/>
                                     </Form.Group>
                             }
                             <span id={"badpassword"}></span>
