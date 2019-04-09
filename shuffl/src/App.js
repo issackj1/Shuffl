@@ -13,20 +13,26 @@ import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
 
 import Error from "./Containers/Error/Error"
 
+import ChatPlayerContainer from "./Components/ChatPlayerContainer"
+
 import TopBar from './Components/TopBar';
 import TopBarSignIn from './Components/TopBarSignIn';
 
 class App extends Component {
 
   state={
-    playing:false,
-    SignedIn:false
+    Playing:false,
+    SignedIn:false,
   }
   //state consists of log in status
   //this is where we will do the authentication on clientside
   authenticate = () =>{
     this.setState({SignedIn: true});
     history.push('/home/')
+  }
+
+  play = () =>{
+    this.setState({Playing: true});
   }
 
   render() {
@@ -41,9 +47,9 @@ class App extends Component {
           this.state.SignedIn?
         <Switch> 
           {console.log("itswitched")} 
-          <Route path={"/home/"} exact component={Homepage} />
-          <Route path={"/browse/"} exact component={Browse} />
-          <Route path={"/rooms/"} exact component={Rooms} />
+          <Route path={"/home/"} render={(props) => <Homepage {...props} play = {this.play}/>} />
+          <Route path={"/browse/"} render={(props) => <Browse {...props} play = {this.play}/>} />
+          <Route path={"/rooms/"} render={(props) => <Rooms {...props} play = {this.play}/>}/>
           <Route path={"/youtube/"} exact component={YouTubePage} />
           <Route component={Error}/>
         </Switch>:
@@ -51,6 +57,11 @@ class App extends Component {
           <Route path={"/signup/"} render={(props) => <SignUp {...props} authenticate = {this.authenticate}/>} />
           <Route component={Error}/>
         </Switch>
+        }
+        {
+          this.state.Playing?
+          <ChatPlayerContainer play = {this.play}/>
+          :null
         }
       </React.Fragment>
     );

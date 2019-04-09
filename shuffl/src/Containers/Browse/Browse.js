@@ -3,7 +3,7 @@ import logo from '../../shuffl_logo_white.png';
 import khalid from '../../images/khalid.jpeg';
 
 import {FormText} from "react-bootstrap";
-import RoomContainer from '../../Components/BrowseRoomContainer';
+import BrowseRoomContainer from '../../Components/BrowseRoomContainer';
 import GenreList from '../../Components/GenreList';
 import CreateRoom from '../../Components/CreateRoom'
 // import Button from 'react-bootstrap/Button';
@@ -24,6 +24,7 @@ class Browse extends Component {
    }
    
    render() {
+
         return(
             <React.Fragment>
             <div className='parent'>
@@ -39,7 +40,7 @@ class Browse extends Component {
 
                     {
                         this.state.isChosen?
-                        <GenreList changeGenre={this.changeGenre}/>:<RoomContainer genre={this.state.genre}/>
+                        <GenreList changeGenre={this.changeGenre}/>:<BrowseRoomContainer genre={this.state.genre} play = {this.props.play}/>
                     }
                 </div>
             </div>

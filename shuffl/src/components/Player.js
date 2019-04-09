@@ -4,10 +4,11 @@ export class Player extends Component {
 
 
   render() {
+
     return (
       <div className="player">
         <div className="player top">
-        <div className="fullscreen"></div>
+        <div className="fullscreen" onclick={this.props.maximize}></div>
         <div className="roomID"></div>
         <div className="upNext">
         <div></div>

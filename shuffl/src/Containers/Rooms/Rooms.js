@@ -23,7 +23,7 @@ class Room extends Component {
                 </div>
                 {
                     this.state.createRoom?
-                    <CreateRoom/>:<RoomContainer/>
+                    <CreateRoom play ={this.props.play}/>:<RoomContainer play = {this.props.play}/>
                 }
         
             </div>
