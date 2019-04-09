@@ -4,9 +4,7 @@ import Banner from './Banner';
 
 class Homepage extends Component {
 
-    componentDidMount(){
 
-    }
 
     render() {
         return (

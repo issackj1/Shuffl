@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import Player from ".//Player";
-import Chat from ".//Chat";
+import Player from "../Components/Player";
+import Chat from "../Components/Chat";
 
 export class ChatPlayerContainer extends Component {
-  constructor(props){
-    super(props);
 
-    this.state = {
-        maximized: false
-    };
-    
-    this.operation = this.operation.bind(this)
+  state={
+    maximized:false
   }
 
-  operation = () =>{
-      const {maximized} = this.state;
-      this.setState({maximized: !maximized})
+  maximize=()=>{
+    this.setState({maximized:!this.state.maximized})
   }
-
   render() {
+
     return (
       <div>
-        <Player />
+        <Player maximize={this.maximize}/>
         {
           this.state.maximized?
           <Chat />

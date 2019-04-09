@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import logo from '../shuffl_logo_white.png';
-import Form from 'react-bootstrap/Form';
 import { withRouter} from "react-router-dom";
 // import Button from 'react-bootstrap/Button';
 

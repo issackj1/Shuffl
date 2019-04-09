@@ -5,7 +5,7 @@ import khalid from '../images/khalid.jpeg'
   const Room = (props) =>(
       <div className="Room">
         <div className="RoomImage"><img src = {khalid}></img></div>
-        <div className="Room footer">{props.room.RoomName}{props.room.RoomHost}</div>
+        <div className="Room footer" onClick={props.play}>{props.room.RoomName}{props.room.RoomHost}</div>
       </div>
     );
   
