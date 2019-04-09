@@ -8,6 +8,7 @@ export class CreateRoom extends Component {
         super(props);
 
         this.state = {
+            UserList:[],
             RoomName: '',
             RoomHost: '',
             Genre: 'Pop'
@@ -18,9 +19,8 @@ export class CreateRoom extends Component {
 
     handleChange = (event) => {
         const name = event.target.name;
-
-        this.setState({[name]: event.target.value});
-        console.log(name);
+        
+        this.setState({[name]: event.target.value ,RoomHost: this.props.UserId, UserList:[this.props.UserId]});
     };
 
 
@@ -29,11 +29,15 @@ export class CreateRoom extends Component {
         axios.post('http://localhost:4000/chatrooms/add', this.state)
             .then(response => {
                 alert('Success')
+                console.log(response)
             })
             .catch(function (error) {
                 console.log(error);
             })
     };
+    
+    
+    // {()=>{this.props.setRoomId()}}
   render() {
     return (
             <div className="createRoom">

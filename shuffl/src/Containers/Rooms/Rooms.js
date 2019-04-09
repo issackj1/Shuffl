@@ -24,9 +24,9 @@ class Room extends Component {
 						</button>
 					</div>
 					{this.state.createRoom ? (
-						<CreateRoom play={this.props.play} />
+						<CreateRoom UserId={this.props.UserId} setRoomId={this.props.setRoomId}/>
 					) : (
-						<RoomContainer play={this.props.play} setRoomId={this.props.setRoomId} />
+						<RoomContainer setRoomId={this.props.setRoomId} />
 					)}
 				</div>
 			</div>

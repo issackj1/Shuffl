@@ -26,7 +26,6 @@ class App extends Component {
 		SignedIn: false,
 		UserId: '',
 		RoomId: '',
-
 		host: false
 	};
 	//state consists of log in status
@@ -39,20 +38,24 @@ class App extends Component {
 	};
 
 	setUserId = (userid) => {
+    //set uid from login
 		this.setState({ UserId: userid });
-	};
-	play = () => {
-		this.setState({ Playing: true });
 	};
 
 	setRoomId = (roomid, roomhost) => {
-		this.setState({ RoomId: roomid });
+		this.setState({ RoomId: roomid, Playing: true });
 		if (roomhost == this.state.UserId) {
 			this.setState({ host: true });
 		} else {
 			this.setState({ host: false });
 		}
-	};
+  };
+  
+  joinRoom = () =>{
+    //add user to room using uid and roomid
+    //axios update
+    //add room to user using roomid and uid
+  }
 
 	render() {
 		return (
@@ -65,9 +68,8 @@ class App extends Component {
 							render={(props) => (
 								<Homepage
 									{...props}
-									play={this.play}
-									UserId={this.UserId}
-									RoomId={this.RoomId}
+									UserId={this.state.UserId}
+									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
 								/>
 							)}
@@ -77,9 +79,8 @@ class App extends Component {
 							render={(props) => (
 								<Browse
 									{...props}
-									play={this.play}
-									UserId={this.UserId}
-									RoomId={this.RoomId}
+									UserId={this.state.UserId}
+									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
 								/>
 							)}
@@ -89,7 +90,6 @@ class App extends Component {
 							render={(props) => (
 								<Rooms
 									{...props}
-									play={this.play}
 									UserId={this.state.UserId}
 									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
@@ -101,7 +101,6 @@ class App extends Component {
 							render={(props) => (
 								<YouTubePage
 									{...props}
-									play={this.play}
 									UserId={this.state.UserId}
 									RoomId={this.state.RoomId}
 								/>
@@ -119,7 +118,8 @@ class App extends Component {
 						/>
 						<Route component={Error} />
 					</Switch>
-				)}
+        )}
+        {/* change to player */}
 				{this.state.Playing ? <ChatPlayerContainer play={this.play} /> : null}
 			</React.Fragment>
 		);
