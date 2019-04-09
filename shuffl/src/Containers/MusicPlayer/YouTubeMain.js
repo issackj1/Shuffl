@@ -40,12 +40,10 @@ class YouTubeMain extends Component {
 		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
 			//take this and add it to room_queue in Mongo using this.props.RoomId
 			console.log(data[0].id.videoId);
-			axios
-				.post('http://localhost:4000/chatrooms/update' + this.props.RoomId)
-				.then((response) => {})
-				.catch(function(error) {
-
-				});
+			// axios
+			// 	.post('http://localhost:4000/chatrooms/update/:' + this.props.RoomId)
+			// 	.then((response) => {})
+			// 	.catch(function(error) {});
 			// this.setState({ selectedVideo: data[0] });
 			// this.setState({ queue: this.state.queue.concat([ this.state.selectedVideo ]) });
 		});
