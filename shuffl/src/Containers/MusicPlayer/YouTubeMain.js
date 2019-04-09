@@ -12,9 +12,9 @@ class YouTubeMain extends Component {
 
     constructor(props){
         super(props);
-        let player;
-        player = null;
+        
         this.state = {
+            player:null,
             videos: [],
             selectedVideo: null,
             play: false
@@ -35,12 +35,12 @@ class YouTubeMain extends Component {
     }
 
     playbutton=()=>{
-        this.player.pauseVideo();
+        this.state.player.pauseVideo();
     }
 
     // console.log(selectedVideo);
-    handleReady(e){
-        this.player = e.target;
+    handleReady=(e)=>{
+        this.setState({player: e.target})
     }
 
     render() {
