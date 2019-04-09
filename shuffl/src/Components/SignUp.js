@@ -22,6 +22,17 @@ class SignUp extends Component {
         this.authenticate = this.authenticate.bind(this);
     }
 
+    componentDidMount() {
+        axios.get('http://localhost:4000/', {withCredentials: true})
+            .then(response => {
+                console.log('look here');
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
     switchSignUp = () => {
         const {signUp} = this.state;
         this.setState({signUp: !signUp})
@@ -85,18 +96,19 @@ class SignUp extends Component {
         //uncomment this block and
         //comment out "this.props.authenticate() at the bottom" to test
         //
-        // axios.post('http://localhost:4000/users/login', this.state)
-        //     .then(response => {
-        //         if(response.data.msg === ('success')){
-        //             //redirect
-        //             this.props.authenticate();
-        //             //alert('success');
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         //console.log(error);
-        //         //alert('failure');
-        //     });
+        axios.post('http://localhost:4000/users/login', this.state)
+            .then(response => {
+                console.log(response.data);
+                if(response.data.hasOwnProperty('msg')){
+                    //redirect
+                    this.props.authenticate();
+                    //alert('success');
+                }
+            })
+            .catch(function (error) {
+                //console.log(error);
+                //alert('failure');
+            });
         this.props.authenticate();
     };
 

@@ -1,17 +1,14 @@
 const express = require('express');
+const app = require('../app');
 const router = express.Router();
-const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const axois = require('axios');
+const User = require('../models/User');
 
 router.get('/login', (req, res) => res.render('login'));
 
-
 router.get('/register', (req, res) => res.render('register'));
-
-
-module.exports = router;
 
 // Express passport middleware
 router.use(passport.initialize());
@@ -25,8 +22,6 @@ router.post('/register', (req, res) => {
     let message = {};
     let count = 0;
     // check fields
-
-
 
     if (!name || !email || !password || !password2) {
 
@@ -64,7 +59,7 @@ router.post('/register', (req, res) => {
     } 
     
     
-    else if (count > 0)
+    else if (count === 0)
     {
         User.findOne({email: email})  //searching database
             .then(user => 
@@ -100,11 +95,6 @@ router.post('/register', (req, res) => {
                 }
 
             });
-
-
-
-
-
     }
     else
     {
@@ -119,21 +109,25 @@ router.post('/register', (req, res) => {
             })
     }
 
-
-
 });
 
 // Login
 router.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-        res.json({'msg': 'success'});
+    //console.log(req.session);
+    req.session.passport['name'] = req.user.name;
+    req.session.passport['email'] = req.user.email;
+    req.session.save();
+    //res.send(req.session);
+        res.json({
+           'msg': 'success'
+        });
     });
 
 // Logout
 router.get('/logout', (req, res) => {
     req.logout();
-    req.flash('success_msg', 'You are logged out');
     res.redirect('/users/login');
 });
 

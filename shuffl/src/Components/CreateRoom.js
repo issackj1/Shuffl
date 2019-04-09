@@ -26,7 +26,7 @@ export class CreateRoom extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:4000/chatrooms/add', this.state)
+        axios.post('http://localhost:4000/chatrooms/add', this.state, {withCredentials: true})
             .then(response => {
                 alert('Success')
             })

@@ -1,8 +1,7 @@
 const express = require ('express');
 const cors = require('cors');
-const app = express();
+const app = require('../app');
 const router = express.Router();
-app.use(cors());
 
 let ChatRoom = require('../models/chatroom.model');
 
@@ -32,6 +31,8 @@ router.get('/:id', function (req, res) {
 //create a chatroom and add to the database
 router.post('/add', function (req, res) {
     let chatroom = new ChatRoom(req.body);
+    //console.log(req.body);
+    chatroom['RoomHost'] = req.session.passport ? req.session.passport.name : '';
     chatroom.save()
         .then(chatroom =>{
             res.status(200).json({'chatroom': 'chatroom added successfully'});
