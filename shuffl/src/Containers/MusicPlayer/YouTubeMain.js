@@ -9,14 +9,18 @@ import YouTube from 'react-youtube';
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
 class YouTubeMain extends Component {
+
     constructor(props){
         super(props);
-
+        let player;
+        player = null;
         this.state = {
             videos: [],
-            selectedVideo: null
+            selectedVideo: null,
+            play: false
         };
 
+        // this.handlePlay = this.handlePlay.bind(this);
         this.videoSearch('Drake');
     }
 
@@ -30,7 +34,14 @@ class YouTubeMain extends Component {
 
     }
 
+    playbutton=()=>{
+        this.player.pauseVideo();
+    }
+
     // console.log(selectedVideo);
+    handleReady(e){
+        this.player = e.target;
+    }
 
     render() {
         const opts = {
@@ -49,14 +60,15 @@ class YouTubeMain extends Component {
                     <YouTube
                         videoId={this.state.selectedVideo.id.videoId}
                         opts={opts}
-                        onReady={this._onReady}
+                        onReady={this.handleReady}
                     />:
                     null
                 }
 
-                <button id="newBut">Click Me</button>
+                <button onClick={this.playbutton} id="newBut">Click Me</button>
             </div>
         );
+
 
         // _onReady(event) {
         //     // access to player in all event handlers via event.target
