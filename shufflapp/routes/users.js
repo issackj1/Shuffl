@@ -10,6 +10,7 @@ router.get('/login', (req, res) => res.render('login'));
 
 router.get('/register', (req, res) => res.render('register'));
 
+
 module.exports = router;
 
 // Express passport middleware
@@ -25,11 +26,22 @@ router.post('/register', (req, res) => {
     let count = 0;
     // check fields
 
+
+
     if (!name || !email || !password || !password2) {
 
         message['fill'] = 'Please fill in all fields';
         count++;
     }
+
+
+    // check if email contains an @ symbol
+    if (!email.match('@'))
+    {
+        message['atsymbol'] = 'Invalid email address';
+        count++;
+    }
+
 
     // check passwords match
 

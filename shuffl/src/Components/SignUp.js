@@ -28,6 +28,7 @@ class SignUp extends Component {
         document.getElementById('badfill').innerText = "";
         document.getElementById('badpassword').innerText = "";
         document.getElementById('registered').innerText = "";
+        document.getElementById('invalidemail').innerText = "";
 
     };
 
@@ -45,6 +46,7 @@ class SignUp extends Component {
                 document.getElementById('badfill').innerText = "";
                 document.getElementById('badpassword').innerText = "";
                 document.getElementById('registered').innerText = "";
+                document.getElementById('invalidemail').innerText = "";
 
                 if(response.data.hasOwnProperty('success')){
                     //redirect
@@ -61,6 +63,10 @@ class SignUp extends Component {
                 }else if(response.data.hasOwnProperty('already')){
                     //alert(response.data.already);
                     document.getElementById('registered').innerText = "Email already registered fam";
+                }
+                else if(response.data.hasOwnProperty('atsymbol')){
+                    //alert(response.data.already);
+                    document.getElementById('invalidemail').innerText = "invalid email";
                 }
             })
             .catch(function (error) {
@@ -99,6 +105,7 @@ class SignUp extends Component {
                         <span id={"registered"}></span>
                         <span id={"badfill"}></span>
                         <span id={"badname"}></span>
+                        <span id={"invalidemail"}></span>
                         <Form>
                             <Form.Group controlId={"form"}>
                                 <Form.Control name={"name"} type={"username"} onChange={this.handleChange} placeholder={"Username"} />
