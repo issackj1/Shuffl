@@ -8,6 +8,16 @@ const VideoDetail = (props) => {
 
     const videoId = video.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
+    console.log(videoId);
+
+    const videoOptions = {
+        playerVars: { // https://developers.google.com/youtube/player_parameters
+            autoplay: 1,
+            controls: 0,
+            rel: 0,
+            showinfo: 0
+        }
+    };
 
     return (
 
