@@ -8,7 +8,7 @@ export class Player extends Component {
     return (
       <div className="player">
         <div className="player top">
-        <div className="fullscreen" onclick={this.props.maximize}></div>
+        <div className="queue" onClick={this.props.switch}>queue</div>
         <div className="roomID"></div>
         <div className="upNext">
         <div></div>

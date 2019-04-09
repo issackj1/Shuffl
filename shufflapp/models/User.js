@@ -15,10 +15,9 @@ const UserSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    date: 
+    RoomList:
     {
-        type: Date, 
-        default: Date.now
+        type:[]
     }
 });
 
