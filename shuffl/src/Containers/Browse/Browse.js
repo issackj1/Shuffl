@@ -40,7 +40,7 @@ class Browse extends Component {
 
                     {
                         this.state.isChosen?
-                        <GenreList changeGenre={this.changeGenre}/>:<BrowseRoomContainer genre={this.state.genre} play = {this.props.play}/>
+                        <GenreList changeGenre={this.changeGenre}/>:<BrowseRoomContainer genre={this.state.genre} setRoomId ={this.props.setRoomId}/>
                     }
                 </div>
             </div>

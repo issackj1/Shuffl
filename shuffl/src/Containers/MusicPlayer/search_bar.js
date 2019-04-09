@@ -13,12 +13,6 @@ class SearchBar extends React.Component{
         this.setState({ term: event.target.value });
     }
 
-    // onSearch(event) {
-    //     this.setState({ term: event.target.value });
-    //     this.props.onSearchTermChange(event.target.value);
-    //     console.log("enter key pressed");
-    // }
-
     onSearch(e){
         if (e.key === 'Enter') {
             console.log("ENTER WAS PRESSED");
@@ -30,12 +24,10 @@ class SearchBar extends React.Component{
     render(){
         return (
             <div className="search-bar">
-                {/*<h1>Search Bar</h1>*/}
                 <input
                     value={this.state.term}
                     onChange={this.onInputChange}
                     onKeyDown={this.onSearch}
-
                 />
             </div>
         );

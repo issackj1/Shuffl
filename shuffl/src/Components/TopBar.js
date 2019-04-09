@@ -21,7 +21,7 @@ class TopBar extends Component {
                     </div>
                     <div className='TopHalf2'>
                     <div className='linkContainer'>
-                            <div onClick={()=>{history.push('/chat/')}} className='link Chat'>Chat</div>
+                            <div onClick={()=>{history.push('/youtubeguest/')}} className='link Chat'>guest</div>
                         </div>
                     <div className='linkContainer'>
                             <div onClick={()=>{history.push('/youtube/')}} className='link Home'>Youtube</div>

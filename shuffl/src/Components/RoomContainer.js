@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import RoomList from './RoomList';
-import axios from "axios";
+import axios from 'axios';
 
 export default class RoomContainer extends Component {
+	constructor() {
+		super();
 
-    constructor() {
-        super();
+		this.state = {
+			rooms: []
+		};
+	}
 
-        this.state = {
-            rooms: []
-        };
-    }
+	componentDidMount() {
+		axios
+			.get('http://localhost:4000/chatrooms')
+			.then((response) => {
+				this.setState({ rooms: response.data });
+				console.log(response.data);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	}
 
-    componentDidMount() {
-        axios.get('http://localhost:4000/chatrooms')
-            .then(response => {
-                this.setState({ rooms: response.data})
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
+	render() {
+		return (
+			<div className="RoomContainer">
+				<RoomList
+					rooms={this.state.rooms}
+					genre={this.props.genre}
 
-    render() {
-        return (
-            <div className="RoomContainer">
-              <RoomList rooms={this.state.rooms} genre = {this.props.genre} play={this.props.play}/>
-            </div>
-        );
-    }
+					RoomId={this.props.RoomId}
+					setRoomId={this.props.setRoomId}
+				/>
+			</div>
+		);
+	}
 }

@@ -91,6 +91,7 @@ class SignUp extends Component {
             })
     };
 
+
     authenticate = () =>{
         //this is the authentication,
         //uncomment this block and

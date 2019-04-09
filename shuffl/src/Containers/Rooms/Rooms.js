@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
 import CreateRoom from '../../Components/CreateRoom';
-import RoomContainer from '../../Components/RoomContainer'
+import RoomContainer from '../../Components/RoomContainer';
 class Room extends Component {
+	state = {
+		createRoom: false
+	};
 
-    state = {
-        createRoom:false
-    }
+	operation = () => {
+		const { createRoom } = this.state;
+		this.setState({ createRoom: !createRoom });
+	};
 
-    operation = () =>{
-        const {createRoom} = this.state;
-        this.setState({createRoom: !createRoom})
-    }
-
-    render() {
-        return (
-        <div className='parent'>
-            <div className='bottom'>
-                <div className ="page-title">
-                    <h1>Rooms</h1>
-                </div>
-                <div className="RoomButtonDiv">
-                    <button onClick={this.operation}className="RoomButton">+</button>
-                </div>
-                {
-                    this.state.createRoom?
-                    <CreateRoom play ={this.props.play}/>:<RoomContainer play = {this.props.play}/>
-                }
-        
-            </div>
-        </div>        
-        )
-    }
+	render() {
+		return (
+			<div className="parent">
+				<div className="bottom">
+					<div className="page-title">
+						<h1>Rooms</h1>
+					</div>
+					<div className="RoomButtonDiv">
+						<button onClick={this.operation} className="RoomButton">
+							+
+						</button>
+					</div>
+					{this.state.createRoom ? (
+						<CreateRoom UserId={this.props.UserId} setRoomId={this.props.setRoomId}/>
+					) : (
+						<RoomContainer setRoomId={this.props.setRoomId} />
+					)}
+				</div>
+			</div>
+		);
+	}
 }
 
-export default Room
+export default Room;
