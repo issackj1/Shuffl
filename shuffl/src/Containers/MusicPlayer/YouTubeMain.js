@@ -58,13 +58,16 @@ class YouTubeMain extends Component {
 	};
 
 	next = () => {
-		console.log(this.state.queue);
-		if (this.state.queue.length === 1) {
-			this.state.player.loadVideoById(this.state.queue[0], 0, 'large');
-			this.setState({ queue: [] });
-		} else if (this.state.queue.length > 0) {
+		
+		if (this.state.queue.length > 1) {
+			this.state.player.loadVideoById(this.state.queue[0][1], 0, 'large');
+			console.log(this.state.queue[0][1])
 			this.setState({ queue: this.state.queue.splice(0, 1) });
-			this.state.player.loadVideoById(this.state.queue[0], 0, 'large');
+			console.log(this.state.queue);
+		}else if (this.state.queue.length == 1) {
+			this.state.player.loadVideoById(this.state.queue[0][1], 0, 'large');
+			console.log(this.state.queue[0][1])
+			this.setState({ queue: [] });
 		} else {
 			this.state.player.stopVideo();
 		}
