@@ -26,7 +26,7 @@ export default class RoomContainer extends Component {
     render() {
         return (
             <div className="RoomContainer">
-              <RoomList rooms={this.state.rooms} genre = {this.props.genre} play={this.props.play}/>
+              <RoomList rooms={this.state.rooms} genre = {this.props.genre} play={this.props.play} setRoomId ={this.props.setRoomId}/>
             </div>
         );
     }

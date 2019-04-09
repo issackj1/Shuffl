@@ -80,24 +80,26 @@ class SignUp extends Component {
             })
     };
 
+
     authenticate = () =>{
         //this is the authentication,
         //uncomment this block and
-        //comment out "this.props.authenticate() at the bottom" to test
-        //
-        // axios.post('http://localhost:4000/users/login', this.state)
-        //     .then(response => {
-        //         if(response.data.msg === ('success')){
-        //             //redirect
-        //             this.props.authenticate();
-        //             //alert('success');
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         //console.log(error);
-        //         //alert('failure');
-        //     });
-        this.props.authenticate();
+        // comment out "this.props.authenticate() at the bottom" to test
+        
+        axios.post('http://localhost:4000/users/login', this.state)
+            .then(response => {
+                console.log(response)
+                if(response.data.msg === ('success')){
+                    //redirect
+                    this.props.authenticate();
+                    //alert('success');
+                }
+            })
+            .catch(function (error) {
+                //console.log(error);
+                //alert('failure');
+            });
+        // this.props.authenticate();
     };
 
     render() {

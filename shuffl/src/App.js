@@ -27,17 +27,26 @@ class App extends Component {
   state={
     Playing:false,
     SignedIn:false,
-    username:'arthur'
+    UserId:'',
+    RoomId:'',
+    host:false
   }
   //state consists of log in status
   //this is where we will do the authentication on clientside
   authenticate = () =>{
     this.setState({SignedIn: true});
+    this.setUserId('5cac258fe700081ca7bcede4')
     history.push('/home/')
+    console.log(this.state.UserId)
   }
 
   play = () =>{
     this.setState({Playing: true});
+  }
+
+  setRoomId = (roomid) =>{
+    console.log('roomid set')
+    this.setState({RoomId: roomid})
   }
 
   render() {
@@ -51,10 +60,9 @@ class App extends Component {
         {
           this.state.SignedIn?
         <Switch> 
-          {console.log("itswitched")} 
-          <Route path={"/home/"} render={(props) => <Homepage {...props} play = {this.play}/>} />
-          <Route path={"/browse/"} render={(props) => <Browse {...props} play = {this.play}/>} />
-          <Route path={"/rooms/"} render={(props) => <Rooms {...props} play = {this.play}/>}/>
+          <Route path={"/home/"} render={(props) => <Homepage {...props} play = {this.play} UserId = {this.UserId} RoomId = {this.RoomId} setRoomId ={this.setRoomId}/>} />
+          <Route path={"/browse/"} render={(props) => <Browse {...props} play = {this.play} UserId = {this.UserId} RoomId = {this.RoomId} setRoomId ={this.setRoomId}/>} />
+          <Route path={"/rooms/"} render={(props) => <Rooms {...props} play = {this.play} UserId = {this.UserId} RoomId = {this.RoomId} setRoomId ={this.setRoomId}/>}/>
           <Route path={"/youtube/"} exact component={YouTubePage} />
           <Route path={"/youtubeguest/"} exact component={YouTubePageGuest} />
           {/* <Route path={"/chat/"} render={(props) => <Chat {...props} username = {this.username}/>}/> */}
