@@ -10,11 +10,11 @@ const Room = (props) => (
 		<div
 			className="RoomFooter"
 			onClick={() => {
-				props.setRoomId(props.room._id, props.room.RoomHost);
+				props.setRoomId(props.room._id, props.room.RoomHostId);
 			}}
 		>
 			{props.room.RoomName}
-			{props.room.RoomHost}
+			{props.room.RoomHostId}
 			{props.room._id}
 		</div>
 	</div>

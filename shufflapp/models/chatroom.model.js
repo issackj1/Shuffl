@@ -7,7 +7,7 @@ let ChatRoom = new Schema({
         {
             type: String
         },
-    RoomHost:
+    RoomHostId:
         {
             type: String
         },

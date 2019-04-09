@@ -32,7 +32,7 @@ router.get('/:id', function (req, res) {
 router.post('/add', function (req, res) {
     let chatroom = new ChatRoom(req.body);
     //console.log(req.body);
-    chatroom['RoomHost'] = req.session.passport ? req.session.passport.name : '';
+    chatroom['RoomHostId'] = req.session.passport.user ? req.session.passport.user : '';
     chatroom.save()
         .then(chatroom =>{
             res.status(200).json({'chatroom': 'chatroom added successfully'});

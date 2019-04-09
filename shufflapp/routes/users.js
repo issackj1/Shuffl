@@ -116,9 +116,9 @@ router.post('/login',
     passport.authenticate('local'),
     function (req, res) {
     //console.log(req.session);
-    req.session.passport['name'] = req.user.name;
-    req.session.passport['email'] = req.user.email;
-    req.session.save();
+        req.session.passport['name'] = req.user.name;
+        req.session.passport['email'] = req.user.email;
+        req.session.save();
     //res.send(req.session);
         res.json({
            'msg': 'success'
