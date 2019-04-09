@@ -58,9 +58,13 @@ router.post('/register', (req, res) => {
     }
 
 
-    if (count > 0) {
+    if (count > 0) 
+    {
         res.json(message);
-    } else
+    } 
+    
+    
+    else if (count > 0)
     {
         User.findOne({email: email})  //searching database
             .then(user => 
@@ -101,6 +105,18 @@ router.post('/register', (req, res) => {
 
 
 
+    }
+    else
+    {
+        User.findOne({name:name})
+            .then(username =>
+            {
+                if(username)
+                {
+                    message['useralready'] = "Username already exists";
+                    res.json(message);
+                }
+            })
     }
 
 
