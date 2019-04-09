@@ -5,7 +5,7 @@ import Room from './Room';
 const RoomList = (props) => {
 	console.log(props.rooms);
 	const rooms = props.rooms.map((room) => (
-		<Room key={room._id} room={room} play={props.play} RoomId={props.RoomId} setRoomId={props.setRoomId} />
+		<Room key={room._id} room={room} RoomId={props.RoomId} setRoomId={props.setRoomId} />
 	));
 	return <div className="RoomList">{rooms}</div>;
 };

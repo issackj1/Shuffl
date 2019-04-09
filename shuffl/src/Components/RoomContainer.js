@@ -29,7 +29,7 @@ export default class RoomContainer extends Component {
 				<RoomList
 					rooms={this.state.rooms}
 					genre={this.props.genre}
-					play={this.props.play}
+
 					RoomId={this.props.RoomId}
 					setRoomId={this.props.setRoomId}
 				/>

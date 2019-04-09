@@ -39,7 +39,8 @@ class YouTubeMain extends Component {
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
 			//take this and add it to room_queue in Mongo using this.props.RoomId
-			console.log(data[0].id.videoId);
+            console.log(data[0].id.videoId);
+            
 			// axios
 			// 	.post('http://localhost:4000/chatrooms/update/:' + this.props.RoomId)
 			// 	.then((response) => {})
@@ -49,9 +50,7 @@ class YouTubeMain extends Component {
 		});
 	}
 
-	playbutton = () => {
-		this.state.player.playVideo();
-	};
+
 
 	// console.log(selectedVideo);
 	handleReady = (e) => {

@@ -4,7 +4,7 @@ import Room from './Room';
 
 
 const RoomList = (props) => {                          
-    const rooms = props.rooms.filter(room => props.genre === room.Genre).map(room => <Room key={room._id} room={room} play ={props.play} setRoomId ={props.setRoomId}/>)
+    const rooms = props.rooms.filter(room => props.genre === room.Genre).map(room => <Room key={room._id} room={room} setRoomId ={props.setRoomId}/>)
     return (
     <div className="RoomList">
        {rooms}
