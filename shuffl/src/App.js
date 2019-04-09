@@ -10,6 +10,7 @@ import Browse from "./Containers/Browse/Browse";
 import Rooms from "./Containers/Rooms/Rooms"
 import SignUp from "./Components/SignUp";
 import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
+import YouTubePageGuest from "./Containers/MusicPlayer/YoutubeMainGuest";
 import ChatPlayerContainer from "./Containers/Chat/ChatPlayerContainer"
 
 // import Chat from "./Components/Chat"
@@ -55,6 +56,7 @@ class App extends Component {
           <Route path={"/browse/"} render={(props) => <Browse {...props} play = {this.play}/>} />
           <Route path={"/rooms/"} render={(props) => <Rooms {...props} play = {this.play}/>}/>
           <Route path={"/youtube/"} exact component={YouTubePage} />
+          <Route path={"/youtubeguest/"} exact component={YouTubePageGuest} />
           {/* <Route path={"/chat/"} render={(props) => <Chat {...props} username = {this.username}/>}/> */}
           <Route component={Error}/>
         </Switch>:
