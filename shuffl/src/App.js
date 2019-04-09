@@ -22,7 +22,7 @@ class App extends Component {
 
   state={
     Playing:false,
-    SignedIn:false,
+    SignedIn:false
   }
   //state consists of log in status
   //this is where we will do the authentication on clientside

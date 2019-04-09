@@ -8,8 +8,6 @@ class Homepage extends Component {
 
     render() {
         return (
-                
-           
             <div className='parent'>
                 <Banner />
                 <div className='bottom'>

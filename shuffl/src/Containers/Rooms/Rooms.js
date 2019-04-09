@@ -14,6 +14,7 @@ class Room extends Component {
 
     render() {
         return (
+        <div className='parent'>
             <div className='bottom'>
                 <div className ="page-title">
                     <h1>Rooms</h1>
@@ -27,9 +28,8 @@ class Room extends Component {
                 }
         
             </div>
-                
-
-            )
+        </div>        
+        )
     }
 }
 
