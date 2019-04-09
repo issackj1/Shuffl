@@ -19,7 +19,7 @@ class Room extends Component {
                 <div className ="page-title">
                     <h1>Rooms</h1>
                 </div>
-                <div>
+                <div className="RoomButton">
                     <button onClick={this.operation}className="button primary">Create Room</button>
                 </div>
                 {
