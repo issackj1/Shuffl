@@ -12,7 +12,7 @@ import SignUp from "./Components/SignUp";
 import YouTubePage from "./Containers/MusicPlayer/YouTubeMain";
 import ChatPlayerContainer from "./Containers/Chat/ChatPlayerContainer"
 
-import Chat from "./Components/Chat"
+// import Chat from "./Components/Chat"
 
 import Error from "./Containers/Error/Error"
 
@@ -55,7 +55,7 @@ class App extends Component {
           <Route path={"/browse/"} render={(props) => <Browse {...props} play = {this.play}/>} />
           <Route path={"/rooms/"} render={(props) => <Rooms {...props} play = {this.play}/>}/>
           <Route path={"/youtube/"} exact component={YouTubePage} />
-          <Route path={"/chat/"} render={(props) => <Chat {...props} username = {this.username}/>}/>
+          {/* <Route path={"/chat/"} render={(props) => <Chat {...props} username = {this.username}/>}/> */}
           <Route component={Error}/>
         </Switch>:
         <Switch>

@@ -4,7 +4,7 @@ const Message = (props) => {
     return (
         <div className="message">
             <div className="username">
-                <b>{props.message.username}</b> 
+                <b>{props.message.username}</b>
             </div>
 
             <div className="data">
