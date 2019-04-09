@@ -18,6 +18,7 @@ import Error from './Containers/Error/Error';
 
 import TopBar from './Components/TopBar';
 import TopBarSignIn from './Components/TopBarSignIn';
+import axios from 'axios';
 
 class App extends Component {
 	state = {
@@ -25,6 +26,7 @@ class App extends Component {
 		SignedIn: false,
 		UserId: '',
 		RoomId: '',
+
 		host: false
 	};
 	//state consists of log in status
@@ -43,8 +45,13 @@ class App extends Component {
 		this.setState({ Playing: true });
 	};
 
-	setRoomId = (roomid) => {
+	setRoomId = (roomid, roomhost) => {
 		this.setState({ RoomId: roomid });
+		if (roomhost == this.state.UserId) {
+			this.setState({ host: true });
+		} else {
+			this.setState({ host: false });
+		}
 	};
 
 	render() {

@@ -20,16 +20,16 @@ class YouTubeMain extends Component {
 		};
 
 		// this.handlePlay = this.handlePlay.bind(this);
-    }
-    
+	}
+
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		console.log(this.props.RoomId);
 		axios
 			.get('http://localhost:4000/chatrooms/' + this.props.RoomId)
 			.then((response) => {
-				this.setState({ queue: response.data.Room_queue });
-				console.log(response.data.Room_queue);
+				this.setState({ queue: response.data.Room_queue.sort().reverse() });
+				console.log(this.state.queue);
 			})
 			.catch(function(error) {
 				console.log(error);
@@ -38,7 +38,14 @@ class YouTubeMain extends Component {
 
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
-			console.log(data[0]);
+			//take this and add it to room_queue in Mongo using this.props.RoomId
+			console.log(data[0].id.videoId);
+			axios
+				.post('http://localhost:4000/chatrooms/update' + this.props.RoomId)
+				.then((response) => {})
+				.catch(function(error) {
+
+				});
 			// this.setState({ selectedVideo: data[0] });
 			// this.setState({ queue: this.state.queue.concat([ this.state.selectedVideo ]) });
 		});
@@ -51,7 +58,6 @@ class YouTubeMain extends Component {
 	// console.log(selectedVideo);
 	handleReady = (e) => {
 		this.setState({ player: e.target });
-		//this is where we'll fetch room queue data
 	};
 
 	next = () => {

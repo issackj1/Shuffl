@@ -10,7 +10,7 @@ const Room = (props) => (
 		<div
 			className="RoomFooter"
 			onClick={() => {
-				props.setRoomId(props.room._id);
+				props.setRoomId(props.room._id, props.room.RoomHost);
 			}}
 		>
 			{props.room.RoomName}
