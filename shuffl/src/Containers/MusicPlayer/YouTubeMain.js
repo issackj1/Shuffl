@@ -5,12 +5,13 @@ import VideoList from './video_list';
 import VideoDetail from './video_detail';
 import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
+import axios from 'axios';
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
 class YouTubeMain extends Component {
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 
 		this.state = {
 			player: null,
@@ -19,14 +20,27 @@ class YouTubeMain extends Component {
 		};
 
 		// this.handlePlay = this.handlePlay.bind(this);
-	}
-
+    }
+    
 	//TODO add function to send queued video to mongo
+	componentDidMount() {
+		console.log(this.props.RoomId);
+		axios
+			.get('http://localhost:4000/chatrooms/' + this.props.RoomId)
+			.then((response) => {
+				this.setState({ queue: response.data.Room_queue });
+				console.log(response.data.Room_queue);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+	}
 
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
-			this.setState({ selectedVideo: data[0] });
-			this.setState({ queue: this.state.queue.concat([ this.state.selectedVideo ]) });
+			console.log(data[0]);
+			// this.setState({ selectedVideo: data[0] });
+			// this.setState({ queue: this.state.queue.concat([ this.state.selectedVideo ]) });
 		});
 	}
 
@@ -43,11 +57,11 @@ class YouTubeMain extends Component {
 	next = () => {
 		console.log(this.state.queue);
 		if (this.state.queue.length === 1) {
-			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
+			this.state.player.loadVideoById(this.state.queue[0], 0, 'large');
 			this.setState({ queue: [] });
 		} else if (this.state.queue.length > 0) {
 			this.setState({ queue: this.state.queue.splice(0, 1) });
-			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
+			this.state.player.loadVideoById(this.state.queue[0], 0, 'large');
 		} else {
 			this.state.player.stopVideo();
 		}
