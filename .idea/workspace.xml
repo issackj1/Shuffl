@@ -3,23 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="91b6d83e-cb52-47b6-b795-c5309b5fcfa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/Containers/Browse/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Containers/Browse/Browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/BrowseRoomContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/BrowseRoomContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/BrowseRoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/BrowseRoomList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/ChatPlayerContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/ChatPlayerContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/CreateRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/GenreList.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/GenreList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/History.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/History.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/RoomContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/RoomContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/RoomList.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/RoomList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/TopBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/TopBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/components/TopBarSignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/TopBarSignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/css/TempYouTube.css" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/css/TempYouTube.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/shuffl/node_modules/" />
     <ignored path="$PROJECT_DIR$/shufflapp/node_modules/" />
@@ -37,7 +27,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shuffl/src/Components/BrowseRoomContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state>
               <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -46,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="34" column="88" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="88" />
+            <state relative-caret-position="251">
+              <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -61,13 +51,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="68">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shuffl/src/css/TempYouTube.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -79,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            <state relative-caret-position="-55">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -89,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="46" lean-forward="true" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+              <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -145,11 +135,9 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/shufflapp/views/login.ejs" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list_item.js" />
-        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js" />
         <option value="$PROJECT_DIR$/shuffl/src/components/video_list.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list.js" />
         <option value="$PROJECT_DIR$/shuffl/src/App.js" />
-        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js" />
         <option value="$PROJECT_DIR$/shuffl/src/components/BrowseRoomList.js" />
         <option value="$PROJECT_DIR$/shufflapp/views/register.ejs" />
         <option value="$PROJECT_DIR$/shufflapp/views/layout.ejs" />
@@ -162,8 +150,10 @@
         <option value="$PROJECT_DIR$/shuffl/src/components/SignUp.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/Browse/Browse.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/Rooms/Rooms.js" />
-        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js" />
         <option value="$PROJECT_DIR$/shuffl/src/css/TempYouTube.css" />
+        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js" />
+        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js" />
+        <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js" />
       </list>
     </option>
   </component>
@@ -316,17 +306,18 @@
       <workItem from="1554743568320" duration="2686000" />
       <workItem from="1554768877741" duration="291000" />
       <workItem from="1554769207068" duration="1383000" />
+      <workItem from="1554783525424" duration="2288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63626000" />
+    <option name="totallyTimeSpent" value="65914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18282989" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18282989" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -338,7 +329,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32859176" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28774422" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.28774422" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -349,7 +340,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shuffl/src/components/video_detail.js" />
     <entry file="file://$PROJECT_DIR$/shuffl/src/components/video_list.js" />
     <entry file="file://$PROJECT_DIR$/shuffl/src/components/video_list_item.js" />
     <entry file="file://$PROJECT_DIR$/shuffl/src/components/search_bar.js" />
@@ -536,15 +526,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/Components/ChatPlayerContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/Components/ChatPlayerContainer.js" />
     <entry file="file://$PROJECT_DIR$/shuffl/src/Components/SignUp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2244">
@@ -601,7 +583,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shuffl/src/Components/BrowseRoomContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state>
           <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -612,33 +594,9 @@
     <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="46" lean-forward="true" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+          <caret line="1" column="46" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="34" column="88" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -647,6 +605,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-55">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

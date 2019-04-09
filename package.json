@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "react-youtube": "^7.9.0",
     "youtube-api-search": "0.0.5"
   },
   "devDependencies": {

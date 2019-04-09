@@ -4,6 +4,7 @@ import YTSearch from 'youtube-api-search';
 import VideoList from './video_list'
 import VideoDetail from './video_detail';
 import '../../css/TempYouTube.css';
+import YouTube from 'react-youtube';
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
@@ -23,26 +24,44 @@ class YouTubeMain extends Component {
         YTSearch({key: API_KEY, term: searchTerm}, (data) => {
             console.log(data);
             this.setState({
-                videos: data,
                 selectedVideo: data[0]
             });
         });
 
     }
 
+    // console.log(selectedVideo);
+
     render() {
-        var player;
+        const opts = {
+            height: '390',
+            width: '640',
+            playerVars: { // https://developers.google.com/youtube/player_parameters
+                autoplay: 1
+            }
+        };
         return (
+
             <div className="parentYT">
                 <SearchBar onSearchTermChange={searchTerm => this.videoSearch(searchTerm)}/>
-                <VideoDetail video={this.state.selectedVideo}/>
-                player = document.getElementById("iFrameName")
+                {/*<VideoDetail video={this.state.selectedVideo}/>*/}
+                {this.state.selectedVideo?
+                    <YouTube
+                        videoId={this.state.selectedVideo.id.videoId}
+                        opts={opts}
+                        onReady={this._onReady}
+                    />:
+                    null
+                }
+
                 <button id="newBut">Click Me</button>
-                <VideoList
-                    onVideoSelect={userSelected => this.setState({selectedVideo: userSelected})}
-                    videos={this.state.videos} />
             </div>
         );
+
+        // _onReady(event) {
+        //     // access to player in all event handlers via event.target
+        //     event.target.pauseVideo();
+        // }
     }
 }
 

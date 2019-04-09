@@ -8,8 +8,9 @@ const VideoDetail = (props) => {
 
     const videoId = video.id.videoId;
     const url = `https://www.youtube.com/embed/${videoId}`;
-    console.log(videoId);
+    console.log("vid ID: "+videoId);
     console.log("vid text: "+video.snippet.title);
+    console.log("vid URL: "+video.snippet.url);
     
     return (
 

@@ -35,6 +35,7 @@ class SearchBar extends React.Component{
                     value={this.state.term}
                     onChange={this.onInputChange}
                     onKeyDown={this.onSearch}
+
                 />
             </div>
         );
