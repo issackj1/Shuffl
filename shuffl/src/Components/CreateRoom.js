@@ -42,6 +42,9 @@ export class CreateRoom extends Component {
                         <Form.Control name={'RoomName'} placeholder={"Room Name"} onChange={this.handleChange}/>
                     </Form.Group>
                     <Form.Group controlId={"form"}>
+                        <Form.Control name={'Image URL'} placeholder={"Image URL"} onChange={this.handleChange}/>
+                    </Form.Group>
+                    <Form.Group controlId={"form"}>
                         <Form.Control name={'Genre'} as="select" onChange={this.handleChange}>
                             <option>Pop</option>
                             <option>Hip-Hop</option>

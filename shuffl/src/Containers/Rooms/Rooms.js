@@ -19,8 +19,8 @@ class Room extends Component {
                 <div className ="page-title">
                     <h1>Rooms</h1>
                 </div>
-                <div className="RoomButton">
-                    <button onClick={this.operation}className="button primary">Create Room</button>
+                <div className="RoomButtonDiv">
+                    <button onClick={this.operation}className="RoomButton">+</button>
                 </div>
                 {
                     this.state.createRoom?
