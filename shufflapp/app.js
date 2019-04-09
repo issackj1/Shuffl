@@ -38,9 +38,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({
-        mongooseConnection: connection,
-        ttl: 10 * 1000
-    })
+        mongooseConnection: connection
+    }),
+    maxAge: 60 * 1000
 }));
 
 // Routes
