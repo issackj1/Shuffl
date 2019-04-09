@@ -5,7 +5,7 @@ import khalid from '../../images/khalid.jpeg';
 import {FormText} from "react-bootstrap";
 import RoomContainer from '../../Components/BrowseRoomContainer';
 import GenreList from '../../Components/GenreList';
-import CreateRoom from '../../Components/CreateRoom'
+// import CreateRoom from '../../Components/CreateRoom';
 // import Button from 'react-bootstrap/Button';
 
 class Browse extends Component {

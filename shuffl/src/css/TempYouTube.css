@@ -1,21 +1,21 @@
 .search-bar {
     /*margin: 20px;*/
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .search-bar input {
-    width: 90%;
+    width: 23%;
     border: solid black;
     border-radius: 20px;
     padding-left: 10px;
     max-width: 815px;
+    margin-left: 10px;
 }
 
 #vidContainer {
-    /*border: solid black;*/
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 25%;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
 }
 
 .video-item img {

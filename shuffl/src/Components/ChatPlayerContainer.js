@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Player from "../components/Player";
-import Chat from "../components/Chat";
+import Player from ".//Player";
+import Chat from ".//Chat";
 
 export class ChatPlayerContainer extends Component {
   constructor(props){
