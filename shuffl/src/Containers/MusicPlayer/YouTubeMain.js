@@ -26,7 +26,6 @@ class YouTubeMain extends Component {
 
     videoSearch(searchTerm) {
         YTSearch({key: API_KEY, term: searchTerm}, (data) => {
-            console.log(data);
             this.setState({selectedVideo: data[0]});
             this.setState({queue: this.state.queue.concat([this.state.selectedVideo])})
             console.log(this.state.queue)
@@ -43,10 +42,20 @@ class YouTubeMain extends Component {
         this.setState({player: e.target})
     }
 
+    next = () =>{
+        if(this.state.queue.length == 1){
+            this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, "large")
+            this.setState({queue: []})
+        }else if(this.state.queue.length>0){
+            this.setState({queue: this.state.queue.splice(0,1)})
+            this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, "large")
+        }
+    }
+
     render() {
         const opts = {
-            height: '200',
-            width: '200',
+            height: '300',
+            width: '300',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 1
             }
@@ -65,7 +74,8 @@ class YouTubeMain extends Component {
                     />:
                     null
                 }
-                <button onClick={this.playbutton} id="newBut">Click Me</button>
+                <button onClick={this.next} id="newBut">Next</button>
+
             </div>
         );
     }
