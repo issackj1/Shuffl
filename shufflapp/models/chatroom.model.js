@@ -17,7 +17,7 @@ let ChatRoom = new Schema({
         },
     UserList:
         {
-            type: String
+            type: []
         }
 });
 
