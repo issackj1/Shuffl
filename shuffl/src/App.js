@@ -35,15 +35,22 @@ class App extends Component {
 	//this is where we will do the authentication on clientside
 	initSocket= ()=>{
 		const socket = io("http://localhost:4001")
+
+		socket.on('connect', ()=>{
+			console.log('connected');
+		})
+
 		this.setState({socket})
 	}
 
+	componentWillMount(){
+		this.initSocket();
+	}
 	authenticate = () => {
 		this.setState({ SignedIn: true });
-		this.setUserId('5cac258fe700081ca7bcede4');
+		// this.setUserId('5cac258fe700081ca7bcede4');
 		history.push('/home/');
-		this.initSocket();
-		console.log(this.state.UserId);
+		// console.log(this.state.UserId);
 	};
 
 	setUserId = (userid) => {
@@ -61,9 +68,8 @@ class App extends Component {
   };
   
   joinRoom = () =>{
-    //add user to room using uid and roomid
-    //axios update
-    //add room to user using roomid and uid
+		//socket.emit('joined', roomid, uid)
+		//add room to users roomlist using roomid and uid
   }
 
 	render() {
@@ -80,6 +86,7 @@ class App extends Component {
 									UserId={this.state.UserId}
 									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
+									socket={this.state.socket}
 								/>
 							)}
 						/>
@@ -91,6 +98,7 @@ class App extends Component {
 									UserId={this.state.UserId}
 									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
+									socket={this.state.socket}
 								/>
 							)}
 						/>
@@ -102,6 +110,7 @@ class App extends Component {
 									UserId={this.state.UserId}
 									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
+									socket={this.state.socket}
 								/>
 							)}
 						/>
@@ -123,13 +132,13 @@ class App extends Component {
 					<Switch>
 						<Route
 							path={'/signup/'}
-							render={(props) => <SignUp {...props} authenticate={this.authenticate} />}
+							render={(props) => <SignUp {...props} authenticate={this.authenticate} socket={this.state.socket}/>}
 						/>
 						<Route component={Error} />
 					</Switch>
         )}
         {/* change to player */}
-				{this.state.Playing ? <ChatPlayerContainer play={this.play} /> : null}
+				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} /> : null}
 			</React.Fragment>
 		);
 	}

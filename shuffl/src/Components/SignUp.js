@@ -110,7 +110,6 @@ class SignUp extends Component {
                 //console.log(error);
                 //alert('failure');
             });
-        this.props.authenticate();
     };
 
     render() {

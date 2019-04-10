@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
+import { Socket } from 'dgram';
 
 export class CreateRoom extends Component {
 
@@ -19,20 +20,22 @@ export class CreateRoom extends Component {
 
     handleChange = (event) => {
         const name = event.target.name;
-        
-        this.setState({[name]: event.target.value ,RoomHostId: this.props.UserId, UserList:[this.props.UserId]});
+        this.setState({[name]: event.target.value });
     };
 
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://localhost:4000/chatrooms/add', this.state, {withCredentials: true})
-            .then(response => {
-                alert('Success');
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+         event.preventDefault();
+         this.setState({RoomHostId: this.props.UserId, UserList:[this.props.UserId]})
+        // axios.post('http://localhost:4000/chatrooms/add', this.state, {withCredentials: true})
+        //     .then(response => {
+        //         alert('Success');
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
+
+        this.props.socket.emit('make room', 'this worked');
     };
     
     

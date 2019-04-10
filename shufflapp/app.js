@@ -17,11 +17,36 @@ const io = require('socket.io')(http);
 
 io.on('connection', function(socket){
     console.log('an user connected');
-  });
 
-  http.listen(4001, function(){
-    console.log('listening on *:4001');
-  });
+    socket.on('make room', function(){
+        console.log('create room received');
+    });
+
+    socket.on('authenticate',function(){
+
+    });
+    //var username
+    //var current room
+
+    // socket.on(authenticate, function(username, password){
+    //     
+    // })
+
+    // socket.on(authenticate, function(username, password){
+    //     
+    // })
+
+    //socket.on(joined, function(roomid){
+
+    //})
+
+
+});
+
+http.listen(4001, function(){
+console.log('listening on *:4001');
+});
+
 //DB Config
 // Express passport middleware
 app.use(passport.initialize());

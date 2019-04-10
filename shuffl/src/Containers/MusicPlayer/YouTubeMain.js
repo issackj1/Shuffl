@@ -6,6 +6,7 @@ import VideoDetail from './video_detail';
 import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
 import axios from 'axios';
+import Player from '../../Components/Player'
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
@@ -87,6 +88,7 @@ class YouTubeMain extends Component {
 			<div className="parentYT">
 				<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
 				<YouTube opts={opts} onReady={this.handleReady} />
+				<Player/>
 				<button onClick={this.next} id="newBut">
 					Next
 				</button>
