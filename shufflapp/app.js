@@ -44,7 +44,7 @@ app.use(session({
 }));
 
 // Routes
-app.get('/', function (req, res) {
+app.use('/', function (req, res) {
     if(req.session.passport){
         res.send({
             'msg': 'welcome back'
