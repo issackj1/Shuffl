@@ -90,6 +90,7 @@ h1 {
     background-color: #FF88A1;
     font-size: 14px;
     line-height: 38px;
+    cursor: pointer;
 }
 
 .secondaryText, .forgotpass{
