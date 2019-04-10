@@ -20,8 +20,11 @@ import TopBar from './Components/TopBar';
 import TopBarSignIn from './Components/TopBarSignIn';
 import axios from 'axios';
 
+import io from 'socket.io-client';
+
 class App extends Component {
 	state = {
+		socket:null,
 		Playing: false,
 		SignedIn: false,
 		UserId: '',
@@ -30,10 +33,16 @@ class App extends Component {
 	};
 	//state consists of log in status
 	//this is where we will do the authentication on clientside
+	initSocket= ()=>{
+		const socket = io("http://localhost:4001")
+		this.setState({socket})
+	}
+
 	authenticate = () => {
 		this.setState({ SignedIn: true });
 		this.setUserId('5cac258fe700081ca7bcede4');
 		history.push('/home/');
+		this.initSocket();
 		console.log(this.state.UserId);
 	};
 

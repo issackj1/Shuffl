@@ -10,10 +10,23 @@ const app = express();
 const router = express.Router();
 const MongoStore = require('connect-mongo')(session);
 
+
+const http = require("http").Server(app);
+const io = require('socket.io')(http);
+
+
+io.on('connection', function(socket){
+    console.log('an user connected');
+  });
+
+  http.listen(4001, function(){
+    console.log('listening on *:4001');
+  });
 //DB Config
 // Express passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 const db = require('./config/keys').MongoURI; // MongoURI is the key passed from our atlas connection. URI being held in keys.js
 
