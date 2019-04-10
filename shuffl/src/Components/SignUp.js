@@ -159,12 +159,12 @@ class SignUp extends Component {
                                             <Form.Control name={"password2"} type="password" onChange={this.handleChange} placeholder="Re-enter Password"/>
                                         </Form.Group>
                                         <div className="secondaryText"><input className="agree" type="checkbox"></input>I
-                                            have read the <div className="link secondary"> terms & conditions</div></div>
+                                            have read the <div className="link secondary"> &nbsp;terms & conditions</div></div>
                                         <div className="secondaryTextLogin">
                                             <div onClick={this.handleSubmit} className="button primary">Sign Up</div>
                                         </div>
                                         <div className="secondaryText">
-                                            Already a user?
+                                            Already a user?&nbsp;
                                             <div onClick={this.switchSignUp} className="link secondary">Login</div>
                                         </div>
                                     </div>

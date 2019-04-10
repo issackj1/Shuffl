@@ -69,6 +69,10 @@ h1 {
     padding: 0px 15px;
 }
 
+#form:hover {
+    background-color: #F0F0F0;
+}
+
 .button {
     border: none;
     width: 60%;
@@ -84,6 +88,7 @@ h1 {
     cursor: pointer;
 }
 
+
 .primary {
     border-radius: 20px;
     color: white;
@@ -91,6 +96,10 @@ h1 {
     font-size: 14px;
     line-height: 38px;
     cursor: pointer;
+}
+
+.primary:hover {
+    background-color: #FF5579;
 }
 
 .secondaryText, .forgotpass{
@@ -101,6 +110,10 @@ h1 {
     display: flex;
     justify-content: center;
     line-height: 38px;
+}
+
+.forgotpass:hover {
+    color: #000;
 }
 
 .secondaryTextLogin {
@@ -120,6 +133,10 @@ h1 {
     background-color: #5D5D5D;
     font-size: 14px;
     line-height: 38px;
+}
+
+.secondary:hover {
+    color: #FF5579;
 }
 
 .bday{
@@ -182,6 +199,10 @@ h1 {
 .linkContainer {
     min-width: 80px;
     color: white;
+}
+
+.linkContainer:hover {
+    background-color: #ff5579;
 }
 
 
