@@ -23,6 +23,15 @@ class YouTubeMain extends Component {
 		// this.handlePlay = this.handlePlay.bind(this);
 	}
 
+	pauseVideo = () => {
+		if (this.state.player.getPlayerState() == 1) {
+			this.state.player.pauseVideo();
+		} else {
+			this.state.player.playVideo();
+		}
+		
+	}
+
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		// console.log(this.props.RoomId);
@@ -89,7 +98,7 @@ class YouTubeMain extends Component {
 			<div className="parentYT">
 				<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
 				<YouTube videoId={this.state.videoId}opts={opts} onReady={this.handleReady} />
-				<Player player={this.state.player} />
+				<Player pauseVideo={this.pauseVideo} />
 				{ 	
 					/* <button onClick={this.next} id="newBut">
 					Next

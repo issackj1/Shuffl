@@ -15,7 +15,7 @@ export class Player extends Component {
             <div className="currentSong">Song Name<br></br>Artist</div>
           </div>
           <div className="playerBox">
-            <button onClick="" className="playButton">Play</button>
+            <button onClick={()=>{this.props.pauseVideo()}} className="playButton">Play</button>
           </div>
           <div className="playerBox">Volume</div>
         </div>
