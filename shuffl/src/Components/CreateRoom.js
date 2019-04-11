@@ -37,8 +37,13 @@ export class CreateRoom extends Component {
 
         this.props.socket.emit('make room', 'this worked');
     };
-    
-    
+
+    handleCancel = (event) => {
+        event.preventDefault();
+        this.props.operation();
+    };
+
+
     // {()=>{this.props.setRoomId()}}
   render() {
     return (
@@ -67,7 +72,7 @@ export class CreateRoom extends Component {
                         </Form.Control>
                     </Form.Group>
                     <div className="createRoomButtons">
-                    <button className=" button cancel">Cancel</button> <button onClick={this.handleSubmit} className="button primary">Create</button>
+                    <button onClick={this.handleCancel} className=" button cancel">Cancel</button> <button onClick={this.handleSubmit} className="button primary">Create</button>
                     </div>
                 </Form>
             </div>
