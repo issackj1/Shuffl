@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RoomList from './RoomList';
 import axios from 'axios';
+import { Socket } from 'dgram';
 
 export default class RoomContainer extends Component {
 	constructor() {
@@ -12,15 +13,17 @@ export default class RoomContainer extends Component {
 	}
 
 	componentDidMount() {
-		axios
-			.get('http://localhost:4000/chatrooms')
-			.then((response) => {
-				this.setState({ rooms: response.data });
-				console.log(response.data);
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
+		this.props.socket.emit('getjoinedchatrooms')
+		this.props.socket.on('rejoinedrooms')
+		// axios
+		// 	.get('http://localhost:4000/chatrooms')
+		// 	.then((response) => {
+		// 		this.setState({ rooms: response.data });
+		// 		console.log(response.data);
+		// 	})
+		// 	.catch(function(error) {
+		// 		console.log(error);
+		// 	});
 	}
 
 	render() {

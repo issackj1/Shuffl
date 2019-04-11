@@ -18,13 +18,39 @@ const io = require('socket.io')(http);
 io.on('connection', function(socket){
     console.log('an user connected');
 
+    //loginrequest
+    socket.on('authreq',function(state){
+        let userid='';
+        console.log(state)
+        //do auth with db here
+        //if auth approved  
+        socket.emit('authapprove', userid)
+        //else if auth denied
+        //socket.emit('authdeny')
+    })
+
+    //signuprequest
+    socket.on('submitreq',function(state){
+        let userid='';
+        console.log(state)
+        //do auth with db here
+        //if auth approved  
+        socket.emit('submitapprove', userid)
+        //else if auth denied
+        //socket.emit('submitdeny')
+    })
+    //
     socket.on('make room', function(){
         console.log('create room received');
     });
 
-    socket.on('authenticate',function(){
+    socket.on('getchatrooms',function(){
+        socket.emit('rechatrooms',[])
+    })
 
-    });
+    socket.on('getjoinedrooms', function(){
+        socket.emit('rejoinedrooms', [])
+    })
     //var username
     //var current room
 
