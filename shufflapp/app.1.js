@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,9 +9,7 @@ const PORT = 4000;
 const app = express();
 const router = express.Router();
 const MongoStore = require('connect-mongo')(session);
-let ChatRoom = require('./models/chatroom.model');
-let User = require('./models/User');
-const bcrypt = require('bcryptjs');
+
 
 const http = require("http").Server(app);
 const io = require('socket.io')(http);
@@ -21,57 +18,20 @@ const io = require('socket.io')(http);
 io.on('connection', function(socket){
     console.log('an user connected');
 
-    //loginrequest
-    socket.on('authreq',function(state) {
-        User.findOne({
-            name: state.name
-        }).then(user => {
-            if (!user) {
-                socket.emit('authdeny');
-            }
-
-            // Match password
-            bcrypt.compare(state.password, user.password, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                    console.log(user.id);
-                    socket.emit('authapprove', user)
-                } else {
-                    socket.emit('authdeny')
-                }
-            })
-        })
-    });
-
-    //signuprequest
-    socket.on('submitreq',function(state){
-        let userid='';
-        console.log(state)
+    socket.on('authreq',function(){
         //do auth with db here
         //if auth approved  
-        socket.emit('submitapprove', userid)
+        socket.emit('authapprove')
         //else if auth denied
-        //socket.emit('submitdeny')
-    });
-    //
+        //socket.emit('authdeny')
+    })
     socket.on('make room', function(){
         console.log('create room received');
     });
 
-    socket.on('getchatrooms',function(){
-        ChatRoom.find(function (err, chatrooms) {
-            if (err){
-                console.log(err)
-            }else{
-                socket.emit('rechatrooms', chatrooms)
-            }
-        });
+    socket.on('authenticate',function(){
 
     });
-
-    socket.on('getjoinedrooms', function(){
-        socket.emit('rejoinedrooms', [])
-    })
     //var username
     //var current room
 

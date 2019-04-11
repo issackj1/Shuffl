@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Banner from './Banner';
+import HomeRoomList from '../../Components/HomeRoomContainer'
 // import Button from 'react-bootstrap/Button';
 
 class Homepage extends Component {
@@ -12,7 +13,10 @@ class Homepage extends Component {
             <div className='parent'>
                 <Banner />
                 <div className='bottom'>
-                
+                    <div className="page-title">
+						<h1>Popular Rooms</h1>
+					</div>
+                    <HomeRoomList socket={this.props.socket}/>
                 </div>
             </div>
         )

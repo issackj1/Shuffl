@@ -7,20 +7,20 @@ export class Player extends Component {
 
     return (
       <div className="player">
-        <div className="player top">
-        <div className="queue" onClick={this.props.switch}>hello</div>
-        <div className="roomID"></div>
-        <div className="upNext">
-        <div></div>
-        <div className="voting"></div>
+        <div className="slideContainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange"></input>
         </div>
+        <div className="playerBottom">
+          <div className="playerBox">
+            <div className="currentSong">Song Name<br></br>Artist</div>
+          </div>
+          <div className="playerBox">
+            <button onClick={()=>{this.props.pauseVideo()}} className="playButton">Play</button>
+            <button onClick={()=>{this.props.skipVideo()}} className="playButton">Skip 10</button>
+          </div>
+          <div className="playerBox">Volume</div>
         </div>
-
-        <div className="player bottom">
-        <div className="currentSong"></div>
-        <div className="progressBar"></div>
-        <div className="volume"></div>
-        </div>
+        
       </div>
     )
   }

@@ -52,64 +52,77 @@ class SignUp extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.props.socket.emit('submitreq', this.state)
+        this.props.socket.on('submitapprove', ()=>{
+            console.log('approved')
+            this.props.authenticate();
+        })
+        
+        
+        
+        // axios.post('http://localhost:4000/users/register', this.state)
+        //     .then(response => {
+        //         document.getElementById('badfill').innerText = "";
+        //         document.getElementById('badpassword').innerText = "";
+        //         document.getElementById('registered').innerText = "";
+        //         document.getElementById('invalidemail').innerText = "";
+        //         document.getElementById('uniqueuser').innerText = "";
 
-        axios.post('http://localhost:4000/users/register', this.state)
-            .then(response => {
-                document.getElementById('badfill').innerText = "";
-                document.getElementById('badpassword').innerText = "";
-                document.getElementById('registered').innerText = "";
-                document.getElementById('invalidemail').innerText = "";
-                document.getElementById('uniqueuser').innerText = "";
-
-                if(response.data.hasOwnProperty('success')){
-                    //redirect
-                    alert('success');
-                }else if(response.data.hasOwnProperty('fill')){
-                    //alert(response.data.fill);
-                    document.getElementById('badfill').innerText = "Are you even trying?";
-                }else if(response.data.hasOwnProperty('match')){
-                    //alert(response.data.match);
-                    document.getElementById('badpassword').innerText = "bruh, they don't even match";
-                }else if(response.data.hasOwnProperty('passlength')){
-                    //alert(response.data.passlength);
-                    document.getElementById('badpassword').innerText = "yikes, password length needs to be at least 6";
-                }else if(response.data.hasOwnProperty('already')){
-                    //alert(response.data.already);
-                    document.getElementById('registered').innerText = "Email already registered fam";
-                }
-                else if(response.data.hasOwnProperty('atsymbol')){
-                    //alert(response.data.already);
-                    document.getElementById('invalidemail').innerText = "invalid email";
-                }
-                else if(response.data.hasOwnProperty('useralready')){
-                    //alert(response.data.already);
-                    document.getElementById('uniqueuser').innerText = "username is taken";
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+        //         if(response.data.hasOwnProperty('success')){
+        //             //redirect
+        //             alert('success');
+        //         }else if(response.data.hasOwnProperty('fill')){
+        //             //alert(response.data.fill);
+        //             document.getElementById('badfill').innerText = "Are you even trying?";
+        //         }else if(response.data.hasOwnProperty('match')){
+        //             //alert(response.data.match);
+        //             document.getElementById('badpassword').innerText = "bruh, they don't even match";
+        //         }else if(response.data.hasOwnProperty('passlength')){
+        //             //alert(response.data.passlength);
+        //             document.getElementById('badpassword').innerText = "yikes, password length needs to be at least 6";
+        //         }else if(response.data.hasOwnProperty('already')){
+        //             //alert(response.data.already);
+        //             document.getElementById('registered').innerText = "Email already registered fam";
+        //         }
+        //         else if(response.data.hasOwnProperty('atsymbol')){
+        //             //alert(response.data.already);
+        //             document.getElementById('invalidemail').innerText = "invalid email";
+        //         }
+        //         else if(response.data.hasOwnProperty('useralready')){
+        //             //alert(response.data.already);
+        //             document.getElementById('uniqueuser').innerText = "username is taken";
+        //         }
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     })
     };
 
 
     authenticate = () =>{
+
+        this.props.socket.emit('authreq', this.state)
+        this.props.socket.on('authapprove', ()=>{
+            console.log('approved')
+            this.props.authenticate();
+        })
         //this is the authentication,
         //uncomment this block and
         //comment out "this.props.authenticate() at the bottom" to test
         //
-        axios.post('http://localhost:4000/users/login', this.state)
-            .then(response => {
-                console.log(response.data);
-                if(response.data.hasOwnProperty('msg')){
-                    //redirect
-                    this.props.authenticate();
-                    //alert('success');
-                }
-            })
-            .catch(function (error) {
-                //console.log(error);
-                //alert('failure');
-            });
+        // axios.post('http://localhost:4000/users/login', this.state)
+        //     .then(response => {
+        //         console.log(response.data);
+        //         if(response.data.hasOwnProperty('msg')){
+        //             //redirect
+        //             this.props.authenticate();
+        //             //alert('success');
+        //         }
+        //     })
+        //     .catch(function (error) {
+        //         //console.log(error);
+        //         //alert('failure');
+        //     });
     };
 
     render() {

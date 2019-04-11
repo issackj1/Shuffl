@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Player from "../../Components/Player";
 // import Chat from "../Components/Chat";
+import YoutubeMain from '../MusicPlayer/YouTubeMain'
 
 export class ChatPlayerContainer extends Component {
 
@@ -15,8 +16,7 @@ export class ChatPlayerContainer extends Component {
 
     return (
       <React.Fragment>
-        <Player switch={this.chatQueueSwitch}/>
-        {/* {
+           <YoutubeMain/>   {/* {
           this.state.chatQueueSwitch?
           <Chat />
           :null //this is where queue will go
