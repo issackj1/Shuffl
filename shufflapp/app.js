@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo')(session);
 let ChatRoom = require('./models/chatroom.model');
 let User = require('./models/User');
 const bcrypt = require('bcryptjs');
+const helper = require('./serverhelper');
 
 const http = require("http").Server(app);
 const io = require('socket.io')(http);
@@ -44,11 +45,17 @@ io.on('connection', function (socket) {
 
     //signuprequest
     socket.on('submitreq', function (state) {
-        let userid = '';
-        console.log(state)
+
+        if (helper.auth(state)) {
+            console.log('User is now registered');
+            socket.emit('submitapprove', userid)
+        } else {
+            console.log("Sorry try again");
+            socket.emit('submitdeny')
+        }
         //do auth with db here
         //if auth approved
-        socket.emit('submitapprove', userid)
+        //socket.emit('submitapprove', userid)
         //else if auth denied
         //socket.emit('submitdeny')
     });
