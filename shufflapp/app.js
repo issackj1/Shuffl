@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,7 +11,8 @@ const app = express();
 const router = express.Router();
 const MongoStore = require('connect-mongo')(session);
 let ChatRoom = require('./models/chatroom.model');
-
+let User = require('./models/User');
+const bcrypt = require('bcryptjs');
 
 const http = require("http").Server(app);
 const io = require('socket.io')(http);
@@ -20,15 +22,31 @@ io.on('connection', function(socket){
     console.log('an user connected');
 
     //loginrequest
-    socket.on('authreq',function(state){
-        let userid='';
-        console.log(state)
-        //do auth with db here
-        //if auth approved  
-        socket.emit('authapprove', userid)
-        //else if auth denied
-        //socket.emit('authdeny')
-    })
+    socket.on('authreq',function(state) {
+        User.findOne({
+            name: state.name
+        }).then(user => {
+            if (!user) {
+                socket.emit('authdeny');
+            }
+
+            // Match password
+            bcrypt.compare(state.password, user.password, (err, isMatch) => {
+                if (err) throw err;
+                if (isMatch) {
+                    console.log(user.id);
+                    socket.emit('authapprove', user.id)
+                } else {
+                    socket.emit('authdeny')
+                }
+            })
+            //do auth with db here
+            //if auth approved
+            //socket.emit('authapprove', userid)
+            //else if auth denied
+            //socket.emit('authdeny')
+        })
+    });
 
     //signuprequest
     socket.on('submitreq',function(state){
@@ -39,7 +57,7 @@ io.on('connection', function(socket){
         socket.emit('submitapprove', userid)
         //else if auth denied
         //socket.emit('submitdeny')
-    })
+    });
     //
     socket.on('make room', function(){
         console.log('create room received');
