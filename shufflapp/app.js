@@ -35,16 +35,11 @@ io.on('connection', function(socket){
                 if (err) throw err;
                 if (isMatch) {
                     console.log(user.id);
-                    socket.emit('authapprove', user.id)
+                    socket.emit('authapprove', user)
                 } else {
                     socket.emit('authdeny')
                 }
             })
-            //do auth with db here
-            //if auth approved
-            //socket.emit('authapprove', userid)
-            //else if auth denied
-            //socket.emit('authdeny')
         })
     });
 
