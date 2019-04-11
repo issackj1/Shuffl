@@ -14,9 +14,9 @@ export default class RoomContainer extends Component {
 
 	componentDidMount() {
 		this.props.socket.emit('getjoinedchatrooms')
-		this.props.socket.on('rejoinedrooms', (rooms)=>{
-			this.setState({rooms:rooms})
-		})
+		this.props.socket.on('rejoinedrooms', function(rerooms){
+			this.setState({rooms: rerooms})
+		}.bind(this))
 		// axios
 		// 	.get('http://localhost:4000/chatrooms')
 		// 	.then((response) => {
