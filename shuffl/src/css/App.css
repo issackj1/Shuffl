@@ -316,12 +316,20 @@ h1 {
 /* -------------------------------- */
 
 .createRoom{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: black;
-    width: 482px;
+    width: 50vw;
+    min-width: 300px;
     padding: 20px;
     border-radius: 10px;
     background: #5D5D5D;
-    box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    /*box-shadow: 1px 10px 5px rgba(0, 0, 0, 0.16);*/
 }
 
 .createRoomButtons{
