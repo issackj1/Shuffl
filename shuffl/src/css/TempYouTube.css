@@ -11,8 +11,9 @@
     padding-left: 10px;
     max-width: 815px;
     margin-left: 10px;
-    color: #000 !important
-
+    color: #000 !important;
+    position: absolute;
+    top:100px;
 }
 
 #vidContainer {
@@ -62,6 +63,8 @@
 }
 
 .parentYT {
+    display: flex;
+    flex-direction: column;
     color: #000 !important;
 }
 

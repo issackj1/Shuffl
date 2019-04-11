@@ -5,15 +5,16 @@ const VideoList = (props) => {
     const videoItems = props.videos.map((video) => {
         return (
             <VideoListItem
-                onUserSelected={props.onVideoSelect}
                 key={video.etag}
-                video={video} />
+                video={video} 
+                addToQueue={props.addToQueue}
+                />
         );
     });
 
     return (
         <ul id="listOfVid" className="col-md-4 list-group">
-            {/*{videoItems}*/}
+            {videoItems}
         </ul>
     );
 };
