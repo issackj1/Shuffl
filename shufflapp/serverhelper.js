@@ -1,4 +1,6 @@
-module.exports ={
+let ChatRoom = require('./models/chatroom.model');
+
+module.exports = {
 
     auth: function (state) {
         const {name, email, password, password2} = state;
@@ -77,6 +79,29 @@ module.exports ={
                 }
 
             });
+    },
+
+    createRoom: function (state) {
+        console.log('got here')
+        console.log(state);
+        let chatroom = new ChatRoom(state);
+        //console.log(state);
+        chatroom.save()
+            .then(chatroom => {
+                User.findOne({_id: state.RoomHostId})
+                    .then(user => {
+                        if (user) {
+                            user.RoomList.append(chatroom._id);
+                            return true;
+                        } else {
+                            console.log('could not find owner of room');
+                        }
+                    });
+            })
+            .catch(err => {
+                return false;
+            });
+
     }
 
 }

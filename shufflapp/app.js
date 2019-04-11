@@ -46,22 +46,22 @@ io.on('connection', function (socket) {
     //signuprequest
     socket.on('submitreq', function (state) {
 
+        //if auth approved
         if (helper.auth(state)) {
             console.log('User is now registered');
             socket.emit('submitapprove', userid)
-        } else {
+        } else {//else if auth denied
             console.log("Sorry try again");
             socket.emit('submitdeny')
         }
-        //do auth with db here
-        //if auth approved
-        //socket.emit('submitapprove', userid)
-        //else if auth denied
-        //socket.emit('submitdeny')
     });
-    //
-    socket.on('make room', function () {
-        console.log('create room received');
+
+    socket.on('make room', function (state) {
+        if(helper.createRoom(state)){
+            console.log("Sucessefully created room");
+        }else{
+            console.log('room creation failure');
+        }
     });
 
     socket.on('getchatrooms', function () {

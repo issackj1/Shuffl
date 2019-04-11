@@ -35,7 +35,7 @@ export class CreateRoom extends Component {
         //         console.log(error);
         //     })
 
-        this.props.socket.emit('make room', 'this worked');
+        this.props.socket.emit('make room', this.state);
     };
 
     handleCancel = (event) => {
