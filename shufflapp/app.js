@@ -9,6 +9,7 @@ const PORT = 4000;
 const app = express();
 const router = express.Router();
 const MongoStore = require('connect-mongo')(session);
+let ChatRoom = require('./models/chatroom.model');
 
 
 const http = require("http").Server(app);
@@ -45,8 +46,15 @@ io.on('connection', function(socket){
     });
 
     socket.on('getchatrooms',function(){
-        socket.emit('rechatrooms',[])
-    })
+        ChatRoom.find(function (err, chatrooms) {
+            if (err){
+                console.log(err)
+            }else{
+                socket.emit('rechatrooms', chatrooms)
+            }
+        });
+
+    });
 
     socket.on('getjoinedrooms', function(){
         socket.emit('rejoinedrooms', [])
