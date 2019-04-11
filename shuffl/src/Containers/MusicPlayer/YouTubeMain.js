@@ -17,7 +17,7 @@ class YouTubeMain extends Component {
 		this.state = {
 			player: null,
 			queue: [],
-			videoId: ''
+			videoId: 'S1gp0m4B5p8'
 		};
 
 		// this.handlePlay = this.handlePlay.bind(this);
@@ -89,8 +89,9 @@ class YouTubeMain extends Component {
 			<div className="parentYT">
 				<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
 				<YouTube videoId={this.state.videoId}opts={opts} onReady={this.handleReady} />
-				<Player/>
-				{/* <button onClick={this.next} id="newBut">
+				<Player player={this.state.player} />
+				{ 	
+					/* <button onClick={this.next} id="newBut">
 					Next
 				</button> */}
 			</div>
