@@ -196,6 +196,10 @@ h1 {
     height: 100%;
 }
 
+.TopBarLogo:hover {
+    cursor: pointer;
+}
+
 .linkContainer {
     min-width: 80px;
     color: white;
