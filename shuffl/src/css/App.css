@@ -398,13 +398,18 @@ h1 {
 
 .playerBottom {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.playerLeft {
-    padding-left: 10px;
+.playerBox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
+
+.playerBox:first-child > span { margin-right: auto; }
+
+.playerBox:last-child  > span { margin-left: auto;  }
 
 
 .playButton {
