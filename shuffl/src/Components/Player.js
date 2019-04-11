@@ -11,13 +11,13 @@ export class Player extends Component {
           <input type="range" min="1" max="100" value="50" class="slider" id="myRange"></input>
         </div>
         <div className="playerBottom">
-          <div className="playerLeft">
+          <div className="playerBox">
             <div className="currentSong">Song Name<br></br>Artist</div>
           </div>
-          <div className="playerMiddle">
+          <div className="playerBox">
             <button onClick="" className="playButton">Play</button>
           </div>
-          <div className="playerRight"></div>
+          <div className="playerBox">Volume</div>
         </div>
         
       </div>
