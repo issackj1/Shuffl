@@ -17,7 +17,7 @@ class YouTubeMain extends Component {
 		this.state = {
 			player: null,
 			queue: [],
-			selectedVideo: null
+			videoId: ''
 		};
 
 		// this.handlePlay = this.handlePlay.bind(this);
@@ -25,22 +25,23 @@ class YouTubeMain extends Component {
 
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
-		console.log(this.props.RoomId);
-		axios
-			.get('http://localhost:4000/chatrooms/' + this.props.RoomId)
-			.then((response) => {
-				this.setState({ queue: response.data.Room_queue.sort().reverse() });
-				console.log(this.state.queue);
-			})
-			.catch(function(error) {
-				console.log(error);
-			});
+		// console.log(this.props.RoomId);
+		// axios
+		// 	.get('http://localhost:4000/chatrooms/' + this.props.RoomId)
+		// 	.then((response) => {
+		// 		this.setState({ queue: response.data.Room_queue.sort().reverse() });
+		// 		console.log(this.state.queue);
+		// 	})
+		// 	.catch(function(error) {
+		// 		console.log(error);
+		// 	});
 	}
 
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
 			//take this and add it to room_queue in Mongo using this.props.RoomId
-            console.log(data[0].id.videoId);
+			this.setState({videoId:data[0].id.videoId})
+			
             
 			// axios
 			// 	.post('http://localhost:4000/chatrooms/update/:' + this.props.RoomId)
@@ -87,11 +88,11 @@ class YouTubeMain extends Component {
 		return (
 			<div className="parentYT">
 				<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
-				<YouTube opts={opts} onReady={this.handleReady} />
+				<YouTube videoId={this.state.videoId}opts={opts} onReady={this.handleReady} />
 				<Player/>
-				<button onClick={this.next} id="newBut">
+				{/* <button onClick={this.next} id="newBut">
 					Next
-				</button>
+				</button> */}
 			</div>
 		);
 	}
