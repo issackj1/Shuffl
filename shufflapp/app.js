@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -18,69 +17,69 @@ const http = require("http").Server(app);
 const io = require('socket.io')(http);
 
 
-io.on('connection', function(socket){
+io.on('connection', function (socket) {
     console.log('an user connected');
 
     //loginrequest
-    socket.on('authreq',function(state) {
+    socket.on('authreq', function (state) {
         User.findOne({
             name: state.name
         }).then(user => {
             if (!user) {
                 socket.emit('authdeny');
+            } else {
+                // Match password
+                bcrypt.compare(state.password, user.password, (err, isMatch) => {
+                    if (err) throw err;
+                    if (isMatch) {
+                        console.log(user.id);
+                        socket.emit('authapprove', user)
+                    } else {
+                        socket.emit('authdeny')
+                    }
+                })
             }
-
-            // Match password
-            bcrypt.compare(state.password, user.password, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                    console.log(user.id);
-                    socket.emit('authapprove', user)
-                } else {
-                    socket.emit('authdeny')
-                }
-            })
         })
     });
 
     //signuprequest
-    socket.on('submitreq',function(state){
-        let userid='';
+    socket.on('submitreq', function (state) {
+        let userid = '';
         console.log(state)
         //do auth with db here
-        //if auth approved  
+        //if auth approved
         socket.emit('submitapprove', userid)
         //else if auth denied
         //socket.emit('submitdeny')
     });
     //
-    socket.on('make room', function(){
+    socket.on('make room', function () {
         console.log('create room received');
     });
 
-    socket.on('getchatrooms',function(){
+    socket.on('getchatrooms', function () {
         ChatRoom.find(function (err, chatrooms) {
-            if (err){
+            if (err) {
                 console.log(err)
-            }else{
+            } else {
                 socket.emit('rechatrooms', chatrooms)
             }
         });
 
     });
 
-    socket.on('getjoinedrooms', function(){
+    socket.on('getjoinedrooms', function () {
         socket.emit('rejoinedrooms', [])
     })
     //var username
     //var current room
 
     // socket.on(authenticate, function(username, password){
-    //     
+    //
     // })
 
     // socket.on(authenticate, function(username, password){
-    //     
+    //
     // })
 
     //socket.on(joined, function(roomid){
@@ -90,8 +89,8 @@ io.on('connection', function(socket){
 
 });
 
-http.listen(4001, function(){
-console.log('listening on *:4001');
+http.listen(4001, function () {
+    console.log('listening on *:4001');
 });
 
 //DB Config
@@ -130,11 +129,11 @@ app.use(session({
 
 // Routes
 app.get('/', function (req, res) {
-    if(req.session.passport){
+    if (req.session.passport) {
         res.send({
             'msg': 'welcome back'
         })
-    }else{
+    } else {
         res.send({
             'msg': 'welcome'
         })
