@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RoomList from './RoomList';
+import RoomList from './HomeRoomList';
 import axios from 'axios';
 import { Socket } from 'dgram';
 
@@ -13,10 +13,8 @@ export default class RoomContainer extends Component {
 	}
 
 	componentDidMount() {
-		this.props.socket.emit('getjoinedchatrooms')
-		this.props.socket.on('rejoinedrooms', (rooms)=>{
-			this.setState({rooms:rooms})
-		})
+		this.props.socket.emit('getpopchatrooms')
+		this.props.socket.on('repoprooms')
 		// axios
 		// 	.get('http://localhost:4000/chatrooms')
 		// 	.then((response) => {
@@ -33,10 +31,11 @@ export default class RoomContainer extends Component {
 			<div className="RoomContainer">
 				<RoomList
 					rooms={this.state.rooms}
-					genre={this.props.genre}
 
+					genre={this.props.genre}
 					RoomId={this.props.RoomId}
 					setRoomId={this.props.setRoomId}
+					socket ={this.props.socket}
 				/>
 			</div>
 		);
