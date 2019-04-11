@@ -16,6 +16,7 @@ export class Player extends Component {
           </div>
           <div className="playerBox">
             <button onClick={()=>{this.props.pauseVideo()}} className="playButton">Play</button>
+            <button onClick={()=>{this.props.skipVideo()}} className="playButton">Skip 10</button>
           </div>
           <div className="playerBox">Volume</div>
         </div>

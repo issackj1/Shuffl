@@ -32,6 +32,11 @@ class YouTubeMain extends Component {
 		
 	}
 
+	skipVideo = () => {
+		var time = this.state.player.getCurrentTime();
+		this.state.player.seekTo(time + 10, true);
+	}
+
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		// console.log(this.props.RoomId);
@@ -98,7 +103,7 @@ class YouTubeMain extends Component {
 			<div className="parentYT">
 				<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
 				<YouTube videoId={this.state.videoId}opts={opts} onReady={this.handleReady} />
-				<Player pauseVideo={this.pauseVideo} />
+				<Player pauseVideo={this.pauseVideo} skipVideo={this.skipVideo} />
 				{ 	
 					/* <button onClick={this.next} id="newBut">
 					Next
