@@ -20,7 +20,7 @@ const io = require('socket.io')(http);
 
 io.on('connection', function (socket) {
     console.log('an user connected');
-
+    
     //loginrequest
     socket.on('authreq', function (state) {
         User.findOne({
@@ -43,6 +43,8 @@ io.on('connection', function (socket) {
         })
     });
 
+
+
     //signuprequest
     socket.on('submitreq', function (state) {
 
@@ -57,11 +59,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on('make room', function (state, userid) {
-        if(helper.createRoom(state, userid)){
-            console.log("Sucessefully created room");
-        }else{
-            console.log('room creation failure');
-        }
+        helper.createRoom(state, userid)
     });
 
     socket.on('getchatrooms', function () {
@@ -75,13 +73,35 @@ io.on('connection', function (socket) {
 
     });
 
-    socket.on('sendqueue', function(queue){
-        console.log('we got it')
-        console.log(queue)
-    })
 
     socket.on('getjoinedrooms', function () {
         socket.emit('rejoinedrooms', [])
+    })
+
+
+
+    socket.on('joinroom', function(roomid){
+        console.log(roomid)
+        socket.join(roomid)
+    })
+
+    socket.on('sendqueue', function(roomid, queue){
+        console.log(queue)
+        // io.to(roomid).emit('receivequeue', queue)
+    })
+
+    socket.on('sendplay', function(roomid) {
+        io.to(roomid).emit('receiveplay')
+    })
+
+    socket.on('sendpause', function(roomid) {
+        io.to(roomid).emit('receivepause')
+    })
+
+
+    socket.on('leaveroom', function(roomid){
+        console.log(roomid)
+        socket.leave(roomid)
     })
     //var username
     //var current room

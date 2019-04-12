@@ -93,9 +93,11 @@ module.exports = {
             })
     },
 
-    popularRooms: function (){
+    // popularRooms: function (){
+    //     ChatRoom.find(function(err, chatrooms){
 
-    },
+    //     })
+    // },
 
     browseRooms: function(){
         ChatRoom.find(function (err, chatrooms) {

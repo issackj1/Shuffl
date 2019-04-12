@@ -61,6 +61,8 @@ class App extends Component {
 		} else {
 			this.setState({ host: false });
 		}
+		console.log('joined this room'+roomid)
+		this.state.socket.emit('joinroom', roomid)
   };
   
   joinRoom = () =>{
@@ -134,7 +136,7 @@ class App extends Component {
 					</Switch>
         )}
         {/* change to player */}
-				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host} /> : null}
+				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host}  RoomId={this.state.RoomId}/> : null}
 			</React.Fragment>
 		);
 	}

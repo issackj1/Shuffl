@@ -27,8 +27,10 @@ class YouTubeMain extends Component {
 	pauseVideo = () => {
 		if (this.state.player.getPlayerState() == 1) {
 			this.state.player.pauseVideo();
+			this.props.socket.emit('sendpause', this.props.RoomId)
 		} else {
 			this.state.player.playVideo();
+			this.props.socket.emit('sendplay', this.props.RoomId)
 		}
 	};
 
@@ -56,7 +58,7 @@ class YouTubeMain extends Component {
 		// if it's video id then json.stringify each prevState.queue and this.state.queue and compare
 
 		if (JSON.stringify(prevState.queue) !== JSON.stringify(this.state.queue)) {
-			this.props.socket.emit(this.state.queue)
+			this.props.socket.emit('sendqueue', this.state.queue)
 		}
 	}
 
