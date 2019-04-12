@@ -23,14 +23,7 @@ class SignUp extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:4000/', {withCredentials: true})
-            .then(response => {
-                console.log('look here');
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
+    
     }
 
     switchSignUp = () => {
@@ -99,13 +92,12 @@ class SignUp extends Component {
     };
 
 
-    authenticate = () =>{
+    authenticate = (userid, username) =>{
 
         this.props.socket.emit('authreq', this.state)
-        this.props.socket.on('authapprove', ()=>{
-            console.log('approved')
-            this.props.authenticate();
-        })
+        this.props.socket.on('authapprove', function(user){
+            this.props.authenticate(user._id, user.name);
+        }.bind(this))
         //this is the authentication,
         //uncomment this block and
         //comment out "this.props.authenticate() at the bottom" to test

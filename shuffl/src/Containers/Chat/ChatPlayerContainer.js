@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Player from "../../Components/Player";
 // import Chat from "../Components/Chat";
 import YoutubeMain from '../MusicPlayer/YouTubeMain'
+import YoutubeMainGuest from '../MusicPlayer/YoutubeMainGuest'
 
 export class ChatPlayerContainer extends Component {
 
@@ -16,7 +17,10 @@ export class ChatPlayerContainer extends Component {
 
     return (
       <React.Fragment>
-           <YoutubeMain/>   {/* {
+           { this.props.host?
+           <YoutubeMain socket={this.props.socket} RoomId={this.props.RoomId}/> :
+           <YoutubeMainGuest socket={this.props.socket}/>
+           }  {/* {
           this.state.chatQueueSwitch?
           <Chat />
           :null //this is where queue will go

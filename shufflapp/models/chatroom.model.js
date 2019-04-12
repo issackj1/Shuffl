@@ -18,7 +18,11 @@ let ChatRoom = new Schema({
     UserList:
         {
             type: []
-        }
+        },
+    ChatLog:
+    {
+        type: []
+    }
 });
 
 module.exports = mongoose.model('ChatRoom', ChatRoom);
