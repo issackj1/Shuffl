@@ -6,7 +6,7 @@ export class Player extends Component {
   render() {
 
     return (
-      <div className="player">
+      <div className="playerController">
         <div className="slideContainer">
           <input type="range" min="1" max="100" value="50" className="slider" id="myRange"></input>
         </div>
@@ -21,7 +21,7 @@ export class Player extends Component {
           </div>
           <div className="playerBox">Volume</div>
         </div>
-        
+
       </div>
     )
   }
