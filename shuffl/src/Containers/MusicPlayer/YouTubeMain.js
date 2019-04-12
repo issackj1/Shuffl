@@ -117,9 +117,10 @@ class YouTubeMain extends Component {
 	// }
 
 	render() {
+		let controlsShift = this.state.search ? 'playerRowContainerExpanded':'playerRowContainer'
 		const opts = {
-			height: '200',
-			width: '200',
+			height: '0',
+			width: '0',
 			playerVars: {
 				// https://developers.google.com/youtube/player_parameters
 				autoplay: 1
@@ -127,7 +128,7 @@ class YouTubeMain extends Component {
 		};
 
 		return (
-			<div className="playerRowContainer">
+			<div className="controlsShift">
 				<div className="youtubeIframe">
 					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady}/>
 				</div>
