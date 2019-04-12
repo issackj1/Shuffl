@@ -39,7 +39,7 @@ class YouTubeMain extends Component {
 	};
 
 	searchVideo = () => {
-		this.setState({ search: !this.search });
+		this.setState({ search: !this.state.search });
 	};
 	skipVideo = () => {
 		var time = this.state.player.getCurrentTime();
@@ -84,14 +84,18 @@ class YouTubeMain extends Component {
 		};
 
 		return (
-			<div className="parentYT">
-				<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+			<div className="playerRowContainer">
+				<div className="youtubeIframe">
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+				</div>
 				<Player pauseVideo={this.pauseVideo} skipVideo={this.skipVideo} searchVideo={this.searchVideo} />
 				{this.state.search ? (
-					<React.Fragment>
+					<div className="footerGrey">
 						<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
+						<div className="videoListContainer">
 						<VideoList videos={this.state.videos} addToQueue={this.addToQueue} />
-					</React.Fragment>
+						</div>
+					</div>
 				) : null}
 			</div>
 		);
