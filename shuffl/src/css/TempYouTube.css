@@ -63,10 +63,14 @@
 }
 
 .playerRowContainer {
-    display: flex;
-    flex-direction: column;
     color: #000 !important;
     height: 10vh;
+    background-color: #5D5D5D;
+}
+
+.playerRowContainerExpanded {
+    color: #000 !important;
+    height: 16vh;
     background-color: #5D5D5D;
 }
 
@@ -92,4 +96,6 @@
 
 .footerGrey {
     background-color: #5D5D5D;
+    position: relative;
+    bottom: 0;
 }
