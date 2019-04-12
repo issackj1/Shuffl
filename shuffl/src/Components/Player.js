@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import playButton from '../icons/playbutton.png'
+import searchButton from '../icons/searchButton.png'
+import skipButton from '../icons/skipButton.png'
 
 export class Player extends Component {
 
@@ -15,9 +18,9 @@ export class Player extends Component {
             <div className="currentSong">Song Name<br></br>Artist</div>
           </div>
           <div className="playerBox">
-            <button onClick={()=>{this.props.pauseVideo()}} className="playButton">Play</button>
-            <button onClick={()=>{this.props.skipVideo()}} className="playButton">Skip 10</button>
-            <button onClick={()=>{this.props.searchVideo()}} className="searchButton">Search</button>
+            <img  src={searchButton} className="searchButton" onClick={()=>{this.props.searchVideo()}}/>
+            <img  src={playButton} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
+            <img  src={skipButton} className="skipButton" onClick={()=>{this.props.skipVideo()}}/>
           </div>
           <div className="playerBox">Volume</div>
         </div>

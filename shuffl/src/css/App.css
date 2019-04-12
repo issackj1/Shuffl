@@ -21,7 +21,7 @@ h1 {
 .parent {
     flex-grow: 1;
     background-color: #444444;
-    overflow: scroll;
+    overflow: auto;
 }
 
 /* -------------------------------- */
@@ -398,6 +398,26 @@ h1 {
     cursor: pointer;
   }
 
+.playButton {
+	width: 6vh;
+	height: 6vh;
+	cursor: pointer;
+}
+
+.searchButton {
+	width: 3vh;
+	height: 3vh;
+	cursor: pointer;
+	margin-right: 1.2vw;
+}
+
+.skipButton {
+	width: 3vh;
+	height: 3vh;
+	cursor: pointer;
+	margin-left: 1.2vw;
+}
+
 .playerBottom {
     display: flex;
     align-items: center;
@@ -407,6 +427,7 @@ h1 {
     flex: 1;
     display: flex;
     justify-content: center;
+	align-items: center;
 }
 
 .playerBox:first-child > span { margin-right: auto; }
