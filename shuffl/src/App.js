@@ -146,7 +146,7 @@ sendMessage = (roomid) =>
 					</Switch>
         )}
         {/* change to player */}
-				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host}  RoomId={this.state.RoomId} UserId={this.state.Username}/> : null}
+				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host}  RoomId={this.state.RoomId} Username={this.state.Username}/> : null}
 			</React.Fragment>
 		);
 	}

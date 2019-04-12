@@ -67,9 +67,9 @@ class YouTubeMain extends Component {
 			this.setState({users : this.state.users.concat([username])});
 			}.bind(this))
 
-			this.props.socket.on('receivemessage', function (message) {
+			this.props.socket.on('receivemessage', function (msg) {
 				this.setState({
-					messages : this.state.messages.concat([message])
+					messages : this.state.messages.concat([msg])
 				});
 				this.scrollToBottom();
 			}.bind(this))
@@ -142,8 +142,8 @@ class YouTubeMain extends Component {
 				) : null}
 				{
 					this.state.chat?(
-						<Chat sendMessage={this.sendMessage}
-						messages={this.state.messages} users = {this.state.users}/>
+						<Chat socket={this.props.socket}sendMessage={this.sendMessage}
+						messages={this.state.messages} users = {this.state.users} Username={this.props.Username} RoomId={this.props.RoomId}/>
 					):null
 				}
 			</div>

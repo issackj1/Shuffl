@@ -7,15 +7,8 @@ export class Chat extends Component {
 
 
   sendMessage(message, e){
-    console.log(message);
-    this.setState({
-          messages : this.state.messages.concat([{
-          message
-       }])
-    });
-    this.socket.emit('sendmessage', {
-        message
-    });
+    let msg = this.props.Username + ': ' + message;
+    this.props.socket.emit('sendmessage', msg, this.props.RoomId);
     this.scrollToBottom();
   }
 

@@ -89,9 +89,10 @@ io.on('connection', function (socket) {
         }
     })
 
-    socket.on('joinroom', function(roomid){
+    socket.on('joinroom', function(roomid, username){
         console.log(roomid)
         socket.join(roomid)
+        io.to(roomid).emit('updateUserList', username)
     })
 
     socket.on('reqtime', function(roomid){
@@ -116,11 +117,10 @@ io.on('connection', function (socket) {
     })
 
     socket.on('sendmessage', function(msg, roomid){
-        io.to(roomid).emit(msg, 'receivemessage')
+        io.to(roomid).emit('receivemessage', msg)
     })
 
     socket.on('leaveroom', function(roomid){
-        console.log(roomid)
         socket.leave(roomid)
     })
     //var username

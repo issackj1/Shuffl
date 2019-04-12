@@ -17,10 +17,9 @@ class ChatBox extends React.Component{
     onKeyUp(e){
         if (e.key === 'Enter') {
             if(this.state.message.length){
-                this.props.sendMessage({
-                    type : 'message',
-                    text : this.state.message
-                });
+                this.props.sendMessage(
+                    this.state.message
+                );
                 this.setState({message : ''});
             }else{
                 alert('Please enter a message');
