@@ -15,14 +15,17 @@ class Room extends Component {
 		return (
 			<div className="parent">
 				<div className="bottom">
-					<div className="page-title">
-						<h1>Rooms</h1>
-					</div>
-					<div className="RoomButtonDiv">
-						<button onClick={this.operation} className="RoomButton">
-							+
-						</button>
-					</div>
+                    <div className="top-row">
+                        <div className="page-title">
+                            <h1>Rooms</h1>
+                        </div>
+                        <div className="RoomButtonDiv" onClick={this.operation}>
+                            Add room 
+                            <button className="RoomButton">
+                                +
+                            </button>
+                        </div>
+                    </div>
                     <RoomContainer setRoomId={this.props.setRoomId} socket = {this.props.socket}/>
 					{this.state.createRoom ? (
 						<CreateRoom UserId={this.props.UserId} setRoomId={this.props.setRoomId} socket = {this.props.socket} operation={this.operation}/>
