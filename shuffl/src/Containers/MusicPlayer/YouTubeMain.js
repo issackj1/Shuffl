@@ -63,7 +63,7 @@ class YouTubeMain extends Component {
 	}
 
 	videoSearch(searchTerm) {
-		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
+		YTSearch({ key: API_KEY, term: searchTerm+"Official Audio"}, (data) => {
 			//take this and add it to room_queue in Mongo using this.props.RoomId
 			this.setState({ videos: data });
 			this.setState({ videoId: data[0].id.videoId });
@@ -81,8 +81,8 @@ class YouTubeMain extends Component {
 
 	render() {
 		const opts = {
-			height: '0',
-			width: '0',
+			height: '200',
+			width: '200',
 			playerVars: {
 				// https://developers.google.com/youtube/player_parameters
 				autoplay: 1
