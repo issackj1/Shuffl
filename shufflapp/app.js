@@ -56,8 +56,8 @@ io.on('connection', function (socket) {
         }
     });
 
-    socket.on('make room', function (state) {
-        if(helper.createRoom(state)){
+    socket.on('make room', function (state, userid) {
+        if(helper.createRoom(state, userid)){
             console.log("Sucessefully created room");
         }else{
             console.log('room creation failure');
@@ -74,6 +74,11 @@ io.on('connection', function (socket) {
         });
 
     });
+
+    socket.on('sendqueue', function(queue){
+        console.log('we got it')
+        console.log(queue)
+    })
 
     socket.on('getjoinedrooms', function () {
         socket.emit('rejoinedrooms', [])

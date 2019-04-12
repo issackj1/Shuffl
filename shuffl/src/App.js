@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Router, Switch, Link, withRouter } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import history from './Components/History';
 import './css/App.css';
 
@@ -18,7 +18,6 @@ import Error from './Containers/Error/Error';
 
 import TopBar from './Components/TopBar';
 import TopBarSignIn from './Components/TopBarSignIn';
-import axios from 'axios';
 
 import io from 'socket.io-client';
 
@@ -28,6 +27,7 @@ class App extends Component {
 		Playing: false,
 		SignedIn: false,
 		UserId: '',
+		Username:'',
 		RoomId: '',
 		host: false
 	};
@@ -46,21 +46,17 @@ class App extends Component {
 	componentWillMount(){
 		this.initSocket();
 	}
-	authenticate = () => {
-		this.setState({ SignedIn: true });
+	authenticate = (userid, username) => {
+		this.setState({ SignedIn: true, UserId:userid, Username:username});
 		// this.setUserId('5cac258fe700081ca7bcede4');
 		history.push('/home/');
 		// console.log(this.state.UserId);
 	};
 
-	setUserId = (userid) => {
-    //set uid from login
-		this.setState({ UserId: userid });
-	};
 
 	setRoomId = (roomid, roomhost) => {
 		this.setState({ RoomId: roomid, Playing: true });
-		if (roomhost == this.state.UserId) {
+		if (roomhost === this.state.UserId) {
 			this.setState({ host: true });
 		} else {
 			this.setState({ host: false });
@@ -132,13 +128,13 @@ class App extends Component {
 					<Switch>
 						<Route
 							path={'/signup/'}
-							render={(props) => <SignUp {...props} authenticate={this.authenticate} socket={this.state.socket}/>}
+							render={(props) => <SignUp {...props} setUserId={this.setUserId} authenticate={this.authenticate} socket={this.state.socket}/>}
 						/>
 						<Route component={Error} />
 					</Switch>
         )}
         {/* change to player */}
-				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} /> : null}
+				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host} /> : null}
 			</React.Fragment>
 		);
 	}

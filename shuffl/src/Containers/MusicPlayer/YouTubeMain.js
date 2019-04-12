@@ -56,7 +56,7 @@ class YouTubeMain extends Component {
 		// if it's video id then json.stringify each prevState.queue and this.state.queue and compare
 
 		if (JSON.stringify(prevState.queue) !== JSON.stringify(this.state.queue)) {
-			console.log('aa;');
+			this.props.socket.emit(this.state.queue)
 		}
 	}
 

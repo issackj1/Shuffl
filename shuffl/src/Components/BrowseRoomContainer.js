@@ -16,6 +16,7 @@ export default class RoomContainer extends Component {
     componentDidMount() {
         this.props.socket.emit('getchatrooms')
         this.props.socket.on('rechatrooms', function(rerooms){
+            console.log(rerooms)
 			this.setState({rooms: rerooms})
 		}.bind(this))
         // axios.get('http://localhost:4000/chatrooms')
@@ -28,6 +29,9 @@ export default class RoomContainer extends Component {
         //     })
     }
 
+    componentDidUpdate(){
+        console.log(this.state)
+    }
     render() {
         return (
             <div className="RoomContainer">
