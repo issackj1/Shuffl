@@ -70,6 +70,16 @@ class App extends Component {
 		//add room to users roomlist using roomid and uid
   }
 
+leaveRoom = (roomid) =>
+{
+  this.state.socket.emit('leaveroom', roomid)
+}
+
+sendMessage = (roomid) =>
+{
+	this.state.socket.emit('sendmessage', roomid)
+}
+
 	render() {
 		return (
 			<React.Fragment>

@@ -17,34 +17,22 @@ class YouTubeMain extends Component {
 			videoId: 'S1gp0m4B5p8',
 			queue: []
 		};
-	}
-
-	pauseVideo = () => {
-		if (this.state.player.getPlayerState() == 1) {
-			this.state.player.pauseVideo();
-			this.props.socket.emit('sendpause', this.props.RoomId)
-		} else {
-			this.state.player.playVideo();
-			this.props.socket.emit('sendplay', this.props.RoomId)
-		}
-	};
-
-	addToQueue = (video) => {
-		this.setState((prevState) => ({
-			queue: [ ...prevState.queue, video ]
-		}));
-	};
-
-	searchVideo = () => {
-		this.setState({ search: !this.search });
-	};
-	skipVideo = () => {
-		var time = this.state.player.getCurrentTime();
-		this.state.player.seekTo(time + 10, true);
-	};
-
+    }
+    
 	//TODO add function to send queued video to mongo
-	componentDidMount() {}
+	componentDidMount() {
+        this.props.socket.on('receiveplay', function(){
+            this.state.player.playVideo();
+        }.bind(this))
+
+        this.props.socket.on('receivepause', function(){
+            this.state.player.pauseVideo();
+        }.bind(this))
+
+        this.props.socket.on('receivetime', function(time, state){
+            this.state.player.seekTo(time + .5, false)
+        }.bind(this))
+    }
 
 	componentDidUpdate(prevProps, prevState) {
 		// queue is object
@@ -54,17 +42,12 @@ class YouTubeMain extends Component {
 
 		if (JSON.stringify(prevState.queue) !== JSON.stringify(this.state.queue)) {
 			this.props.socket.emit('sendqueue', this.state.queue)
-		}
-	}
-
-	videoSearch(searchTerm) {
-		YTSearch({ key: API_KEY, term: searchTerm }, (data) => {
-			//take this and add it to room_queue in Mongo using this.props.RoomId
-			this.setState({ videos: data });
-			this.setState({ videoId: data[0].id.videoId });
-		});
-	}
-
+        }
+        if(prevState.player !== this.state.player){
+            this.props.socket.emit('reqtime', this.props.RoomId)
+        }
+    }
+    
 	// console.log(selectedVideo);
 	handleReady = (e) => {
 		this.setState({ player: e.target });
@@ -72,8 +55,8 @@ class YouTubeMain extends Component {
 
 	render() {
 		const opts = {
-			height: '0',
-			width: '0',
+			height: '200',
+			width: '200',
 			playerVars: {
 				// https://developers.google.com/youtube/player_parameters
 				autoplay: 1
@@ -82,7 +65,7 @@ class YouTubeMain extends Component {
 
 		return (
 			<div className="parentYT">
-				<YouTube opts={opts} onReady={this.handleReady} />
+				<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
 				<PlayerGuest/>
 			</div>
 		);

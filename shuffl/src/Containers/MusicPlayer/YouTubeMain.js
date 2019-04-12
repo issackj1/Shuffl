@@ -73,6 +73,10 @@ class YouTubeMain extends Component {
 	// console.log(selectedVideo);
 	handleReady = (e) => {
 		this.setState({ player: e.target });
+
+		this.props.socket.on('timereq', ()=>{
+			this.props.socket.emit('sendtime', this.props.RoomId, this.state.player.getCurrentTime(), this.state.player.getPlayerState())
+		})
 	};
 
 	render() {

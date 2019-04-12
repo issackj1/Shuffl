@@ -107,6 +107,19 @@ module.exports = {
             }
         })
         .project({rerooms: chatrooms});
+    },
+
+    updateChat: function(msg, roomid){
+        ChatRoom.find({_id: roomid})
+        .then(chatroom => {
+            if(chatroom){
+                console.log('chatroom log before message appended');
+                chatroom.ChatLog.append(msg);
+                return true;
+            }else{
+                return false;
+            }
+        })
     }
 
 }
