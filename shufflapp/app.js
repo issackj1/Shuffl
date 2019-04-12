@@ -78,11 +78,28 @@ io.on('connection', function (socket) {
         socket.emit('rejoinedrooms', [])
     })
 
-
+    socket.on('updatechat', function (msg, roomid){
+        if(helper.updateChat(msg, roomid)){
+            ChatRoom.find({_id: roomid}, function(err, chatroom){
+                console.log('chatroom log after message appended' + chatroom.ChatLog);
+                io.to(roomid).emit('updatechat', chatroom.ChatLog);
+            })
+        }else{
+            console.log('failed to appened message to chatroom');
+        }
+    })
 
     socket.on('joinroom', function(roomid){
         console.log(roomid)
         socket.join(roomid)
+    })
+
+    socket.on('reqtime', function(roomid){
+        io.to(roomid).emit('timereq')
+    })
+
+    socket.on('sendtime', function(roomid, time, state){
+        io.to(roomid).emit('receivetime', time, state)
     })
 
     socket.on('sendqueue', function(roomid, queue){
@@ -98,6 +115,9 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('receivepause')
     })
 
+    socket.on('sendmessage', function(msg, roomid){
+        io.to(roomid).emit(msg, 'receivemessage')
+    })
 
     socket.on('leaveroom', function(roomid){
         console.log(roomid)
