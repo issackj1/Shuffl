@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = require('../app');
 const router = express.Router();
 
-let ChatRoom = require('../models/chatroom.model');
+let ChatRoom = require('../models/Chatroom');
 
 //display all the Available to join chatrooms
 router.get('/', function (req, res) {

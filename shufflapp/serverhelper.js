@@ -1,4 +1,4 @@
-let ChatRoom = require('./models/chatroom.model');
+let ChatRoom = require('./models/Chatroom');
 
 module.exports = {
 
