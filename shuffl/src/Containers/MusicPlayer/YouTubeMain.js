@@ -7,7 +7,8 @@ import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
 import axios from 'axios';
 import Player from '../../Components/Player';
-import { Socket } from 'net';
+import Chat from '../../Components/Chat'
+
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
@@ -20,7 +21,11 @@ class YouTubeMain extends Component {
 			player: null,
 			videos: [],
 			videoId: 'S1gp0m4B5p8',
-			queue: []
+			queue: [],
+			chat: false,
+			users : ['me'],
+			message : '',
+			messages:['hello']
 		};
 	}
 
@@ -40,6 +45,10 @@ class YouTubeMain extends Component {
 		}));
 	};
 
+	chat = ()=>{
+		this.setState({chat: !this.state.chat})
+	}
+
 	searchVideo = () => {
 		this.setState({ search: !this.state.search });
 	};
@@ -48,8 +57,29 @@ class YouTubeMain extends Component {
 		this.state.player.seekTo(time + 10, true);
 	};
 
+	scrollToBottom= ()=>{
+		let messages = document.getElementsByClassName('messages')[0];
+		messages.scrollTop = messages.scrollHeight - messages.clientHeight;
+	}
+
+	initChat=()=>{
+		this.props.socket.on('updateUsersList', function (username) {
+			this.setState({users : this.state.users.concat([username])});
+			}.bind(this))
+
+			this.props.socket.on('receivemessage', function (message) {
+				this.setState({
+					messages : this.state.messages.concat([message])
+				});
+				this.scrollToBottom();
+			}.bind(this))
+	}
+
+
 	//TODO add function to send queued video to mongo
-	componentDidMount() {}
+	componentDidMount() {
+		this.initChat();
+	}
 
 	componentDidUpdate(prevProps, prevState) {
 		// queue is object
@@ -64,7 +94,6 @@ class YouTubeMain extends Component {
 
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm+"Official Audio"}, (data) => {
-			//take this and add it to room_queue in Mongo using this.props.RoomId
 			this.setState({ videos: data });
 			this.setState({ videoId: data[0].id.videoId });
 		});
@@ -79,6 +108,14 @@ class YouTubeMain extends Component {
 		})
 	};
 
+	// getCurrentTime =()=>{
+	// 	if(this.state.player){
+	// 		return this.state.player.getCurrentTime()
+	// 	}else{
+	// 		return 0
+	// 	}	
+	// }
+
 	render() {
 		const opts = {
 			height: '200',
@@ -92,9 +129,9 @@ class YouTubeMain extends Component {
 		return (
 			<div className="playerRowContainer">
 				<div className="youtubeIframe">
-					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady}/>
 				</div>
-				<Player pauseVideo={this.pauseVideo} skipVideo={this.skipVideo} searchVideo={this.searchVideo} />
+				<Player  pauseVideo={this.pauseVideo} skipVideo={this.skipVideo} searchVideo={this.searchVideo} chat = {this.chat}/>
 				{this.state.search ? (
 					<div className="footerGrey">
 						<SearchBar onSearchTermChange={(searchTerm) => this.videoSearch(searchTerm)} />
@@ -103,6 +140,12 @@ class YouTubeMain extends Component {
 						</div>
 					</div>
 				) : null}
+				{
+					this.state.chat?(
+						<Chat sendMessage={this.sendMessage}
+						messages={this.state.messages} users = {this.state.users}/>
+					):null
+				}
 			</div>
 		);
 	}

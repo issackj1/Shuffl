@@ -15,12 +15,13 @@ export class Player extends Component {
         </div>
         <div className="playerBottom">
           <div className="playerBox">
-            <div className="currentSong">Song Name<br></br>Artist</div>
+            <div className="currentSong">Song Name<br></br>Time</div>
           </div>
           <div className="playerBox">
             <img  src={searchButton} className="searchButton" onClick={()=>{this.props.searchVideo()}}/>
             <img  src={playButton} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
             <img  src={skipButton} className="skipButton" onClick={()=>{this.props.skipVideo()}}/>
+            <button className='chatButton' onClick={()=>this.props.chat()}>chat</button>
           </div>
           <div className="playerBox">Volume</div>
         </div>
