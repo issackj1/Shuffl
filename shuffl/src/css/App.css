@@ -366,8 +366,8 @@ h1 {
 
 .slideContainer {
     position: relative;
-    top: -15px;
-    margin-top: -15px;
+    top: -1vh;
+    margin-top: -1vh;
 }
 
 .slider {
