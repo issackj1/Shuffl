@@ -30,7 +30,7 @@ class YouTubeMain extends Component {
         }.bind(this))
 
         this.props.socket.on('receivetime', function(time, state){
-            this.state.player.seekTo(time + .5, false)
+            this.state.player.seekTo(time + .5, true)
         }.bind(this))
     }
 
