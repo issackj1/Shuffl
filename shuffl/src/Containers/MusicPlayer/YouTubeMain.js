@@ -20,7 +20,7 @@ class YouTubeMain extends Component {
 			player: null,
 			videos: [],
 			videoId: 'S1gp0m4B5p8',
-			queue: []
+			queue: [],
 		};
 	}
 
@@ -80,6 +80,9 @@ class YouTubeMain extends Component {
 	};
 
 	render() {
+		let controlsShift = this.state.search ? "playerRowContainerExpanded" : "playerRowContainer";
+
+
 		const opts = {
 			height: '200',
 			width: '200',
@@ -90,7 +93,7 @@ class YouTubeMain extends Component {
 		};
 
 		return (
-			<div className="playerRowContainer">
+			<div className="controlsShift">
 				<div className="youtubeIframe">
 					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
 				</div>
