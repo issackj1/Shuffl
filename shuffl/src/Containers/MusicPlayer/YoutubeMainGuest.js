@@ -3,6 +3,8 @@ import YTSearch from 'youtube-api-search';
 import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
 import PlayerGuest from '../../Components/PlayerGuest';
+import Chat from '../../Components/Chat';
+import VideoList from '../MusicPlayer/video_list_guest'
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
@@ -11,16 +13,22 @@ class YouTubeMain extends Component {
 		super();
 
 		this.state = {
-			search: false,
+			queuebutton: false,
+			chat: false,
 			player: null,
-			videos: [],
 			videoId: 'S1gp0m4B5p8',
-			queue: []
+			queue: [],
+			messages:[]
 		};
-    }
+	}
+	
+
+
     
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
+		this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username)
+
         this.props.socket.on('receiveplay', function(){
             this.state.player.playVideo();
         }.bind(this))
@@ -29,12 +37,16 @@ class YouTubeMain extends Component {
             this.state.player.pauseVideo();
         }.bind(this))
 
-        this.props.socket.on('receivetime', function(time, state){
-            this.state.player.seekTo(time + .5, true)
+        this.props.socket.on('receivetime', function(username, time, state){
+			if(this.props.Username === username){
+				this.state.player.seekTo(time + .5, true)
+			}
 		}.bind(this))
 		
-		this.props.socket.on('receivequeue', function(queue){
-			this.setState({queue:queue})
+		this.props.socket.on('receivequeue', function(username, queue){
+			if(this.props.Username === username){
+				this.setState({queue:queue})
+			}
         }.bind(this))
 
     }
@@ -49,10 +61,17 @@ class YouTubeMain extends Component {
 			this.props.socket.emit('sendqueue', this.state.queue)
         }
         if(prevState.player !== this.state.player){
-            this.props.socket.emit('reqtime', this.props.RoomId)
+            this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
         }
     }
-    
+	
+	queue = () => {
+		this.setState({ queuebutton: !this.state.queuebutton });
+	};
+
+	chat = ()=>{
+		this.setState({chat: !this.state.chat})
+	}
 	// console.log(selectedVideo);
 	handleReady = (e) => {
 		this.setState({ player: e.target });
@@ -71,7 +90,20 @@ class YouTubeMain extends Component {
 		return (
 			<div className="parentYT">
 				<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
-				<PlayerGuest/>
+				<PlayerGuest queue={this.queue} chat={this.chat} />
+				{this.state.queuebutton ? (
+					<div className="footerGrey">
+						<div className="videoListContainer">
+						<VideoList videos={this.state.queue} />
+						</div>
+					</div>
+				) : null}
+				{
+					this.state.chat?(
+						<Chat socket={this.props.socket}sendMessage={this.sendMessage}
+						messages={this.state.messages} users = {this.state.users} Username={this.props.Username} RoomId={this.props.RoomId}/>
+					):null
+				}
 			</div>
 		);
 	}

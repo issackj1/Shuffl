@@ -19,7 +19,6 @@ const io = require('socket.io')(http);
 
 
 io.on('connection', function (socket) {
-    console.log('an user connected');
     
     //loginrequest
     socket.on('authreq', function (state) {
@@ -90,20 +89,20 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('receivemessage', (username +' has joined the room'))
     })
 
-    socket.on('reqtime', function(roomid){
-        io.to(roomid).emit('timereq')
+    socket.on('reqtime', function(roomid, username){
+        io.to(roomid).emit('timereq', username)
     })
 
-    socket.on('requeue', function(roomid){
-        io.to(roomid).emit('timereq')
+    socket.on('reqqueue', function(roomid , username){
+        io.to(roomid).emit('queuereq', username)
     })
 
-    socket.on('sendtime', function(roomid, time, state){
-        io.to(roomid).emit('receivetime', time, state)
+    socket.on('sendtime', function(roomid, username, time, state){
+        io.to(roomid).emit('receivetime', username, time, state)
     })
 
-    socket.on('sendqueue', function(roomid, queue){
-        io.to(roomid).emit('receivequeue', queue)
+    socket.on('sendqueue', function(roomid, username, queue){
+        io.to(roomid).emit('receivequeue', username, queue)
     })
 
     socket.on('sendplay', function(roomid) {
@@ -113,10 +112,6 @@ io.on('connection', function (socket) {
     socket.on('sendpause', function(roomid) {
         io.to(roomid).emit('receivepause')
     })
-
-    socket.on('sendskip', function(roomid)){
-
-    }
 
     socket.on('sendmessage', function(msg, roomid){
         io.to(roomid).emit('receivemessage', msg)

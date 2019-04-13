@@ -97,8 +97,12 @@ class YouTubeMain extends Component {
 	handleReady = (e) => {
 		this.setState({ player: e.target });
 
-		this.props.socket.on('timereq', ()=>{
-			this.props.socket.emit('sendtime', this.props.RoomId, this.state.player.getCurrentTime(), this.state.player.getPlayerState())
+		this.props.socket.on('timereq', (username)=>{
+			this.props.socket.emit('sendtime', this.props.RoomId, username, this.state.player.getCurrentTime(), this.state.player.getPlayerState())
+		})
+
+		this.props.socket.on('queuereq', (username)=>{
+			this.props.socket.emit('sendqueue', this.props.RoomId, username, this.state.queue)
 		})
 	};
 
