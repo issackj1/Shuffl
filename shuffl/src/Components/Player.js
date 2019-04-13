@@ -10,9 +10,6 @@ export class Player extends Component {
 
     return (
       <div className="playerController">
-        <div className="slideContainer">
-          <input type="range" min="1" max="100" value="50" className="slider" id="myRange"></input>
-        </div>
         <div className="playerBottom">
           <div className="playerBox">
             <div className="currentSong">Song Name<br></br>Time</div>
