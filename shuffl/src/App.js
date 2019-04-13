@@ -37,7 +37,7 @@ class App extends Component {
 	initSocket= ()=>{
 		const socket = io("http://localhost:4001")
 		this.setState({socket})
-	}
+	};
 
 	componentDidMount(){
 		axios.get('http://localhost:4000/', {withCredentials:true})
@@ -57,6 +57,7 @@ class App extends Component {
 		this.setState({ SignedIn: true, UserId:userid, Username:username});
 		// this.setUserId('5cac258fe700081ca7bcede4');
 		//BONUS: redirect to same page person was on instead of home
+		//history.push('/home/');
 		history.push(history.location.pathname);
 		// console.log(this.state.UserId);
 	};
@@ -72,7 +73,7 @@ class App extends Component {
 			host: false
 		})
 		
-	}
+	};
 
 	setRoomId = (roomid, roomhost) => {
 		

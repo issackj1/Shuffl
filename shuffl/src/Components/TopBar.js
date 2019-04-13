@@ -8,7 +8,8 @@ class TopBar extends Component {
 
     componentDidMount(){
         const {history} = this.props;
-        history.push('/home/')
+        history.push('/home/');
+        //history.push(history.location.pathname);
     }
 
     render() {
