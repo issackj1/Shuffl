@@ -43,9 +43,10 @@ class App extends Component {
 		axios.get('http://localhost:4000/', {withCredentials:true})
 			.then(response=>{
 				
-				if(response.data.res.session){
+				if(response.data.res.hasOwnProperty('user')){
 
-					this.authenticate(response.data.res.user, response.data.res.name)
+					this.userRedirect(response.data.res.user, response.data.res.name)
+					//this.authenticate(response.data.res.user, response.data.res.name)
 				}
 		}).catch(function (error) {
 			console.log(error);
@@ -53,15 +54,22 @@ class App extends Component {
 		this.initSocket();
 	}
 
+	userRedirect = (user, name) => {
+		console.log('hello');
+		this.setState({ SignedIn: true, UserId:user, Username:name});
+		history.push(history.location.pathname + '');
+	};
+
 	authenticate = (userid, username) => {
 		this.setState({ SignedIn: true, UserId:userid, Username:username});
 		// this.setUserId('5cac258fe700081ca7bcede4');
+		//BONUS: redirect to same page person was on instead of home
 		history.push('/home/');
 		// console.log(this.state.UserId);
 	};
 
 	logout=()=>{
-		axios.get('http://localhost:4000/users/logout', {withCredentials:true})
+		axios.get('http://localhost:4000/users/logout', {withCredentials:true});
 		this.setState({
 			Playing: false,
 			SignedIn: false,

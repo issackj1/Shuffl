@@ -165,6 +165,10 @@ app.get('/', function (req, res) {
         res.send({
             'res': req.session.passport
         })
+    }else{
+        res.send({
+            'res': 'No active session'
+        })
     }
 });
 

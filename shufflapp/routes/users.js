@@ -129,8 +129,9 @@ router.post('/login',
     });
 
 // Logout
-router.get('/logout', (req) => {
+router.get('/logout', (req, res) => {
     req.logout();
+    res.send({'msg': 'you have logged out'});
 });
 
 
