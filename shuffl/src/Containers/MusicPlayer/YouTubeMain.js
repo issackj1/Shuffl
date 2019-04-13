@@ -56,17 +56,12 @@ class YouTubeMain extends Component {
 		this.state.player.seekTo(time + 10, true);
 	};
 
-	scrollToBottom= ()=>{
-		let messages = document.getElementsByClassName('messageBox')[0];
-		messages.scrollTop = messages.scrollHeight - messages.clientHeight;
-	}
 
 	initChat=()=>{
 		this.props.socket.on('receivemessage', function (msg) {
 			this.setState({
 				messages : this.state.messages.concat([msg])
 			});
-			this.scrollToBottom();
 		}.bind(this))		
 	}
 
