@@ -97,8 +97,8 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('queuereq', username)
     })
 
-    socket.on('sendtime', function(roomid, username, time, state){
-        io.to(roomid).emit('receivetime', username, time, state)
+    socket.on('sendtime', function(roomid, username, time, state,videoid){
+        io.to(roomid).emit('receivetime', username, time, state, videoid)
     })
 
     socket.on('sendqueue', function(roomid, username, queue){
@@ -110,12 +110,24 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('updateQueue', queue)
     })
 
+    socket.on('updateVideo', function(roomid, videoid){
+        io.to(roomid).emit('updateVideo', videoid)
+    })
+
     socket.on('sendplay', function(roomid) {
         io.to(roomid).emit('receiveplay')
     })
 
     socket.on('sendpause', function(roomid) {
         io.to(roomid).emit('receivepause')
+    })
+
+    socket.on('sendskip', function(roomid) {
+        io.to(roomid).emit('receiveskip')
+    })
+
+    socket.on('sendstop', function(roomid) {
+        io.to(roomid).emit('receivestop')
     })
 
     socket.on('sendmessage', function(msg, roomid){

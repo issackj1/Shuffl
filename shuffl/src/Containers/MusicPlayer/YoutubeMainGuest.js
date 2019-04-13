@@ -16,15 +16,12 @@ class YouTubeMainGuest extends Component {
 			queuebutton: false,
 			chat: false,
 			player: null,
-			videoId: 'S1gp0m4B5p8',
+			videoId: '',
 			queueguest: [],
 			messagesguest:[]
 		};
 	}
 	
-
-
-    
 	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username)
@@ -42,25 +39,39 @@ class YouTubeMainGuest extends Component {
         this.props.socket.on('receivepause', function(){
             this.state.player.pauseVideo();
 		}.bind(this))
+
+		this.props.socket.on('receivestop', function(){
+            this.state.player.stopVideo();
+		}.bind(this))
 		
-		this.props.socket.on('receivepause', function(){
-            this.state.player.pauseVideo();
+		this.props.socket.on('receiveskip', function(){
+				this.state.player.loadVideoById(this.state.queueguest[0].id.videoId ,0,'large')
+				this.setState({queueguest:this.state.queueguest.slice(1)})
         }.bind(this))
 
-        this.props.socket.on('receivetime', function(username, time, state){
+        this.props.socket.on('receivetime', function(username, time, state, videoid){
 			if(this.props.Username === username){
-				this.state.player.seekTo(time + .5, true)
+				console.log(videoid)
+				if(state == 1){
+					this.state.player.loadVideoById(videoid, time,'large')
+				}else{
+					this.state.player.cueVideoById(videoid, time, 'large')
+				}
 			}
 		}.bind(this))
 		
 		this.props.socket.on('receivequeue', function(username, queue){
 			if(this.props.Username === username){
-				this.setState({queue:queue})
+				this.setState({queueguest:queue})
 			}
 		}.bind(this))
 		
 		this.props.socket.on('updateQueue', function(queuelist){
 			this.setState({queueguest:queuelist})
+		}.bind(this))
+
+		this.props.socket.on('updateVideo', function(videoid){
+			this.state.player.loadVideoById(videoid, 0,'large')
 		}.bind(this))
 
     }
@@ -75,11 +86,13 @@ class YouTubeMainGuest extends Component {
 			console.log(this.state.queueguest)
         }
         if(prevState.player !== this.state.player){
-            this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
+			this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
+			this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username)
 		}
 
 		if(prevProps.RoomId != this.props.RoomId){
-			this.setState({queueguest:[], messagesguest:[]})
+			this.setState({queueguest:[], messagesguest:[], videoId:''})
+			this.state.player.stopVideo()
 		}
 
 

@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import YTSearch from 'youtube-api-search';
 import VideoList from './video_list';
-import VideoDetail from './video_detail';
+import Queue from './video_list_guest'
 import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
-import axios from 'axios';
 import Player from '../../Components/Player';
 import Chat from '../../Components/Chat'
 
@@ -45,6 +44,8 @@ class YouTubeMain extends Component {
 			}));
 		}else{
 			this.state.player.loadVideoById(video.id.videoId, 0, 'large')
+			this.setState({videoId:video.id.videoId})
+			this.props.socket.emit('updateVideo', this.props.RoomId, video.id.videoId)
 		}
 	};
 
@@ -59,9 +60,11 @@ class YouTubeMain extends Component {
 	skipVideo = () => {
 		if(this.state.queue.length >=1){
 			this.state.player.loadVideoById(this.state.queue[0].id.videoId,0,'large')
-			this.setState({queue:this.state.queue.slice(1)})
+			this.setState({videoId: this.state.queue[0].id.videoId, queue:this.state.queue.slice(1)})
+			this.props.socket.emit('sendskip', this.props.RoomId)
 		}else{
 			this.state.player.stopVideo()
+			this.props.socket.emit('sendstop', this.props.RoomId)
 		}
 		
 		// var time = this.state.player.getCurrentTime();
@@ -93,7 +96,8 @@ class YouTubeMain extends Component {
 		}
 
 		if(prevProps.RoomId != this.props.RoomId){
-			this.setState({queue:[], messages:[]})
+			this.setState({queue:[], messages:[], videos: [],videoId: ''})
+			this.state.player.stopVideo()
 		}
 
 	}
@@ -110,10 +114,12 @@ class YouTubeMain extends Component {
 		this.setState({ player: e.target });
 
 		this.props.socket.on('timereq', (username)=>{
-			this.props.socket.emit('sendtime', this.props.RoomId, username, this.state.player.getCurrentTime(), this.state.player.getPlayerState())
+			console.log(this.state.videoId)
+			this.props.socket.emit('sendtime', this.props.RoomId, username, this.state.player.getCurrentTime(), this.state.player.getPlayerState(), this.state.videoId)
 		})
 
 		this.props.socket.on('queuereq', (username)=>{
+			console.log()
 			this.props.socket.emit('sendqueue', this.props.RoomId, username, this.state.queue)
 		})
 	};
@@ -150,7 +156,7 @@ class YouTubeMain extends Component {
 						<VideoList videos={this.state.videos} addToQueue={this.addToQueue} />
 						</div>
 					</div>
-				) : null}
+				) :<Queue videos={this.state.queue} />}
 				{
 					this.state.chat?(
 						<Chat socket={this.props.socket}sendMessage={this.sendMessage}
