@@ -23,9 +23,7 @@ class YouTubeMain extends Component {
 			videoId: 'S1gp0m4B5p8',
 			queue: [],
 			chat: false,
-			users : ['me'],
-			message : '',
-			messages:['hello']
+			messages:[]
 		};
 	}
 
@@ -52,6 +50,7 @@ class YouTubeMain extends Component {
 	searchVideo = () => {
 		this.setState({ search: !this.state.search });
 	};
+
 	skipVideo = () => {
 		var time = this.state.player.getCurrentTime();
 		this.state.player.seekTo(time + 10, true);
@@ -63,18 +62,13 @@ class YouTubeMain extends Component {
 	}
 
 	initChat=()=>{
-		this.props.socket.on('updateUsersList', function (username) {
-			this.setState({users : this.state.users.concat([username])});
-			}.bind(this))
-
-			this.props.socket.on('receivemessage', function (msg) {
-				this.setState({
-					messages : this.state.messages.concat([msg])
-				});
-				this.scrollToBottom();
-			}.bind(this))
+		this.props.socket.on('receivemessage', function (msg) {
+			this.setState({
+				messages : this.state.messages.concat([msg])
+			});
+			this.scrollToBottom();
+		}.bind(this))		
 	}
-
 
 	//TODO add function to send queued video to mongo
 	componentDidMount() {

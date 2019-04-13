@@ -34,7 +34,6 @@ export default class RoomContainer extends Component {
 			<div className="RoomContainer">
 				<RoomList
 					rooms={this.state.rooms}
-
 					genre={this.props.genre}
 					RoomId={this.props.RoomId}
 					setRoomId={this.props.setRoomId}

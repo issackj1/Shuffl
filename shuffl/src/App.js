@@ -62,7 +62,7 @@ class App extends Component {
 			this.setState({ host: false });
 		}
 		console.log('joined this room'+roomid)
-		this.state.socket.emit('joinroom', roomid)
+		this.state.socket.emit('joinroom', roomid, this.state.Username)
   };
   
   joinRoom = () =>{

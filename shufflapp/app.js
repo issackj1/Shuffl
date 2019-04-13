@@ -92,7 +92,6 @@ io.on('connection', function (socket) {
     socket.on('joinroom', function(roomid, username){
         console.log(roomid)
         socket.join(roomid)
-        io.to(roomid).emit('updateUserList', username)
     })
 
     socket.on('reqtime', function(roomid){
@@ -123,21 +122,6 @@ io.on('connection', function (socket) {
     socket.on('leaveroom', function(roomid){
         socket.leave(roomid)
     })
-    //var username
-    //var current room
-
-    // socket.on(authenticate, function(username, password){
-    //
-    // })
-
-    // socket.on(authenticate, function(username, password){
-    //
-    // })
-
-    //socket.on(joined, function(roomid){
-
-    //})
-
 
 });
 

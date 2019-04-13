@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import Users from './Users' 
 import Messages from './Messages'
-import socketIOClient from 'socket.io-client';
 
 export class Chat extends Component {
 
@@ -25,7 +23,6 @@ export class Chat extends Component {
     return (
       <div className="chat">
         <React.Fragment>
-            <Users users={this.props.users}/>
             <Messages
                 sendMessage={this.sendMessage.bind(this)}
                 messages={this.props.messages}
