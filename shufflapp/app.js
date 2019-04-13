@@ -50,10 +50,8 @@ io.on('connection', function (socket) {
 
         //if auth approved
         if (helper.auth(state)) {
-            console.log('User is now registered');
             socket.emit('submitapprove', userid)
         } else {//else if auth denied
-            console.log("Sorry try again");
             socket.emit('submitdeny')
         }
     });
@@ -81,20 +79,22 @@ io.on('connection', function (socket) {
     socket.on('updatechat', function (msg, roomid){
         if(helper.updateChat(msg, roomid)){
             ChatRoom.find({_id: roomid}, function(err, chatroom){
-                console.log('chatroom log after message appended' + chatroom.ChatLog);
                 io.to(roomid).emit('updatechat', chatroom.ChatLog);
             })
         }else{
-            console.log('failed to appened message to chatroom');
         }
     })
 
     socket.on('joinroom', function(roomid, username){
-        console.log(roomid)
         socket.join(roomid)
+        io.to(roomid).emit('receivemessage', (username +' has joined the room'))
     })
 
     socket.on('reqtime', function(roomid){
+        io.to(roomid).emit('timereq')
+    })
+
+    socket.on('requeue', function(roomid){
         io.to(roomid).emit('timereq')
     })
 
@@ -103,8 +103,7 @@ io.on('connection', function (socket) {
     })
 
     socket.on('sendqueue', function(roomid, queue){
-        console.log(queue)
-        // io.to(roomid).emit('receivequeue', queue)
+        io.to(roomid).emit('receivequeue', queue)
     })
 
     socket.on('sendplay', function(roomid) {
@@ -115,12 +114,17 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('receivepause')
     })
 
+    socket.on('sendskip', function(roomid)){
+
+    }
+
     socket.on('sendmessage', function(msg, roomid){
         io.to(roomid).emit('receivemessage', msg)
     })
 
-    socket.on('leaveroom', function(roomid){
+    socket.on('leaveroom', function(roomid, username){
         socket.leave(roomid)
+        io.to(roomid).emit('receivemessage', (username +' has left the room'))
     })
 
 });

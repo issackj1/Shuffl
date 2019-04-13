@@ -31,7 +31,12 @@ class YouTubeMain extends Component {
 
         this.props.socket.on('receivetime', function(time, state){
             this.state.player.seekTo(time + .5, true)
+		}.bind(this))
+		
+		this.props.socket.on('receivequeue', function(queue){
+			this.setState({queue:queue})
         }.bind(this))
+
     }
 
 	componentDidUpdate(prevProps, prevState) {

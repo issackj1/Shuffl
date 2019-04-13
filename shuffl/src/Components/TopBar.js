@@ -20,12 +20,6 @@ class TopBar extends Component {
                         <img  src={logo} className="TopBarLogo" alt="TopBarLogo" onClick={()=>{history.push('/home/')}}/>
                     </div>
                     <div className='TopHalf2'>
-                    <div className='linkContainer'>
-                            <div onClick={()=>{history.push('/youtubeguest/')}} className='link Chat'>Guest</div>
-                        </div>
-                    <div className='linkContainer'>
-                            <div onClick={()=>{history.push('/youtube/')}} className='link Home'>Youtube</div>
-                        </div>
                         <div className='linkContainer'>
                             <div onClick={()=>{history.push('/rooms/')}} className='link Rooms'>Rooms</div>
                         </div>
