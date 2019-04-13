@@ -87,7 +87,8 @@
 
 .videoListContainer {
     width: 100%;
-    overflow: scroll;
+    overflow: auto;
+    overflow-y: hidden;
     height: 160px;
     color: #000;
 }
@@ -100,6 +101,8 @@
     background-color: #5D5D5D;
     position: relative;
     bottom: 0;
+    height: 22vh;
+    overflow: hidden;
 }
 
 .video-list-media {

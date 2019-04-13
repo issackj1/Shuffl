@@ -51,10 +51,13 @@ class YouTubeMain extends Component {
 
 	chat = ()=>{	
 		this.setState({chat: !this.state.chat})
+		
 	}
 
 	searchVideo = () => {
-		this.setState({ search: !this.state.search });
+		this.setState({ search: !this.state.search })
+		
+	
 	};
 
 	skipVideo = () => {
@@ -100,10 +103,21 @@ class YouTubeMain extends Component {
 			this.state.player.stopVideo()
 		}
 
+		if(prevState.search !== this.state.search){
+			if(this.state.chat){
+				let chat = document.getElementsByClassName("chat")[0];
+				if (this.state.search) {
+					chat.style.height = "61vh";
+				} else {
+					chat.style.height = "83vh";
+				}
+			}
+		}
+
 	}
 
 	videoSearch(searchTerm) {
-		YTSearch({ key: API_KEY, term: searchTerm+"Official Audio"}, (data) => {
+		YTSearch({ key: API_KEY, term: searchTerm+"Official Audio", maxResults: 10}, (data) => {
 			this.setState({ videos: data });
 			// this.setState({ videoId: data[0].id.videoId });
 		});
@@ -133,7 +147,7 @@ class YouTubeMain extends Component {
 	// }
 
 	render() {
-		let controlsShift = this.state.search ? 'playerRowContainerExpanded':'playerRowContainer'
+		//let controlsShift = this.state.search ? 'playerRowContainerExpanded':'playerRowContainer'
 		const opts = {
 			height: '0',
 			width: '0',
