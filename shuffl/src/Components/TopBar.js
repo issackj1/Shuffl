@@ -12,7 +12,7 @@ class TopBar extends Component {
     }
 
     render() {
-        const {matchMedia,location, history} = this.props;
+        const {matchMedia,location, history, logout} = this.props;
         return (
                 
                 <div className='TopBar'>
@@ -20,6 +20,9 @@ class TopBar extends Component {
                         <img  src={logo} className="TopBarLogo" alt="TopBarLogo" onClick={()=>{history.push('/home/')}}/>
                     </div>
                     <div className='TopHalf2'>
+                        <div className='linkContainer'>
+                            <div onClick={()=>{logout()}} className='link Logout'>Logout</div>
+                        </div>
                         <div className='linkContainer'>
                             <div onClick={()=>{history.push('/rooms/')}} className='link Rooms'>Rooms</div>
                         </div>

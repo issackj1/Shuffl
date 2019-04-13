@@ -103,6 +103,10 @@ class YouTubeMain extends Component {
 			this.state.player.stopVideo()
 		}
 
+		if(prevState.player !== this.state.player){
+			this.state.player.setVolume(100)
+		}
+
 		if(prevState.search !== this.state.search){
 			if(this.state.chat){
 				let chat = document.getElementsByClassName("chat")[0];

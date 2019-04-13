@@ -20,30 +20,6 @@ const io = require('socket.io')(http);
 
 io.on('connection', function (socket) {
     
-    //loginrequest
-    socket.on('authreq', function (state) {
-        User.findOne({
-            name: state.name
-        }).then(user => {
-            if (!user) {
-                socket.emit('authdeny');
-            } else {
-                // Match password
-                bcrypt.compare(state.password, user.password, (err, isMatch) => {
-                    if (err) throw err;
-                    if (isMatch) {
-                        console.log(user.id);
-                        socket.emit('authapprove', user)
-                    } else {
-                        socket.emit('authdeny')
-                    }
-                })
-            }
-        })
-    });
-
-
-
     //signuprequest
     socket.on('submitreq', function (state) {
 
@@ -180,15 +156,14 @@ app.use(session({
     cookie : { httpOnly: true, maxAge: 15 * 1000} // configure when sessions expires
 }));
 
-// Routes
+
+//check for session
 app.get('/', function (req, res) {
     if (req.session.passport) {
+            req.session.passport['session'] = 'active'
+            req.session.save();
         res.send({
-            'msg': 'welcome back'
-        })
-    } else {
-        res.send({
-            'msg': 'welcome'
+            'res': req.session.passport
         })
     }
 });

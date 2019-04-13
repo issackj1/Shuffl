@@ -59,30 +59,30 @@ class SignUp extends Component {
                 document.getElementById('registered').innerText = "";
                 document.getElementById('invalidemail').innerText = "";
                 document.getElementById('uniqueuser').innerText = "";
+                console.log(response)
+                if(response.data.res){
 
-                if(response.data.hasOwnProperty('success')){
-                    //redirect
-                    alert('success');
+                    this.props.authenticate(response.data.res._id, response.data.res.name);
                 }else if(response.data.hasOwnProperty('fill')){
                     //alert(response.data.fill);
-                    document.getElementById('badfill').innerText = "Are you even trying?";
+                    document.getElementById('badfill').innerText = "Please fill in the forms";
                 }else if(response.data.hasOwnProperty('match')){
                     //alert(response.data.match);
-                    document.getElementById('badpassword').innerText = "bruh, they don't even match";
+                    document.getElementById('badpassword').innerText = "Passwords don't match";
                 }else if(response.data.hasOwnProperty('passlength')){
                     //alert(response.data.passlength);
-                    document.getElementById('badpassword').innerText = "yikes, password length needs to be at least 6";
+                    document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
                 }else if(response.data.hasOwnProperty('already')){
                     //alert(response.data.already);
-                    document.getElementById('registered').innerText = "Email already registered fam";
+                    document.getElementById('registered').innerText = "Email is already registered";
                 }
                 else if(response.data.hasOwnProperty('atsymbol')){
                     //alert(response.data.already);
-                    document.getElementById('invalidemail').innerText = "invalid email";
+                    document.getElementById('invalidemail').innerText = "Invalid Email";
                 }
                 else if(response.data.hasOwnProperty('useralready')){
                     //alert(response.data.already);
-                    document.getElementById('uniqueuser').innerText = "username is taken";
+                    document.getElementById('uniqueuser').innerText = "Username is already taken";
                 }
             })
             .catch(function (error) {
@@ -103,8 +103,8 @@ class SignUp extends Component {
         //
         axios.post('http://localhost:4000/users/login', this.state,{withCredentials:true})
             .then(response => {
-                console.log(response.data);
-                if(response.data.hasOwnProperty('msg')){
+                console.log(response.data.res.user);
+                if(response.data.res){
                     //redirect
                     this.props.authenticate(response.data.res.user, response.data.res.name);
                     //alert('success');

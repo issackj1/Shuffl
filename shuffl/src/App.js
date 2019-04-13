@@ -36,24 +36,23 @@ class App extends Component {
 	//this is where we will do the authentication on clientside
 	initSocket= ()=>{
 		const socket = io("http://localhost:4001")
-
-		socket.on('connect', ()=>{
-			console.log('connected');
-		})
-
 		this.setState({socket})
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		axios.get('http://localhost:4000/', {withCredentials:true})
-			.then(reponse=>{
-				console.log('ur in')
-		}).catch(function (error) {
-			//console.log(error);
+			.then(response=>{
+				
+				if(response.data.res.session){
 
+					this.authenticate(response.data.res.user, response.data.res.name)
+				}
+		}).catch(function (error) {
+			console.log(error);
 		});
 		this.initSocket();
 	}
+
 	authenticate = (userid, username) => {
 		this.setState({ SignedIn: true, UserId:userid, Username:username});
 		// this.setUserId('5cac258fe700081ca7bcede4');
@@ -61,6 +60,18 @@ class App extends Component {
 		// console.log(this.state.UserId);
 	};
 
+	logout=()=>{
+		axios.get('http://localhost:4000/users/logout', {withCredentials:true})
+		this.setState({
+			Playing: false,
+			SignedIn: false,
+			UserId: '',
+			Username:'',
+			RoomId: '',
+			host: false
+		})
+		
+	}
 
 	setRoomId = (roomid, roomhost) => {
 		
@@ -85,7 +96,7 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				{this.state.SignedIn ? <TopBar /> : <TopBarSignIn />}
+				{this.state.SignedIn ? <TopBar logout={this.logout} /> : <TopBarSignIn />}
 				{this.state.SignedIn ? (
 					<Switch>
 						<Route

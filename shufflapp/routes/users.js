@@ -86,8 +86,10 @@ router.post('/register', (req, res) => {
                                 .then(user => 
                                 {
                                     //req.flash('success_msg' , 'You are now registered and can login');
-                                    message['success'] = 'success';
-                                    res.json(message);
+                                    res.send({
+                                        'res': user
+                                    });
+                                    
                                 })
                                 .catch(err => console.log(err));
                         }
@@ -115,7 +117,6 @@ router.post('/register', (req, res) => {
 router.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-        req.session.cookie['_expires'] = 1000* 30
         req.session.passport['name'] = req.user.name;
         req.session.passport['email'] = req.user.email;
         req.session.save();
@@ -128,9 +129,8 @@ router.post('/login',
     });
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get('/logout', (req) => {
     req.logout();
-    res.redirect('/users/login');
 });
 
 

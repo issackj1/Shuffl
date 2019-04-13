@@ -84,8 +84,10 @@ class YouTubeMainGuest extends Component {
 
 		if (prevState.queueguest !== this.state.queueguest) {
 			console.log(this.state.queueguest)
-        }
-        if(prevState.player !== this.state.player){
+				}
+				
+    if(prevState.player !== this.state.player){
+			this.state.player.setVolume(100)
 			this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
 			this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username)
 		}
