@@ -41,6 +41,10 @@ class YouTubeMainGuest extends Component {
 
         this.props.socket.on('receivepause', function(){
             this.state.player.pauseVideo();
+		}.bind(this))
+		
+		this.props.socket.on('receivepause', function(){
+            this.state.player.pauseVideo();
         }.bind(this))
 
         this.props.socket.on('receivetime', function(username, time, state){
