@@ -423,8 +423,20 @@ h1 {
 
 .chatButton {
 	width: 3vh;
-	height: 3vh;
+    height: 3vh;
 	cursor: pointer;
+}
+
+.queueButton {
+	width: 3.3vh;
+    height: 3.3vh;
+    cursor: pointer;
+    margin-right: 4vw;
+}
+
+.filler {
+	width: 14.4vh;
+    height: 3vh;
 }
 
 .playerBottom {

@@ -112,8 +112,8 @@ class YouTubeMainGuest extends Component {
 
 	render() {
 		const opts = {
-			height: '200',
-			width: '200',
+			height: '0',
+			width: '0',
 			playerVars: {
 				// https://developers.google.com/youtube/player_parameters
 				autoplay: 1
@@ -122,7 +122,9 @@ class YouTubeMainGuest extends Component {
 
 		return (
 			<div className="parentYT">
-				<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+				<div className="youtubeIframe">
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+				</div>
 				<PlayerGuest queue={this.queue} chat={this.chat} />
 				{this.state.queuebutton ? (
 					<div className="footerGrey">
