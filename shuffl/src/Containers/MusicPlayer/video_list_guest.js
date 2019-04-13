@@ -7,7 +7,6 @@ const VideoList = (props) => {
             <VideoListItem
                 key={video.etag}
                 video={video} 
-                addToQueue={props.addToQueue}
                 />
         );
     });

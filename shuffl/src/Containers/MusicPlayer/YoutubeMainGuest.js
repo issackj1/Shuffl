@@ -29,6 +29,12 @@ class YouTubeMainGuest extends Component {
 	componentDidMount() {
 		this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username)
 
+		this.props.socket.on('receivemessage', function (msg) {
+			this.setState({
+				messagesguest : this.state.messagesguest.concat([msg])
+			});
+		}.bind(this))	
+		
         this.props.socket.on('receiveplay', function(){
             this.state.player.playVideo();
         }.bind(this))
@@ -47,7 +53,11 @@ class YouTubeMainGuest extends Component {
 			if(this.props.Username === username){
 				this.setState({queue:queue})
 			}
-        }.bind(this))
+		}.bind(this))
+		
+		this.props.socket.on('updateQueue', function(queuelist){
+			this.setState({queueguest:queuelist})
+		}.bind(this))
 
     }
 
@@ -57,8 +67,8 @@ class YouTubeMainGuest extends Component {
 		// if comparing two objects, you are comparing reference
 		// if it's video id then json.stringify each prevState.queue and this.state.queue and compare
 
-		if (JSON.stringify(prevState.queue) !== JSON.stringify(this.state.queue)) {
-			this.props.socket.emit('sendqueue', this.state.queue)
+		if (prevState.queueguest !== this.state.queueguest) {
+			console.log(this.state.queueguest)
         }
         if(prevState.player !== this.state.player){
             this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
