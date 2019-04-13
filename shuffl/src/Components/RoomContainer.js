@@ -13,10 +13,13 @@ export default class RoomContainer extends Component {
 	}
 
 	componentDidMount() {
-		this.props.socket.emit('getjoinedchatrooms')
-		this.props.socket.on('rejoinedrooms', function(rerooms){
-			this.setState({rooms: rerooms})
-		}.bind(this))
+		this.props.socket.emit('getjoinedrooms', this.props.UserId);
+		this.props.socket.on(
+			'rejoinedrooms',
+			function(rerooms) {
+				this.setState({ rooms: rerooms });
+			}.bind(this)
+		);
 		// axios
 		// 	.get('http://localhost:4000/chatrooms')
 		// 	.then((response) => {
@@ -34,7 +37,6 @@ export default class RoomContainer extends Component {
 				<RoomList
 					rooms={this.state.rooms}
 					genre={this.props.genre}
-
 					RoomId={this.props.RoomId}
 					setRoomId={this.props.setRoomId}
 				/>

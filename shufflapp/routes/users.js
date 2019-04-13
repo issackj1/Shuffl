@@ -21,6 +21,7 @@ router.post('/register', (req, res) => {
     const {name, email, password, password2} = req.body;
     let message = {};
     let count = 0;
+    let RoomList = [];
     // check fields
 
     if (!name || !email || !password || !password2) {
@@ -73,7 +74,7 @@ router.post('/register', (req, res) => {
                 
                 else 
                 {
-                    const newUser = new User({name, email, password});
+                    const newUser = new User({name, email, password, RoomList});
 
                     bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) =>
                     {
@@ -129,7 +130,7 @@ router.post('/login',
     });
 
 // Logout
-router.get('/logout', (req) => {
+router.post('/logout', (req) => {
     req.logout();
 });
 

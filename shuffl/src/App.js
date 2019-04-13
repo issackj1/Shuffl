@@ -61,7 +61,7 @@ class App extends Component {
 	};
 
 	logout=()=>{
-		axios.get('http://localhost:4000/users/logout', {withCredentials:true})
+		axios.post('http://localhost:4000/users/logout', {withCredentials:true})
 		this.setState({
 			Playing: false,
 			SignedIn: false,
@@ -73,6 +73,11 @@ class App extends Component {
 		
 	}
 
+	componentDidUpdate(prevProps,prevState){
+		if(prevState.socket !== this.state.socket){
+			
+		}
+	}
 	setRoomId = (roomid, roomhost) => {
 		
 		if (roomhost === this.state.UserId) {
@@ -82,11 +87,11 @@ class App extends Component {
 		}
 		console.log('joined this room'+roomid)
 		if(this.state.RoomId == ''){
-			this.state.socket.emit('joinroom', roomid, this.state.Username)
+			this.state.socket.emit('joinroom', roomid, this.state.Username, this.state.UserId)
 			this.setState({ RoomId: roomid, Playing: true });
 		}else if(this.state.RoomId !== roomid){
 			this.state.socket.emit('leaveroom', this.state.RoomId, this.state.Username)
-			this.state.socket.emit('joinroom', roomid, this.state.Username)
+			this.state.socket.emit('joinroom', roomid, this.state.Username, this.state.UserId)
 			this.setState({ RoomId: roomid, Playing: true });
 		}
   };
@@ -132,6 +137,7 @@ class App extends Component {
 									RoomId={this.state.RoomId}
 									setRoomId={this.setRoomId}
 									socket={this.state.socket}
+									Username={this.state.Username}
 								/>
 							)}
 						/>

@@ -26,9 +26,9 @@ class Room extends Component {
                             </button>
                         </div>
                     </div>
-                    <RoomContainer setRoomId={this.props.setRoomId} socket = {this.props.socket}/>
+                    <RoomContainer setRoomId={this.props.setRoomId} socket = {this.props.socket} UserId={this.props.UserId}/>
 					{this.state.createRoom ? (
-						<CreateRoom UserId={this.props.UserId} setRoomId={this.props.setRoomId} socket = {this.props.socket} operation={this.operation}/>
+						<CreateRoom Username={this.props.Username}UserId={this.props.UserId} setRoomId={this.props.setRoomId} socket = {this.props.socket} operation={this.operation}/>
 					) :null
 
 					}

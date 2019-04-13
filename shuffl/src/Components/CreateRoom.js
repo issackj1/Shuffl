@@ -9,7 +9,7 @@ export class CreateRoom extends Component {
         super(props);
 
         this.state = {
-            UserList:[],
+            UserList:[this.props.Username],
             RoomName: '',
             Genre: 'Pop'
         };
@@ -33,7 +33,7 @@ export class CreateRoom extends Component {
         //         console.log(error);
         //     })
 
-        this.props.socket.emit('make room', this.state, this.props.UserId,);
+        this.props.socket.emit('make room', this.state, this.props.UserId);
     };
 
     handleCancel = (event) => {

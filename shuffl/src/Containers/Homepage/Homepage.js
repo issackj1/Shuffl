@@ -6,7 +6,6 @@ import HomeRoomList from '../../Components/HomeRoomContainer'
 class Homepage extends Component {
 
 
-
     render() {
         
         return (
@@ -16,7 +15,7 @@ class Homepage extends Component {
                     <div className="page-title">
 						<h1>Popular Rooms</h1>
 					</div>
-                    <HomeRoomList socket={this.props.socket}/>
+                    <HomeRoomList socket={this.props.socket} setRoomId ={this.props.setRoomId}/>
                 </div>
             </div>
         )

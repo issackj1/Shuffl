@@ -61,7 +61,6 @@ class SignUp extends Component {
                 document.getElementById('uniqueuser').innerText = "";
                 console.log(response)
                 if(response.data.res){
-
                     this.props.authenticate(response.data.res._id, response.data.res.name);
                 }else if(response.data.hasOwnProperty('fill')){
                     //alert(response.data.fill);
