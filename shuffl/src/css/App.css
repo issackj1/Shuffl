@@ -6,6 +6,7 @@
 
 h1 {
     text-align: center;
+    color: white;
 }
 
 #filterID {
@@ -230,6 +231,10 @@ h1 {
     justify-content: center;
 }
 
+.sup-category {
+    color: white;
+}
+
 .Genre {
     flex: 0 0 24vw;
     margin: auto;
@@ -244,20 +249,14 @@ h1 {
 	height: auto;
 }
 
-.RoomList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-
-.Room {
+/* .Room {
     flex: 0 0 25vw;
     max-width: 140px;
     margin: 10px;
     height: auto;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-}
+} */
 
 .Room img {
     width: 100%;
@@ -275,7 +274,6 @@ h1 {
 /* -------------Rooms------------- */
 /* -------------------------------- */
 
-/*
 .RoomContainer {
     background-color: #444444;
     width: 100%;
@@ -284,11 +282,12 @@ h1 {
     justify-content: flex-start;
     align-content: flex-start;
 }
-*/
+
 
 .RoomButtonDiv {
     cursor: pointer;
     padding: 1vw;
+    color: white;
 }
 
 .top-row{
@@ -302,8 +301,36 @@ h1 {
     align-items: center;
 }
 
+.RoomList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.Room {
+    width: 18vw;
+    height: 18vw;
+    min-width: 150px;
+    min-height: 150px;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    margin: 10px;
+    background: radial-gradient(#FF88A1, #ff5579);
+    background-repeat: no-repeat;
+    position: relative;
+    cursor: pointer;
+}
+
+.roomText {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    right: 0;
+    padding-right: 1vw;
+}
+
 .RoomButton {
     background: #9a9a9a;
+    color: white;
     width: 3vh;
     height: 3vh;
     font-size: 3vh;
@@ -320,10 +347,6 @@ h1 {
     vertical-align: middle;
     padding: 1vw;
     margin-left: 1vw;
-}
-
-.RoomButton:hover {
-    background: #ff315c;
 }
 
 
@@ -415,7 +438,8 @@ h1 {
     flex: 1;
     display: flex;
     justify-content: center;
-	align-items: center;
+    align-items: center;
+    color: white;
 }
 
 .playerBox:first-child > span { margin-right: auto; }
@@ -432,6 +456,7 @@ h1 {
     overflow: scroll;
 }
 
+
 .chatDiv {
     display: flex;
     flex-direction: column;
@@ -441,7 +466,7 @@ h1 {
 
 .chatboxDiv {
     background-color: #F0F0F0;
-    width: 95%;
+    width: 100%;
 }
 
 .messageBox {
