@@ -19,8 +19,8 @@ class YouTubeMain extends Component {
 		this.state = {
 			search: false,
 			player: null,
-			videos: [],
-			videoId: 'S1gp0m4B5p8',
+			videos: [],	
+			videoId: '',
 			queue: [],
 			chat: false,
 			messages:[]
@@ -38,12 +38,17 @@ class YouTubeMain extends Component {
 	};
 
 	addToQueue = (video) => {
-		this.setState((prevState) => ({
-			queue: [ ...prevState.queue, video ]
-		}));
+		
+		if((this.state.queue.length>=0) && (this.state.player.getPlayerState() !== 5)){
+			this.setState((prevState) => ({
+				queue: [ ...prevState.queue, video ]
+			}));
+		}else{
+			this.state.player.loadVideoById(video.id.videoId, 0, 'large')
+		}
 	};
 
-	chat = ()=>{
+	chat = ()=>{	
 		this.setState({chat: !this.state.chat})
 	}
 
@@ -52,8 +57,15 @@ class YouTubeMain extends Component {
 	};
 
 	skipVideo = () => {
-		var time = this.state.player.getCurrentTime();
-		this.state.player.seekTo(time + 10, true);
+		if(this.state.queue.length >=1){
+			this.state.player.loadVideoById(this.state.queue[0].id.videoId,0,'large')
+			this.setState({queue:this.state.queue.slice(1)})
+		}else{
+			this.state.player.stopVideo()
+		}
+		
+		// var time = this.state.player.getCurrentTime();
+		// this.state.player.seekTo(time + 10, true);
 	};
 
 
@@ -76,15 +88,20 @@ class YouTubeMain extends Component {
 		// if comparing two objects, you are comparing reference
 		// if it's video id then json.stringify each prevState.queue and this.state.queue and compare
 
-		if (JSON.stringify(prevState.queue) !== JSON.stringify(this.state.queue)) {
-			this.props.socket.emit('sendqueue', this.state.queue, this.props.RoomId)
+		if (prevState.queue !== this.state.queue) {
+			this.props.socket.emit('updateQueue', this.props.RoomId, this.state.queue)
 		}
+
+		if(prevProps.RoomId != this.props.RoomId){
+			this.setState({queue:[], messages:[]})
+		}
+
 	}
 
 	videoSearch(searchTerm) {
 		YTSearch({ key: API_KEY, term: searchTerm+"Official Audio"}, (data) => {
 			this.setState({ videos: data });
-			this.setState({ videoId: data[0].id.videoId });
+			// this.setState({ videoId: data[0].id.videoId });
 		});
 	}
 

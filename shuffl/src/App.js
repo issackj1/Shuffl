@@ -55,28 +55,24 @@ class App extends Component {
 
 
 	setRoomId = (roomid, roomhost) => {
-		this.setState({ RoomId: roomid, Playing: true });
+		
 		if (roomhost === this.state.UserId) {
 			this.setState({ host: true });
 		} else {
 			this.setState({ host: false });
 		}
 		console.log('joined this room'+roomid)
-		if(roomid !== this.state.RoomId){
+		if(this.state.RoomId == ''){
 			this.state.socket.emit('joinroom', roomid, this.state.Username)
+			this.setState({ RoomId: roomid, Playing: true });
+		}else if(this.state.RoomId !== roomid){
+			this.state.socket.emit('leaveroom', this.state.RoomId, this.state.Username)
+			this.state.socket.emit('joinroom', roomid, this.state.Username)
+			this.setState({ RoomId: roomid, Playing: true });
 		}
   };
 
 
-leaveRoom = (roomid) =>
-{
-  this.state.socket.emit('leaveroom', roomid)
-}
-
-sendMessage = (roomid) =>
-{
-	this.state.socket.emit('sendmessage', roomid)
-}
 
 	render() {
 		return (

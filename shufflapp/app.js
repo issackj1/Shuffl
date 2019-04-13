@@ -105,6 +105,11 @@ io.on('connection', function (socket) {
         io.to(roomid).emit('receivequeue', username, queue)
     })
 
+    socket.on('updateQueue', function(roomid, queue){
+        console.log(queue)
+        io.to(roomid).emit('updateQueue', queue)
+    })
+
     socket.on('sendplay', function(roomid) {
         io.to(roomid).emit('receiveplay')
     })
@@ -119,6 +124,7 @@ io.on('connection', function (socket) {
 
     socket.on('leaveroom', function(roomid, username){
         socket.leave(roomid)
+        console.log('left' +roomid)
         io.to(roomid).emit('receivemessage', (username +' has left the room'))
     })
 

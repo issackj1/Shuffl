@@ -10,9 +10,11 @@ export class ChatPlayerContainer extends Component {
     chatQueueSwitch:false
   }
 
-  switch=()=>{
-    this.setState({chatQueueSwitch:!this.state.chatQueueSwitch})
-  }
+  componentDidUpdate(prevProps, prevState ) {
+
+    }
+
+
   render() {
 
     return (

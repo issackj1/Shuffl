@@ -8,7 +8,7 @@ import VideoList from '../MusicPlayer/video_list_guest'
 
 const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
-class YouTubeMain extends Component {
+class YouTubeMainGuest extends Component {
 	constructor() {
 		super();
 
@@ -17,8 +17,8 @@ class YouTubeMain extends Component {
 			chat: false,
 			player: null,
 			videoId: 'S1gp0m4B5p8',
-			queue: [],
-			messages:[]
+			queueguest: [],
+			messagesguest:[]
 		};
 	}
 	
@@ -62,7 +62,13 @@ class YouTubeMain extends Component {
         }
         if(prevState.player !== this.state.player){
             this.props.socket.emit('reqtime', this.props.RoomId, this.props.Username)
-        }
+		}
+
+		if(prevProps.RoomId != this.props.RoomId){
+			this.setState({queueguest:[], messagesguest:[]})
+		}
+
+
     }
 	
 	queue = () => {
@@ -94,14 +100,14 @@ class YouTubeMain extends Component {
 				{this.state.queuebutton ? (
 					<div className="footerGrey">
 						<div className="videoListContainer">
-						<VideoList videos={this.state.queue} />
+						<VideoList videos={this.state.queueguest} />
 						</div>
 					</div>
 				) : null}
 				{
 					this.state.chat?(
 						<Chat socket={this.props.socket}sendMessage={this.sendMessage}
-						messages={this.state.messages} users = {this.state.users} Username={this.props.Username} RoomId={this.props.RoomId}/>
+						messages={this.state.messagesguest} users = {this.state.users} Username={this.props.Username} RoomId={this.props.RoomId}/>
 					):null
 				}
 			</div>
@@ -109,4 +115,4 @@ class YouTubeMain extends Component {
 	}
 }
 
-export default YouTubeMain;
+export default YouTubeMainGuest;
