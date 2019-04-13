@@ -45,8 +45,7 @@ class App extends Component {
 				
 				if(response.data.res.hasOwnProperty('user')){
 
-					this.userRedirect(response.data.res.user, response.data.res.name)
-					//this.authenticate(response.data.res.user, response.data.res.name)
+					this.authenticate(response.data.res.user, response.data.res.name)
 				}
 		}).catch(function (error) {
 			console.log(error);
@@ -54,17 +53,11 @@ class App extends Component {
 		this.initSocket();
 	}
 
-	userRedirect = (user, name) => {
-		console.log('hello');
-		this.setState({ SignedIn: true, UserId:user, Username:name});
-		history.push(history.location.pathname + '');
-	};
-
 	authenticate = (userid, username) => {
 		this.setState({ SignedIn: true, UserId:userid, Username:username});
 		// this.setUserId('5cac258fe700081ca7bcede4');
 		//BONUS: redirect to same page person was on instead of home
-		history.push('/home/');
+		history.push(history.location.pathname);
 		// console.log(this.state.UserId);
 	};
 
