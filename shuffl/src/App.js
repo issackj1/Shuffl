@@ -62,13 +62,11 @@ class App extends Component {
 			this.setState({ host: false });
 		}
 		console.log('joined this room'+roomid)
-		this.state.socket.emit('joinroom', roomid, this.state.Username)
+		if(roomid !== this.state.RoomId){
+			this.state.socket.emit('joinroom', roomid, this.state.Username)
+		}
   };
-  
-  joinRoom = () =>{
-		//socket.emit('joined', roomid, uid)
-		//add room to users roomlist using roomid and uid
-  }
+
 
 leaveRoom = (roomid) =>
 {
