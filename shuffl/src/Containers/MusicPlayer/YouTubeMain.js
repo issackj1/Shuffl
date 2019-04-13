@@ -57,7 +57,7 @@ class YouTubeMain extends Component {
 	};
 
 	scrollToBottom= ()=>{
-		let messages = document.getElementsByClassName('messages')[0];
+		let messages = document.getElementsByClassName('messageBox')[0];
 		messages.scrollTop = messages.scrollHeight - messages.clientHeight;
 	}
 

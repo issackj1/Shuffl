@@ -2,14 +2,15 @@
     /*margin: 20px;*/
     /*text-align: center;*/
     color: #000;
+    width: 60%;
+    margin-bottom: 1vh;
 }
 
 .search-bar input {
-    width: 23%;
-    border: solid black;
+    width: 60%;
+    border: solid #ddd;
     border-radius: 20px;
     padding-left: 10px;
-    max-width: 815px;
     margin-left: 10px;
     color: #000 !important;
     top:100px;
@@ -98,4 +99,9 @@
     background-color: #5D5D5D;
     position: relative;
     bottom: 0;
+}
+
+.video-list-media {
+    display: flex;
+    flex-direction: column;
 }

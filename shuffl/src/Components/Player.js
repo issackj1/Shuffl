@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import playButton from '../icons/playbutton.png'
 import searchButton from '../icons/searchButton.png'
 import skipButton from '../icons/skipButton.png'
+import chatButton from '../icons/chatButton.png'
 
 export class Player extends Component {
 
@@ -18,9 +19,10 @@ export class Player extends Component {
             <img  src={searchButton} className="searchButton" onClick={()=>{this.props.searchVideo()}}/>
             <img  src={playButton} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
             <img  src={skipButton} className="skipButton" onClick={()=>{this.props.skipVideo()}}/>
-            <button className='chatButton' onClick={()=>this.props.chat()}>chat</button>
           </div>
-          <div className="playerBox">Volume</div>
+          <div className="playerBox">
+            <img  src={chatButton} className="chatButton" onClick={()=>{this.props.chat()}}/>
+          </div>
         </div>
 
       </div>

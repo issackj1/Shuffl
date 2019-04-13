@@ -1,6 +1,6 @@
 *{
     font-family: “Segoe UI”,Arial,Helvetica,sans-serif;
-    color: white;
+    /* color: white; */
 
 }
 
@@ -398,6 +398,12 @@ h1 {
 	margin-left: 1.2vw;
 }
 
+.chatButton {
+	width: 3vh;
+	height: 3vh;
+	cursor: pointer;
+}
+
 .playerBottom {
     display: flex;
     align-items: center;
@@ -423,4 +429,23 @@ h1 {
 
 .chat {
     height: 83vh;
+    overflow: scroll;
+}
+
+.chatDiv {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: inherit;
+}
+
+.chatboxDiv {
+    background-color: #F0F0F0;
+    width: 95%;
+}
+
+.messageBox {
+    height: inherit;
+    width: inherit;
+    overflow: auto;
 }

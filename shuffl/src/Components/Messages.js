@@ -21,9 +21,11 @@ class Messages extends React.Component {
         const messagesList = this.state.messages.map((message, i) => (<Message key={i} message={message}/>));
         
         return(
-            <div className="messages col-xs-12 col-sm-12 col-md-8 col-lg-10" >
-                {messagesList}    
-                <ChatBox sendMessage={this.props.sendMessage}/>
+            <div className="chatDiv">
+                <div className="messageBox" >
+                    {messagesList}    
+                </div>
+            <ChatBox sendMessage={this.props.sendMessage}/>
             </div>
         )
     }

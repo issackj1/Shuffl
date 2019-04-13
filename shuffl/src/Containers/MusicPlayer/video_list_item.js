@@ -7,7 +7,7 @@ const VideoListItem = (props) => {
 
     return (
         <li className="list-group-item">
-            <div className="video-list media" onClick={()=>{props.addToQueue(video)}}>
+            <div className="video-list-media" onClick={()=>{props.addToQueue(video)}}>
                 <div className="media-left">
                     <img className="media-object" src={imageUrl}/>
                 </div>
