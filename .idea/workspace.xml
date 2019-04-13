@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="91b6d83e-cb52-47b6-b795-c5309b5fcfa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffl/src/Components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/shuffl/src/Components/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shufflapp/app.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/shufflapp/app.1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shufflapp/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/shufflapp/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shufflapp/serverhelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/shufflapp/serverhelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shufflapp/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/shufflapp/config/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shufflapp/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/shufflapp/routes/users.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/shuffl/node_modules/" />
     <ignored path="$PROJECT_DIR$/shufflapp/node_modules/" />
@@ -20,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shufflapp/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+            <state relative-caret-position="327">
+              <caret line="183" column="34" lean-forward="true" selection-start-line="183" selection-start-column="34" selection-end-line="183" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -32,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+            <state relative-caret-position="-160">
+              <caret line="27" column="89" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="89" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -44,17 +47,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shufflapp/config/passport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="325">
+              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shufflapp/models/User.js">
+        <entry file="file://$PROJECT_DIR$/shufflapp/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="267">
+              <caret line="116" column="25" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -62,29 +65,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shufflapp/app.1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5">
-              <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
+            <state relative-caret-position="335">
+              <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shufflapp/routes/chatrooms.js">
+        <entry file="file://$PROJECT_DIR$/shuffl/src/Components/SignUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="51" />
+            <state relative-caret-position="574">
+              <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="115" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shuffl/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+            <state relative-caret-position="271">
+              <caret line="47" column="67" lean-forward="true" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#694#739#0" expanded="true" />
+                <element signature="e#651#696#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shufflapp/serverhelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="1260">
               <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
             </state>
           </provider>
@@ -122,6 +128,7 @@
       <find>primary</find>
       <find>axios</find>
       <find>local</find>
+      <find>session</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,7 +157,6 @@
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list_item.js" />
         <option value="$PROJECT_DIR$/shuffl/src/components/video_list.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_list.js" />
-        <option value="$PROJECT_DIR$/shuffl/src/App.js" />
         <option value="$PROJECT_DIR$/shuffl/src/components/BrowseRoomList.js" />
         <option value="$PROJECT_DIR$/shufflapp/views/register.ejs" />
         <option value="$PROJECT_DIR$/shufflapp/views/layout.ejs" />
@@ -163,16 +169,18 @@
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/search_bar.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/video_detail.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Containers/MusicPlayer/YouTubeMain.js" />
-        <option value="$PROJECT_DIR$/shuffl/src/Components/SignUp.js" />
         <option value="$PROJECT_DIR$/shufflapp/routes/chatrooms.js" />
         <option value="$PROJECT_DIR$/helper.js" />
-        <option value="$PROJECT_DIR$/shufflapp/routes/users.js" />
-        <option value="$PROJECT_DIR$/shufflapp/config/passport.js" />
         <option value="$PROJECT_DIR$/shufflapp/functions.js" />
-        <option value="$PROJECT_DIR$/shufflapp/app.js" />
         <option value="$PROJECT_DIR$/shufflapp/models/chatroom.model.js" />
         <option value="$PROJECT_DIR$/shufflapp/serverhelper.js" />
         <option value="$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js" />
+        <option value="$PROJECT_DIR$/shufflapp/config/passport.js" />
+        <option value="$PROJECT_DIR$/shufflapp/app.1.js" />
+        <option value="$PROJECT_DIR$/shufflapp/routes/users.js" />
+        <option value="$PROJECT_DIR$/shuffl/src/Components/SignUp.js" />
+        <option value="$PROJECT_DIR$/shufflapp/app.js" />
+        <option value="$PROJECT_DIR$/shuffl/src/App.js" />
       </list>
     </option>
   </component>
@@ -221,7 +229,19 @@
               <item name="Seng513" type="b2602c69:ProjectViewProjectNode" />
               <item name="Seng513" type="462c0819:PsiDirectoryNode" />
               <item name="shufflapp" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Seng513" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Seng513" type="462c0819:PsiDirectoryNode" />
+              <item name="shufflapp" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Seng513" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Seng513" type="462c0819:PsiDirectoryNode" />
+              <item name="shufflapp" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +321,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102091000" />
+    <option name="totallyTimeSpent" value="107404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -552,26 +572,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/Components/SignUp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shufflapp/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shufflapp/functions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/shufflapp/functions.js" />
     <entry file="file://$PROJECT_DIR$/helper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -579,38 +580,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shufflapp/app.1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="75" column="27" lean-forward="true" selection-start-line="75" selection-start-column="27" selection-end-line="75" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shuffl/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="28" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#694#739#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shufflapp/config/passport.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shufflapp/models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -640,25 +609,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shufflapp/serverhelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="1260">
           <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shufflapp/models/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shuffl/src/Components/CreateRoom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        <state relative-caret-position="-160">
+          <caret line="27" column="89" selection-start-line="27" selection-start-column="74" selection-end-line="27" selection-end-column="89" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shufflapp/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="116" column="25" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shufflapp/app.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shufflapp/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+        <state relative-caret-position="327">
+          <caret line="183" column="34" lean-forward="true" selection-start-line="183" selection-start-column="34" selection-end-line="183" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shufflapp/config/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/Components/SignUp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="115" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shuffl/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="47" column="67" lean-forward="true" selection-start-line="47" selection-start-column="67" selection-end-line="47" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#651#696#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -115,13 +115,12 @@ router.post('/register', (req, res) => {
 router.post('/login',
     passport.authenticate('local'),
     function (req, res) {
-    //console.log(req.session);
+        req.session.cookie['_expires'] = 1000* 30
         req.session.passport['name'] = req.user.name;
         req.session.passport['email'] = req.user.email;
         req.session.save();
     res.send({
-        'session': req.session,
-        'msg': 'success'
+        'res': req.session.passport
     });
         // res.json({
         //    'msg': 'success'

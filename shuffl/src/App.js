@@ -20,6 +20,7 @@ import TopBar from './Components/TopBar';
 import TopBarSignIn from './Components/TopBarSignIn';
 
 import io from 'socket.io-client';
+import axios from 'axios'
 
 class App extends Component {
 	state = {
@@ -44,6 +45,13 @@ class App extends Component {
 	}
 
 	componentWillMount(){
+		axios.get('http://localhost:4000/', {withCredentials:true})
+			.then(reponse=>{
+				console.log('ur in')
+		}).catch(function (error) {
+			//console.log(error);
+
+		});
 		this.initSocket();
 	}
 	authenticate = (userid, username) => {

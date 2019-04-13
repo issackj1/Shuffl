@@ -77,6 +77,9 @@ app.use(bodyParser.json());
 
 //Body parser
 app.use(express.urlencoded({extended: false}));
+
+// configure when sessions expires
+
 // Express Session middleware
 app.use(session({
     secret: 'secret',
@@ -85,7 +88,7 @@ app.use(session({
     store: new MongoStore({
         mongooseConnection: connection
     }),
-    maxAge: 60 * 1000
+    cookie : { httpOnly: true, maxAge: 1 * 1000} // configure when sessions expires
 }));
 
 // Routes

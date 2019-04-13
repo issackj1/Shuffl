@@ -177,7 +177,7 @@ app.use(session({
     store: new MongoStore({
         mongooseConnection: connection
     }),
-    maxAge: 60 * 1000
+    cookie : { httpOnly: true, maxAge: 15 * 1000} // configure when sessions expires
 }));
 
 // Routes
