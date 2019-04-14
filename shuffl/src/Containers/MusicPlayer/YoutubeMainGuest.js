@@ -68,11 +68,12 @@ class YouTubeMainGuest extends Component {
 
 		this.props.socket.on(
 			'receivetime',
-			function(username, time, state, videoid) {
+			function(username, time, state, videoid, videotitle) {
 				if (this.props.Username === username) {
 					console.log(videoid);
 					if (state == 1) {
 						this.state.player.loadVideoById(videoid, time, 'large');
+						this.setState({ videoTitle: videotitle });
 					} else {
 						this.state.player.cueVideoById(videoid, time, 'large');
 					}

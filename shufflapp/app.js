@@ -117,8 +117,8 @@ io.on('connection', function(socket) {
 		io.to(roomid).emit('queuereq', username);
 	});
 
-	socket.on('sendtime', function(roomid, username, time, state, videoid) {
-		io.to(roomid).emit('receivetime', username, time, state, videoid);
+	socket.on('sendtime', function(roomid, username, time, state, videoid, videotitle) {
+		io.to(roomid).emit('receivetime', username, time, state, videoid, videotitle);
 	});
 
 	socket.on('sendqueue', function(roomid, username, queue) {

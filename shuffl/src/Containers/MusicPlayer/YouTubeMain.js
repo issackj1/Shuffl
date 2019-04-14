@@ -148,7 +148,8 @@ class YouTubeMain extends Component {
 				username,
 				this.state.player.getCurrentTime(),
 				this.state.player.getPlayerState(),
-				this.state.videoId
+				this.state.videoId,
+				this.state.videoTitle
 			);
 		});
 
