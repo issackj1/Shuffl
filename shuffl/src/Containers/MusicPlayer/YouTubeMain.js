@@ -21,7 +21,8 @@ class YouTubeMain extends Component {
 			videoId: '',
 			queue: [],
 			chat: false,
-			messages: []
+			messages: [],
+			videoTitle: ''
 		};
 	}
 
@@ -43,6 +44,7 @@ class YouTubeMain extends Component {
 		} else {
 			this.state.player.loadVideoById(video.id.videoId, 0, 'large');
 			this.setState({ videoId: video.id.videoId });
+			this.setState({ videoTitle: video.snippet.title });
 			this.props.socket.emit('updateVideo', this.props.RoomId, video.id.videoId);
 		}
 	};
@@ -59,6 +61,7 @@ class YouTubeMain extends Component {
 		if (this.state.queue.length >= 1) {
 			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
 			this.setState({ videoId: this.state.queue[0].id.videoId, queue: this.state.queue.slice(1) });
+			this.setState({ videoTitle: this.state.queue[0].snippet.title });
 			this.props.socket.emit('sendskip', this.props.RoomId);
 		} else {
 			this.state.player.stopVideo();
@@ -177,6 +180,7 @@ class YouTubeMain extends Component {
 					searchVideo={this.searchVideo}
 					chat={this.chat}
 					Roomname={this.props.Roomname}
+                    video={this.state.videoTitle}
 				/>
 				{this.state.search ? (
 					<div className="footerGrey">
