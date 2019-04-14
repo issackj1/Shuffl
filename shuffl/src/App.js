@@ -30,7 +30,9 @@ class App extends Component {
 		UserId: '',
 		Username:'',
 		RoomId: '',
+		Roomname:'',
 		host: false
+		
 	};
 	//state consists of log in status
 	//this is where we will do the authentication on clientside
@@ -68,6 +70,7 @@ class App extends Component {
 			UserId: '',
 			Username:'',
 			RoomId: '',
+			Roomname:'',
 			host: false
 		})
 		
@@ -78,7 +81,7 @@ class App extends Component {
 			
 		}
 	}
-	setRoomId = (roomid, roomhost) => {
+	setRoomId = (roomid, roomhost, roomname) => {
 		
 		if (roomhost === this.state.UserId) {
 			this.setState({ host: true });
@@ -88,11 +91,11 @@ class App extends Component {
 		console.log('joined this room'+roomid)
 		if(this.state.RoomId === ''){
 			this.state.socket.emit('joinroom', roomid, this.state.Username, this.state.UserId)
-			this.setState({ RoomId: roomid, Playing: true });
+			this.setState({ RoomId: roomid, Roomname:roomname, Playing: true });
 		}else if(this.state.RoomId !== roomid){
 			this.state.socket.emit('leaveroom', this.state.RoomId, this.state.Username)
 			this.state.socket.emit('joinroom', roomid, this.state.Username, this.state.UserId)
-			this.setState({ RoomId: roomid, Playing: true });
+			this.setState({ RoomId: roomid, Roomname:roomname, Playing: true });
 		}
   };
 
@@ -165,7 +168,7 @@ class App extends Component {
 					</Switch>
         )}
         {/* change to player */}
-				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host}  RoomId={this.state.RoomId} Username={this.state.Username}/> : null}
+				{this.state.Playing ? <ChatPlayerContainer play={this.play} socket={this.state.socket} host={this.state.host}  RoomId={this.state.RoomId}Roomname={this.state.Roomname} Username={this.state.Username}/> : null}
 			</React.Fragment>
 		);
 	}

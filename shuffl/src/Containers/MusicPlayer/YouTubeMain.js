@@ -176,6 +176,7 @@ class YouTubeMain extends Component {
 					skipVideo={this.skipVideo}
 					searchVideo={this.searchVideo}
 					chat={this.chat}
+					Roomname={this.props.Roomname}
 				/>
 				{this.state.search ? (
 					<div className="footerGrey">

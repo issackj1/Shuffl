@@ -153,7 +153,7 @@ class YouTubeMainGuest extends Component {
 				<div className="youtubeIframe">
 					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
 				</div>
-				<PlayerGuest queue={this.queue} chat={this.chat} />
+				<PlayerGuest queue={this.queue} chat={this.chat} Roomname={this.props.Roomname}/>
 				{this.state.queuebutton ? (
 					<div className="footerGrey">
 						<div className="videoListContainer">

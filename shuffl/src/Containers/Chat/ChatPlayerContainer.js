@@ -20,8 +20,8 @@ export class ChatPlayerContainer extends Component {
     return (
       <React.Fragment>
            { this.props.host?
-           <YoutubeMain socket={this.props.socket} RoomId={this.props.RoomId} Username={this.props.Username}/> :
-           <YoutubeMainGuest socket={this.props.socket} RoomId={this.props.RoomId} Username={this.props.Username}/>
+           <YoutubeMain Roomname={this.props.Roomname}socket={this.props.socket} RoomId={this.props.RoomId} Username={this.props.Username}/> :
+           <YoutubeMainGuest socket={this.props.socket} RoomId={this.props.RoomId} Roomname={this.props.Roomname}Username={this.props.Username}/>
            }  {/* {
           this.state.chatQueueSwitch?
           <Chat />
