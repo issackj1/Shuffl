@@ -102,6 +102,13 @@ class YouTubeMainGuest extends Component {
 		);
 	}
 
+	nextVideo=()=>{
+		if (this.state.queueguest.length > 0) {
+			this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'large');
+			this.setState({ videoId: this.state.queueguest[0].id.videoId, queueguest: this.state.queueguest.slice(1) });
+			this.setState({ videoTitle: this.state.queueguest[0].snippet.title });
+		}
+	}
 	componentDidUpdate(prevProps, prevState) {
 		// queue is object
 		// this.state.queue
@@ -138,6 +145,8 @@ class YouTubeMainGuest extends Component {
 		this.setState({ player: e.target });
 	};
 
+
+
 	render() {
 		const opts = {
 			height: '0',
@@ -151,7 +160,7 @@ class YouTubeMainGuest extends Component {
 		return (
 			<div className="parentYT">
 				<div className="youtubeIframe">
-					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} onEnd={this.nextVideo}/>
 				</div>
 				<PlayerGuest queue={this.queue} chat={this.chat} Roomname={this.props.Roomname}/>
 				{this.state.queuebutton ? (

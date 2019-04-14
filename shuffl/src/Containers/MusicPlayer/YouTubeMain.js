@@ -72,6 +72,14 @@ class YouTubeMain extends Component {
 		// this.state.player.seekTo(time + 10, true);
 	};
 
+	nextVideo=()=>{
+		if (this.state.queue.length > 0) {
+			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
+			this.setState({ videoId: this.state.queue[0].id.videoId, queue: this.state.queue.slice(1) });
+			this.setState({ videoTitle: this.state.queue[0].snippet.title });
+		}
+	}
+
 	initChat = () => {
 		this.props.socket.on(
 			'receivemessage',
@@ -172,7 +180,7 @@ class YouTubeMain extends Component {
 		return (
 			<div className="controlsShift">
 				<div className="youtubeIframe">
-					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} />
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} onEnd={this.nextVideo}/>
 				</div>
 				<Player
 					pauseVideo={this.pauseVideo}
