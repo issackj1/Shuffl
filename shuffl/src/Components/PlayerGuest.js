@@ -12,7 +12,7 @@ export class Player extends Component {
       <div className="playerController">
         <div className="playerBottom">
           <div className="playerBox">
-            <div className="currentSong"><b>{this.props.Roomname}</b><br></br>Time</div>
+            <div className="currentSong"><b>{this.props.Roomname}</b><br></br>{this.props.video}</div>
           </div>
           <div className="playerBox"><img  src={filler} className="filler"/></div>
           <div className="playerBox">

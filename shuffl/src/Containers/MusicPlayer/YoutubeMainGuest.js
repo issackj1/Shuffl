@@ -18,7 +18,8 @@ class YouTubeMainGuest extends Component {
 			player: null,
 			videoId: '',
 			queueguest: [],
-			messagesguest: []
+			messagesguest: [],
+			videoTitle: ''
 		};
 	}
 
@@ -60,6 +61,7 @@ class YouTubeMainGuest extends Component {
 			'receiveskip',
 			function() {
 				this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'large');
+				this.setState({ videoTitle: this.state.queueguest[0].snippet.title });
 				this.setState({ queueguest: this.state.queueguest.slice(1) });
 			}.bind(this)
 		);
@@ -96,8 +98,10 @@ class YouTubeMainGuest extends Component {
 
 		this.props.socket.on(
 			'updateVideo',
-			function(videoid) {
+			function(videoid, videotitle) {
 				this.state.player.loadVideoById(videoid, 0, 'large');
+				this.setState({ videoTitle: videotitle });
+				console.log("Video title: " + this.state.videoTitle)
 			}.bind(this)
 		);
 	}
@@ -105,8 +109,8 @@ class YouTubeMainGuest extends Component {
 	nextVideo=()=>{
 		if (this.state.queueguest.length > 0) {
 			this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'large');
-			this.setState({ videoId: this.state.queueguest[0].id.videoId, queueguest: this.state.queueguest.slice(1) });
 			this.setState({ videoTitle: this.state.queueguest[0].snippet.title });
+			this.setState({ videoId: this.state.queueguest[0].id.videoId, queueguest: this.state.queueguest.slice(1) });
 		}
 	}
 	componentDidUpdate(prevProps, prevState) {
@@ -162,7 +166,7 @@ class YouTubeMainGuest extends Component {
 				<div className="youtubeIframe">
 					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} onEnd={this.nextVideo}/>
 				</div>
-				<PlayerGuest queue={this.queue} chat={this.chat} Roomname={this.props.Roomname}/>
+				<PlayerGuest queue={this.queue} chat={this.chat} Roomname={this.props.Roomname} video={this.state.videoTitle}/>
 				{this.state.queuebutton ? (
 					<div className="footerGrey">
 						<div className="videoListContainer">

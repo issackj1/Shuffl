@@ -129,8 +129,9 @@ io.on('connection', function(socket) {
 		io.to(roomid).emit('updateQueue', queue);
 	});
 
-	socket.on('updateVideo', function(roomid, videoid) {
-		io.to(roomid).emit('updateVideo', videoid);
+	socket.on('updateVideo', function(roomid, videoid, videotitle) {
+		io.to(roomid).emit('updateVideo', videoid, videotitle);
+		console.log("video title: " + videotitle);
 	});
 
 	socket.on('sendplay', function(roomid) {

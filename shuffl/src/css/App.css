@@ -452,6 +452,7 @@ h1 {
     justify-content: center;
     align-items: center;
     color: white;
+    overflow: hidden;
 }
 
 .playerBox:first-child > span { margin-right: auto; }
