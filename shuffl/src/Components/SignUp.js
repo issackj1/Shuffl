@@ -51,7 +51,7 @@ class SignUp extends Component {
         // })
         //
         //
-        
+
         axios.post('http://localhost:4000/users/register', this.state)
             .then(response => {
                 document.getElementById('badfill').innerText = "";
@@ -60,37 +60,42 @@ class SignUp extends Component {
                 document.getElementById('invalidemail').innerText = "";
                 document.getElementById('uniqueuser').innerText = "";
                 console.log(response)
-                if(response.data.res){
-                    this.props.authenticate(response.data.res._id, response.data.res.name);
-                }else if(response.data.hasOwnProperty('fill')){
-                    //alert(response.data.fill);
-                    document.getElementById('badfill').innerText = "Please fill in the forms";
-                }else if(response.data.hasOwnProperty('match')){
-                    //alert(response.data.match);
-                    document.getElementById('badpassword').innerText = "Passwords don't match";
-                }else if(response.data.hasOwnProperty('passlength')){
-                    //alert(response.data.passlength);
-                    document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
-                }else if(response.data.hasOwnProperty('already')){
-                    //alert(response.data.already);
-                    document.getElementById('registered').innerText = "Email is already registered";
-                }
-                else if(response.data.hasOwnProperty('atsymbol')){
-                    //alert(response.data.already);
-                    document.getElementById('invalidemail').innerText = "Invalid Email";
-                }
-                else if(response.data.hasOwnProperty('useralready')){
-                    //alert(response.data.already);
-                    document.getElementById('uniqueuser').innerText = "Username is already taken";
+                if (response.data.hasOwnProperty('res')) {
+                    this.props.authenticate(response.data.res.user, response.data.res.name);
+                } else {
+                    if (response.data.hasOwnProperty('fill')) {
+                        document.getElementById('badfill').innerText = "Please fill in the forms";
+                    }
+                    if (response.data.hasOwnProperty('match')) {
+                        //alert(response.data.match);
+                        document.getElementById('badpassword').innerText = "Passwords don't match";
+                    }
+                    if (response.data.hasOwnProperty('passlength')) {
+                        //alert(response.data.passlength);
+                        document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
+                    }
+                    if (response.data.hasOwnProperty('already')) {
+                        //alert(response.data.already);
+                        document.getElementById('registered').innerText = "Email is already registered";
+                    }
+                    if (response.data.hasOwnProperty('atsymbol')) {
+                        //alert(response.data.already);
+                        document.getElementById('invalidemail').innerText = "Invalid Email";
+                    }
+                    if (response.data.hasOwnProperty('useralready')) {
+                        //alert(response.data.already);
+                        document.getElementById('uniqueuser').innerText = "Username is already taken";
+                    }
                 }
             })
             .catch(function (error) {
-                console.log(error);
-            })
+                    console.log(error);
+                }
+            )
     };
 
 
-    authenticate = (userid, username) =>{
+    authenticate = (userid, username) => {
         //
         // this.props.socket.emit('authreq', this.state)
         // this.props.socket.on('authapprove', function(user){
@@ -100,13 +105,19 @@ class SignUp extends Component {
         //uncomment this block and
         //comment out "this.props.authenticate() at the bottom" to test
         //
-        axios.post('http://localhost:4000/users/login', this.state,{withCredentials:true})
+        axios.post('http://localhost:4000/users/login', this.state, {withCredentials: true})
             .then(response => {
                 console.log(response.data.res.user);
-                if(response.data.res){
+                if (response.data.res) {
                     //redirect
                     this.props.authenticate(response.data.res.user, response.data.res.name);
                     //alert('success');
+                } else {
+                    if (response.data.res.hasOwnProperty('fill')) {
+                        this.props.authenticate(response.data.res._id, response.data.res.name);
+                    } else {
+                        document.getElementById('badfill').innerText = "Incorrect name or password";
+                    }
                 }
             })
             .catch(function (error) {
@@ -126,23 +137,26 @@ class SignUp extends Component {
                         <span id={"registered"}></span>
                         <span id={"badfill"}></span>
                         <span id={"badname"}></span>
-                        <span id={"invalidemail"}></span>
-                        <span id={"uniqueuser"}></span>
 
                         <Form>
+                            <span id={"uniqueuser"}></span>
                             <Form.Group controlId={"form"}>
-                                <Form.Control name={"name"} type={"username"} onChange={this.handleChange} placeholder={"Username"} />
+                                <Form.Control name={"name"} type={"username"} onChange={this.handleChange}
+                                              placeholder={"Username"}/>
                             </Form.Group>
+                            <span id={"invalidemail"}></span>
                             {
                                 this.state.signUp ?
-                                    <span id={"bademail"}></span>
+                                    <span></span>
                                     : <Form.Group controlId={"form"}>
-                                        <Form.Control name={"email"} type="email" onChange={this.handleChange} placeholder="Email"/>
+                                        <Form.Control name={"email"} type="email" onChange={this.handleChange}
+                                                      placeholder="Email"/>
                                     </Form.Group>
                             }
                             <span id={"badpassword"}></span>
                             <Form.Group controlId={"form"}>
-                                <Form.Control name={"password"} type="password" onChange={this.handleChange} placeholder="Password"/>
+                                <Form.Control name={"password"} type="password" onChange={this.handleChange}
+                                              placeholder="Password"/>
                             </Form.Group>
                             {
                                 this.state.signUp ?
@@ -159,10 +173,12 @@ class SignUp extends Component {
                                     </div>
                                     : <div>
                                         <Form.Group controlId={"form"}>
-                                            <Form.Control name={"password2"} type="password" onChange={this.handleChange} placeholder="Re-enter Password"/>
+                                            <Form.Control name={"password2"} type="password" onChange={this.handleChange}
+                                                          placeholder="Re-enter Password"/>
                                         </Form.Group>
                                         <div className="secondaryText"><input className="agree" type="checkbox"></input>I
-                                            have read the <div className="link secondary"> &nbsp;terms & conditions</div></div>
+                                            have read the <div className="link secondary"> &nbsp;terms & conditions</div>
+                                        </div>
                                         <div className="secondaryTextLogin">
                                             <div onClick={this.handleSubmit} className="button primary">Sign Up</div>
                                         </div>

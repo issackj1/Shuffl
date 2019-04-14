@@ -93,22 +93,6 @@ module.exports = {
             })
     },
 
-    // popularRooms: function (){
-    //     ChatRoom.find(function(err, chatrooms){
-
-    //     })
-    // },
-
-    browseRooms: function(){
-        ChatRoom.find(function (err, chatrooms) {
-            if (err) {
-                console.log(err)
-                return ['lol'];
-            }
-        })
-        .project({rerooms: chatrooms});
-    },
-
     updateChat: function(msg, roomid){
         ChatRoom.find({_id: roomid})
         .then(chatroom => {

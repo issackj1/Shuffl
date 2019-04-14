@@ -32,8 +32,7 @@ router.post('/register', (req, res) => {
 
 
     // check if email contains an @ symbol
-    if (!email.match('@'))
-    {
+    if (!email.match('@')) {
         message['atsymbol'] = 'Invalid email address';
         count++;
     }
@@ -54,43 +53,31 @@ router.post('/register', (req, res) => {
     }
 
 
-    if (count > 0) 
-    {
+    if (count > 0) {
         res.json(message);
-    } 
-    
-    
-    else if (count === 0)
-    {
+    } else if (count === 0) {
         User.findOne({email: email})  //searching database
-            .then(user => 
-            {
-                if (user) 
-                {
+            .then(user => {
+                if (user) {
                     message['already'] = 'Email is already registered';
                     //User exists
                     res.json(message);
-                } 
-                
-                else 
-                {
+                } else {
                     const newUser = new User({name, email, password, RoomList});
 
-                    bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) =>
-                    {
+                    bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err;
                         {
                             //set apassword to hash
                             newUser.password = hash;
                             //save user
                             newUser.save()
-                                .then(user => 
-                                {
+                                .then(user => {
                                     //req.flash('success_msg' , 'You are now registered and can login');
                                     res.send({
                                         'res': user
                                     });
-                                    
+
                                 })
                                 .catch(err => console.log(err));
                         }
@@ -98,14 +85,10 @@ router.post('/register', (req, res) => {
                 }
 
             });
-    }
-    else
-    {
-        User.findOne({name:name})
-            .then(username =>
-            {
-                if(username)
-                {
+    } else {
+        User.findOne({name: name})
+            .then(username => {
+                if (username) {
                     message['useralready'] = "Username already exists";
                     res.json(message);
                 }
@@ -121,13 +104,12 @@ router.post('/login',
         req.session.passport['name'] = req.user.name;
         req.session.passport['email'] = req.user.email;
         req.session.save();
-    res.send({
-        'res': req.session.passport
-    });
-        // res.json({
-        //    'msg': 'success'
-        // });
-    });
+        res.send({
+            'res': req.session.passport
+        });
+
+    }
+    );
 
 // Logout
 router.post('/logout', (req) => {

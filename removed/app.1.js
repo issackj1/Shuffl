@@ -60,7 +60,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-const db = require('./config/keys').MongoURI; // MongoURI is the key passed from our atlas connection. URI being held in keys.js
+const db = require('../shufflapp/config/keys').MongoURI; // MongoURI is the key passed from our atlas connection. URI being held in keys.js
 
 mongoose.connect(db, {useNewUrlParser: true})
     .then(() => console.log('MongoDB Connected...'))
@@ -69,7 +69,7 @@ mongoose.connect(db, {useNewUrlParser: true})
 const connection = mongoose.connection;
 
 //passport config
-require('./config/passport')(passport);
+require('../shufflapp/config/passport')(passport);
 
 app.use(cookieParser());
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
@@ -104,8 +104,8 @@ app.get('/', function (req, res) {
     }
 });
 
-app.use('/users', require('./routes/users'));
-app.use('/chatrooms', require('./routes/chatrooms'));
+app.use('/users', require('../shufflapp/routes/users'));
+app.use('/chatrooms', require('../shufflapp/routes/chatrooms'));
 
 // global variables
 app.use((req, res, next) => {
