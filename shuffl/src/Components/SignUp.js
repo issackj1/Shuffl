@@ -51,9 +51,9 @@ class SignUp extends Component {
         // })
         //
         //
-
         axios.post('http://localhost:4000/users/register', this.state)
             .then(response => {
+                let p = "There was an error in signup: \n";
                 document.getElementById('badfill').innerText = "";
                 document.getElementById('badpassword').innerText = "";
                 document.getElementById('registered').innerText = "";
@@ -65,28 +65,35 @@ class SignUp extends Component {
                     //this.props.authenticate(response.data.user, response.data.name);
                 } else {
                     if (response.data.hasOwnProperty('fill')) {
-                        document.getElementById('badfill').innerText = "Please fill in the forms";
+                        // document.getElementById('badfill').innerText = "Please fill in the forms";
+                        p = p + "Please fill in the forms\n";
                     }
                     if (response.data.hasOwnProperty('match')) {
                         //alert(response.data.match);
-                        document.getElementById('badpassword').innerText = "Passwords don't match";
+                        // document.getElementById('badpassword').innerText = "Passwords don't match";
+                        p = p + "Passwords don't match\n";
                     }
                     if (response.data.hasOwnProperty('passlength')) {
                         //alert(response.data.passlength);
-                        document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
+                        // document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
+                        p = p + "Password needs to be at least 6 characters\n";
                     }
                     if (response.data.hasOwnProperty('already')) {
                         //alert(response.data.already);
-                        document.getElementById('registered').innerText = "Email is already registered";
+                        // document.getElementById('registered').innerText = "Email is already registered";
+                        p = p + "Email is already registered\n";
                     }
                     if (response.data.hasOwnProperty('atsymbol')) {
-                        //alert(response.data.already);
-                        document.getElementById('invalidemail').innerText = "Invalid Email";
+                        // alert(response.data.already);
+                        // document.getElementById('invalidemail').innerText = "Invalid Email";
+                        p = p + "Invalid Email\n";
                     }
                     if (response.data.hasOwnProperty('useralready')) {
-                        //alert(response.data.already);
-                        document.getElementById('uniqueuser').innerText = "Username is already taken";
+                        // alert(response.data.already);
+                        // document.getElementById('uniqueuser').innerText = "Username is already taken";
+                        p = p + "Username is already taken\n";
                     }
+                    alert(p);
                 }
             })
             .catch(function (error) {
@@ -118,12 +125,13 @@ class SignUp extends Component {
                         this.props.authenticate(response.data.res._id, response.data.res.name);
                     } else {
                         document.getElementById('badfill').innerText = "Incorrect name or password";
+                        // console.log('BAD');
                     }
                 }
             })
             .catch(function (error) {
                 //console.log(error);
-                //alert('failure');
+                alert('Incorrect name or password. Please try again');
             });
     };
 
