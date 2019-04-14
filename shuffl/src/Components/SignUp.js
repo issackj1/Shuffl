@@ -27,7 +27,7 @@ class SignUp extends Component {
 
     switchSignUp = () => {
         const {signUp} = this.state;
-        this.setState({signUp: !signUp})
+        this.setState({signUp: !signUp});
         document.getElementById('badfill').innerText = "";
         document.getElementById('badpassword').innerText = "";
         document.getElementById('registered').innerText = "";
@@ -59,9 +59,10 @@ class SignUp extends Component {
                 document.getElementById('registered').innerText = "";
                 document.getElementById('invalidemail').innerText = "";
                 document.getElementById('uniqueuser').innerText = "";
-                console.log(response)
-                if (response.data.hasOwnProperty('res')) {
-                    this.props.authenticate(response.data.res.user, response.data.res.name);
+                console.log(response);
+                if (response.data.hasOwnProperty('user')) {
+                    this.switchSignUp()
+                    //this.props.authenticate(response.data.user, response.data.name);
                 } else {
                     if (response.data.hasOwnProperty('fill')) {
                         document.getElementById('badfill').innerText = "Please fill in the forms";
