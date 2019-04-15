@@ -84,7 +84,7 @@ class YouTubeMain extends Component {
 	playPause=()=>{
 		if(this.state.player.getPlayerState() === 1) {
 			this.setState({play: true});
-		} else if (this.state.player.getPlayerState() === 2) {
+		} else {
 			this.setState({play: false});
 		}
 	}
