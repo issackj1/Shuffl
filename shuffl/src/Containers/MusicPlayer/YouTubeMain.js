@@ -28,7 +28,7 @@ class YouTubeMain extends Component {
 	}
 
 	pauseVideo = () => {
-		if (this.state.player.getPlayerState() == 1) {
+		if (this.state.player.getPlayerState() === 1) {
 			this.state.player.pauseVideo();
 			this.props.socket.emit('sendpause', this.props.RoomId);
 		} else {
@@ -68,9 +68,6 @@ class YouTubeMain extends Component {
 			this.state.player.stopVideo();
 			this.props.socket.emit('sendstop', this.props.RoomId);
 		}
-
-		// var time = this.state.player.getCurrentTime();
-		// this.state.player.seekTo(time + 10, true);
 	};
 
 	nextVideo=()=>{
@@ -100,7 +97,6 @@ class YouTubeMain extends Component {
 		);
 	};
 
-	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		this.initChat();
 	}
@@ -115,7 +111,7 @@ class YouTubeMain extends Component {
 			this.props.socket.emit('updateQueue', this.props.RoomId, this.state.queue);
 		}
 
-		if (prevProps.RoomId != this.props.RoomId) {
+		if (prevProps.RoomId !== this.props.RoomId) {
 			this.setState({ queue: [], messages: [], videos: [], videoId: '' });
 			if (this.state.player) {
 				this.state.player.stopVideo();

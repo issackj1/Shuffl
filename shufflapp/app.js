@@ -182,7 +182,7 @@ const connection = mongoose.connection;
 require('./config/passport')(passport);
 
 app.use(cookieParser());
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors({credentials: true, origin: 'http://159.65.109.79:3000'}));
 app.use(bodyParser.json());
 
 //Body parser

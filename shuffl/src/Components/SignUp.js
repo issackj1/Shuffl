@@ -3,8 +3,6 @@ import logo from '../shuffl_logo_white.png';
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
 
-// import Button from 'react-bootstrap/Button';
-
 class SignUp extends Component {
     constructor(props) {
         super(props);
@@ -44,14 +42,7 @@ class SignUp extends Component {
 
     handleSubmit = (event) => {
         // event.preventDefault();
-        // this.props.socket.emit('submitreq', this.state)
-        // this.props.socket.on('submitapprove', ()=>{
-        //     console.log('approved')
-        //     this.props.authenticate();
-        // })
-        //
-        //
-        axios.post('http://localhost:4000/users/register', this.state)
+        axios.post('http://159.65.109.79:4000/users/register', this.state)
             .then(response => {
                 let p = "There was an error in signup: \n";
                 document.getElementById('badfill').innerText = "";
@@ -65,32 +56,21 @@ class SignUp extends Component {
                     //this.props.authenticate(response.data.user, response.data.name);
                 } else {
                     if (response.data.hasOwnProperty('fill')) {
-                        // document.getElementById('badfill').innerText = "Please fill in the forms";
                         p = p + "Please fill in the forms\n";
                     }
                     if (response.data.hasOwnProperty('match')) {
-                        //alert(response.data.match);
-                        // document.getElementById('badpassword').innerText = "Passwords don't match";
                         p = p + "Passwords don't match\n";
                     }
                     if (response.data.hasOwnProperty('passlength')) {
-                        //alert(response.data.passlength);
-                        // document.getElementById('badpassword').innerText = "Password needs to be at least 6 characters";
                         p = p + "Password needs to be at least 6 characters\n";
                     }
                     if (response.data.hasOwnProperty('already')) {
-                        //alert(response.data.already);
-                        // document.getElementById('registered').innerText = "Email is already registered";
                         p = p + "Email is already registered\n";
                     }
                     if (response.data.hasOwnProperty('atsymbol')) {
-                        // alert(response.data.already);
-                        // document.getElementById('invalidemail').innerText = "Invalid Email";
                         p = p + "Invalid Email\n";
                     }
                     if (response.data.hasOwnProperty('useralready')) {
-                        // alert(response.data.already);
-                        // document.getElementById('uniqueuser').innerText = "Username is already taken";
                         p = p + "Username is already taken\n";
                     }
                     alert(p);
@@ -103,34 +83,20 @@ class SignUp extends Component {
     };
 
 
-    authenticate = (userid, username) => {
-        //
-        // this.props.socket.emit('authreq', this.state)
-        // this.props.socket.on('authapprove', function(user){
-        //     this.props.authenticate(user._id, user.name);
-        // }.bind(this))
-        //this is the authentication,
-        //uncomment this block and
-        //comment out "this.props.authenticate() at the bottom" to test
-        //
-        axios.post('http://localhost:4000/users/login', this.state, {withCredentials: true})
+    authenticate = () => {
+        axios.post('http://159.65.109.79:4000/users/login', this.state, {withCredentials: true})
             .then(response => {
-                console.log(response.data.res.user);
                 if (response.data.res) {
-                    //redirect
                     this.props.authenticate(response.data.res.user, response.data.res.name);
-                    //alert('success');
                 } else {
                     if (response.data.res.hasOwnProperty('fill')) {
                         this.props.authenticate(response.data.res._id, response.data.res.name);
                     } else {
                         document.getElementById('badfill').innerText = "Incorrect name or password";
-                        // console.log('BAD');
                     }
                 }
             })
             .catch(function (error) {
-                //console.log(error);
                 alert('Incorrect name or password. Please try again');
             });
     };

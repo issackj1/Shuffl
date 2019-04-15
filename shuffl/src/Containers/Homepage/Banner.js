@@ -5,7 +5,7 @@ export class Banner extends Component {
     return (
 
         <div className='middle'>
-          <img src="https://i.imgur.com/JjAi0Xi.png"></img>
+          <img src="https://i.imgur.com/JjAi0Xi.png" alt=''></img>
         </div>
 
     )

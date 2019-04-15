@@ -18,12 +18,12 @@ export class Player extends Component {
             <div className="currentSong"><b>{this.props.Roomname}</b><br></br>{this.props.video}</div>
           </div>
           <div className="playerBox">
-            <img  src={searchButton} className="searchButton" onClick={()=>{this.props.searchVideo()}}/>
-            <img  src={playPause} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
-            <img  src={skipButton} className="skipButton" onClick={()=>{this.props.skipVideo()}}/>
+            <img  src={searchButton} className="searchButton" alt=''onClick={()=>{this.props.searchVideo()}}/>
+            <img  src={playPause} className="playButton" alt=''onClick={()=>{this.props.pauseVideo()}}/>
+            <img  src={skipButton} className="skipButton" alt=''onClick={()=>{this.props.skipVideo()}}/>
           </div>
           <div className="playerBox">
-            <img  src={chatButton} className="chatButton" onClick={()=>{this.props.chat()}}/>
+            <img  src={chatButton} className="chatButton" alt=''onClick={()=>{this.props.chat()}}/>
           </div>
         </div>
 

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import YTSearch from 'youtube-api-search';
 import '../../css/TempYouTube.css';
 import YouTube from 'react-youtube';
 import PlayerGuest from '../../Components/PlayerGuest';
 import Chat from '../../Components/Chat';
 import VideoList from '../MusicPlayer/video_list_guest';
-
-const API_KEY = 'AIzaSyBdVut9QCzqAHBzfDEh30yUp4E529som6s';
 
 class YouTubeMainGuest extends Component {
 	constructor() {
@@ -23,7 +20,6 @@ class YouTubeMainGuest extends Component {
 		};
 	}
 
-	//TODO add function to send queued video to mongo
 	componentDidMount() {
 		this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username);
 
@@ -71,7 +67,7 @@ class YouTubeMainGuest extends Component {
 			function(username, time, state, videoid, videotitle) {
 				if (this.props.Username === username) {
 					console.log(videoid);
-					if (state == 1) {
+					if (state === 1) {
 						this.state.player.loadVideoById(videoid, time, 'large');
 						this.setState({ videoTitle: videotitle });
 					} else {
@@ -115,13 +111,9 @@ class YouTubeMainGuest extends Component {
 		}
 	}
 	componentDidUpdate(prevProps, prevState) {
-		// queue is object
-		// this.state.queue
-		// if comparing two objects, you are comparing reference
-		// if it's video id then json.stringify each prevState.queue and this.state.queue and compare
 
 		if (prevState.queueguest !== this.state.queueguest) {
-			console.log(this.state.queueguest);
+			
 		}
 
 		if (prevState.player !== this.state.player) {
@@ -130,7 +122,7 @@ class YouTubeMainGuest extends Component {
 			this.props.socket.emit('reqqueue', this.props.RoomId, this.props.Username);
 		}
 
-		if (prevProps.RoomId != this.props.RoomId) {
+		if (prevProps.RoomId !== this.props.RoomId) {
 			this.setState({ queueguest: [], messagesguest: [], videoId: '' });
 			if (this.state.player) {
 				this.state.player.stopVideo();
@@ -145,19 +137,16 @@ class YouTubeMainGuest extends Component {
 	chat = () => {
 		this.setState({ chat: !this.state.chat });
 	};
-	// console.log(selectedVideo);
+
 	handleReady = (e) => {
 		this.setState({ player: e.target });
 	};
-
-
 
 	render() {
 		const opts = {
 			height: '0',
 			width: '0',
 			playerVars: {
-				// https://developers.google.com/youtube/player_parameters
 				autoplay: 1
 			}
 		};

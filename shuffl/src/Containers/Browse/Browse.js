@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../../shuffl_logo_white.png';
-import khalid from '../../images/khalid.jpeg';
-
-import {FormText} from "react-bootstrap";
 import BrowseRoomContainer from '../../Components/BrowseRoomContainer';
 import GenreList from '../../Components/GenreList';
-// import CreateRoom from '../../Components/CreateRoom';
-// import Button from 'react-bootstrap/Button';
 
 class Browse extends Component {
 

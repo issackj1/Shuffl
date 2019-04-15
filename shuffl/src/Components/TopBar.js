@@ -12,7 +12,7 @@ class TopBar extends Component {
     }
 
     render() {
-        const {matchMedia,location, history, logout} = this.props;
+        const {history, logout} = this.props;
         return (
                 
                 <div className='TopBar'>

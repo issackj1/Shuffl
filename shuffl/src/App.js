@@ -37,12 +37,12 @@ class App extends Component {
 	//state consists of log in status
 	//this is where we will do the authentication on clientside
 	initSocket= ()=>{
-		const socket = io("http://localhost:4001")
+		const socket = io("http://159.65.109.79:4001")
 		this.setState({socket})
 	}
 
 	componentDidMount(){
-		axios.get('http://localhost:4000/', {withCredentials:true})
+		axios.get('http://159.65.109.79:4000/', {withCredentials:true})
 			.then(response=>{
 				
 				if(response.data.res.session){
@@ -63,7 +63,7 @@ class App extends Component {
 	};
 
 	logout=()=>{
-		axios.post('http://localhost:4000/users/logout', {withCredentials:true})
+		axios.post('http://159.65.109.79:4000/users/logout', {withCredentials:true})
 		this.setState({
 			Playing: false,
 			SignedIn: false,

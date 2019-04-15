@@ -14,10 +14,10 @@ export class Player extends Component {
           <div className="playerBox">
             <div className="currentSong"><b>{this.props.Roomname}</b><br></br>{this.props.video}</div>
           </div>
-          <div className="playerBox"><img  src={filler} className="filler"/></div>
+          <div className="playerBox"><img  src={filler} alt=''className="filler"/></div>
           <div className="playerBox">
-            <img  src={queueButton} className="queueButton" onClick={()=>{this.props.queue()}}/>
-            <img  src={chatButton} className="chatButton" onClick={()=>{this.props.chat()}}/>
+            <img  src={queueButton} className="queueButton" alt=''onClick={()=>{this.props.queue()}}/>
+            <img  src={chatButton} className="chatButton" alt='' onClick={()=>{this.props.chat()}}/>
           </div>
         </div>
 
