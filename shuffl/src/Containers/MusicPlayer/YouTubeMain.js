@@ -22,7 +22,8 @@ class YouTubeMain extends Component {
 			queue: [],
 			chat: false,
 			messages: [],
-			videoTitle: ''
+			videoTitle: '',
+			play: false
 		};
 	}
 
@@ -77,6 +78,14 @@ class YouTubeMain extends Component {
 			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
 			this.setState({ videoTitle: this.state.queue[0].snippet.title });
 			this.setState({ videoId: this.state.queue[0].id.videoId, queue: this.state.queue.slice(1) });
+		}
+	}
+
+	playPause=()=>{
+		if(this.state.player.getPlayerState() === 1) {
+			this.setState({play: true});
+		} else if (this.state.player.getPlayerState() === 2) {
+			this.setState({play: false});
 		}
 	}
 
@@ -181,7 +190,7 @@ class YouTubeMain extends Component {
 		return (
 			<div className="controlsShift">
 				<div className="youtubeIframe">
-					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} onEnd={this.nextVideo}/>
+					<YouTube videoId={this.state.videoId} opts={opts} onReady={this.handleReady} onEnd={this.nextVideo} onStateChange={this.playPause}/>
 				</div>
 				<Player
 					pauseVideo={this.pauseVideo}
@@ -190,6 +199,7 @@ class YouTubeMain extends Component {
 					chat={this.chat}
 					Roomname={this.props.Roomname}
                     video={this.state.videoTitle}
+					play={this.state.play}
 				/>
 				{this.state.search ? (
 					<div className="footerGrey">

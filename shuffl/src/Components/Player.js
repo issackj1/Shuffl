@@ -3,12 +3,14 @@ import playButton from '../icons/playbutton.png'
 import searchButton from '../icons/searchButton.png'
 import skipButton from '../icons/skipButton.png'
 import chatButton from '../icons/chatButton.png'
+import pauseButton from '../icons/pausebutton.png'
 
 export class Player extends Component {
 
 
   render() {
 
+    let playPause = this.props.play ? pauseButton : playButton;
     return (
       <div className="playerController">
         <div className="playerBottom">
@@ -17,7 +19,7 @@ export class Player extends Component {
           </div>
           <div className="playerBox">
             <img  src={searchButton} className="searchButton" onClick={()=>{this.props.searchVideo()}}/>
-            <img  src={playButton} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
+            <img  src={playPause} className="playButton" onClick={()=>{this.props.pauseVideo()}}/>
             <img  src={skipButton} className="skipButton" onClick={()=>{this.props.skipVideo()}}/>
           </div>
           <div className="playerBox">
