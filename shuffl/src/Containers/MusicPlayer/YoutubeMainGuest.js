@@ -56,7 +56,7 @@ class YouTubeMainGuest extends Component {
 		this.props.socket.on(
 			'receiveskip',
 			function() {
-				this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'large');
+				this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'small');
 				this.setState({ videoTitle: this.state.queueguest[0].snippet.title });
 				this.setState({ queueguest: this.state.queueguest.slice(1) });
 			}.bind(this)
@@ -68,10 +68,10 @@ class YouTubeMainGuest extends Component {
 				if (this.props.Username === username) {
 					console.log(videoid);
 					if (state === 1) {
-						this.state.player.loadVideoById(videoid, time, 'large');
+						this.state.player.loadVideoById(videoid, time, 'small');
 						this.setState({ videoTitle: videotitle });
 					} else {
-						this.state.player.cueVideoById(videoid, time, 'large');
+						this.state.player.cueVideoById(videoid, time, 'small');
 					}
 				}
 			}.bind(this)
@@ -96,7 +96,7 @@ class YouTubeMainGuest extends Component {
 		this.props.socket.on(
 			'updateVideo',
 			function(videoid, videotitle) {
-				this.state.player.loadVideoById(videoid, 0, 'large');
+				this.state.player.loadVideoById(videoid, 0, 'small');
 				this.setState({ videoTitle: videotitle });
 				console.log("Video title: " + this.state.videoTitle)
 			}.bind(this)
@@ -105,7 +105,7 @@ class YouTubeMainGuest extends Component {
 
 	nextVideo=()=>{
 		if (this.state.queueguest.length > 0) {
-			this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'large');
+			this.state.player.loadVideoById(this.state.queueguest[0].id.videoId, 0, 'small');
 			this.setState({ videoTitle: this.state.queueguest[0].snippet.title });
 			this.setState({ videoId: this.state.queueguest[0].id.videoId, queueguest: this.state.queueguest.slice(1) });
 		}

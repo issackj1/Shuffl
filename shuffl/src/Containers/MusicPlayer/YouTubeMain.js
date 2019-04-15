@@ -43,7 +43,7 @@ class YouTubeMain extends Component {
 				queue: [ ...prevState.queue, video ]
 			}));
 		} else {
-			this.state.player.loadVideoById(video.id.videoId, 0, 'large');
+			this.state.player.loadVideoById(video.id.videoId, 0, 'small');
 			this.setState({ videoId: video.id.videoId });
 			this.setState({ videoTitle: video.snippet.title });
 			this.props.socket.emit('updateVideo', this.props.RoomId, video.id.videoId, video.snippet.title);
@@ -60,7 +60,7 @@ class YouTubeMain extends Component {
 
 	skipVideo = () => {
 		if (this.state.queue.length >= 1) {
-			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
+			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'small');
 			this.setState({ videoTitle: this.state.queue[0].snippet.title });
 			this.setState({ videoId: this.state.queue[0].id.videoId, queue: this.state.queue.slice(1) });
 			this.props.socket.emit('sendskip', this.props.RoomId);
@@ -72,7 +72,7 @@ class YouTubeMain extends Component {
 
 	nextVideo=()=>{
 		if (this.state.queue.length > 0) {
-			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'large');
+			this.state.player.loadVideoById(this.state.queue[0].id.videoId, 0, 'small');
 			this.setState({ videoTitle: this.state.queue[0].snippet.title });
 			this.setState({ videoId: this.state.queue[0].id.videoId, queue: this.state.queue.slice(1) });
 		}
