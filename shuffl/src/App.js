@@ -88,7 +88,7 @@ class App extends Component {
 		} else {
 			this.setState({ host: false });
 		}
-		console.log('joined this room'+roomid)
+		console.log('joined this room'+roomid);
 		if(this.state.RoomId === ''){
 			this.state.socket.emit('joinroom', roomid, this.state.Username, this.state.UserId)
 			this.setState({ RoomId: roomid, Roomname:roomname, Playing: true });
