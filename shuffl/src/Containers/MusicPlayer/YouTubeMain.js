@@ -146,7 +146,6 @@ class YouTubeMain extends Component {
 		this.setState({ player: e.target });
 
 		this.props.socket.on('timereq', (username) => {
-			console.log(this.state.videoId);
 			this.props.socket.emit(
 				'sendtime',
 				this.props.RoomId,
@@ -159,7 +158,6 @@ class YouTubeMain extends Component {
 		});
 
 		this.props.socket.on('queuereq', (username) => {
-			console.log();
 			this.props.socket.emit('sendqueue', this.props.RoomId, username, this.state.queue);
 		});
 	};
