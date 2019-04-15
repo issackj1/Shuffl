@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 // Load User model
 const User = require('../models/User');
-
+//https://www.youtube.com/watch?v=6FOq4cUdH8k
 module.exports = function(passport) {
   passport.use(
     new LocalStrategy({ usernameField: 'name' }, (name, password, done) => {

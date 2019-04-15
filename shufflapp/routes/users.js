@@ -16,7 +16,7 @@ router.use(passport.session());
 
 
 //Register Handle
-
+//https://www.youtube.com/watch?v=6FOq4cUdH8k
 router.post('/register', (req, res) => {
     const {name, email, password, password2} = req.body;
     let message = {};
