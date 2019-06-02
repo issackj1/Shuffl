@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "connect-mongo": "^2.0.3",
     "react": "^16.8.6",
     "react-youtube": "^7.9.0",
